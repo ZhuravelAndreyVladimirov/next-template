@@ -1,3 +1,74 @@
 {
-  "extends": "next/core-web-vitals"
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "react",
+    "@typescript-eslint",
+    "prettier"
+  ],
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:perfectionist/recommended-natural",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "rules": {
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+    ],
+    "@typescript-eslint/ban-types": "off",
+    "no-unused-expressions": "warn",
+    "perfectionist/sort-imports": [
+      "warn",
+      {
+        "type": "natural",
+        "order": "asc",
+        "custom-groups": {
+          "value": {
+            "images": [
+              "@images/**"
+            ],
+            "shared": [
+              "@/shared"
+            ]
+          }
+        },
+        "groups": [
+          [
+            "type",
+            "internal-type",
+            "parent-type",
+            "sibling-type",
+            "index-type"
+          ],
+          [
+            "builtin",
+            "external"
+          ],
+          "internal",
+          "shared",
+          "images",
+          [
+            "parent",
+            "sibling",
+            "index"
+          ],
+          [
+            "style",
+            "side-effect"
+          ],
+          "unknown"
+        ],
+        "newlines-between": "always",
+        "internal-pattern": [
+          "@/lib/**",
+          "@/app/**",
+          "@/modules/**",
+          "@/ui/**",
+          "@/store/**",
+          "@/assets/**"
+        ]
+      }
+    ]
+  }
 }
