@@ -7,10 +7,11 @@ export const ElementBox = ({
   tag = "div",
   className,
   style,
-  fs,
+  fz,
   fw,
   ff,
   lh,
+  color,
   ...props
 }: ElementBoxProps) => {
   const classes = JoinClass.merge(className, styles.element);
@@ -22,8 +23,8 @@ export const ElementBox = ({
     boxStyle["--fw"] = `${fw}`;
   }
 
-  if (fs) {
-    boxStyle["--fs"] = `${fs}${typeof fs === "number" ? "px" : ""}`;
+  if (fz) {
+    boxStyle["--fz"] = `${fz}${typeof fz === "number" ? "px" : ""}`;
   }
 
   if (lh) {
@@ -32,6 +33,10 @@ export const ElementBox = ({
 
   if (ff) {
     boxStyle["--ff"] = `var(${ff})`;
+  }
+
+  if (color) {
+    boxStyle["--c"] = color;
   }
 
   return React.createElement(tag, {
