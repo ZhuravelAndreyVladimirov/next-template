@@ -3,7 +3,7 @@ import { UiText } from "@/ui/UiText/UiText";
 export default function Home() {
   return (
     <>
-      <UiText>Hello world!</UiText>
+      <UiText fs={30}>Hello world!</UiText>
     </>
   );
 }
