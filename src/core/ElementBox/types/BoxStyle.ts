@@ -1,9 +1,2 @@
-import { FontWidth } from "@/core/ElementBox/types";
-
-export interface BoxStyle extends React.CSSProperties {
-  "--fw"?: FontWidth;
-  "--fz"?: string;
-  "--lh"?: string;
-  "--ff"?: string;
-  "--c"?: string;
-}
+type StringObject<K extends string> = Record<K, string>;
+export interface BoxStyle extends StringObject<string> {}

@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./element-box.module.scss";
 import { BoxStyle, ElementBoxProps } from "./types";
-import { JoinClass } from "@/helpers/JoinClass";
+import { convertHtmlProp } from "./helpers/convertHtmlProp";
 
 export const ElementBox = ({
   tag = "div",
@@ -12,36 +12,24 @@ export const ElementBox = ({
   ff,
   lh,
   color,
+  scale,
   ...props
 }: ElementBoxProps) => {
-  const classes = JoinClass.merge(className, styles.element);
-  const boxStyle: BoxStyle = {
-    ...style,
-  };
+  const classes = `${styles.element} ${className}`;
+  const boxStyle: BoxStyle = {};
 
-  if (fw) {
-    boxStyle["--fw"] = `${fw}`;
-  }
+  const propArr = [fz, fw, lh, ff, color];
 
-  if (fz) {
-    boxStyle["--fz"] = `${fz}${typeof fz === "number" ? "px" : ""}`;
-  }
-
-  if (lh) {
-    boxStyle["--lh"] = `${lh}${typeof lh === "number" ? "px" : ""}`;
-  }
-
-  if (ff) {
-    boxStyle["--ff"] = `var(${ff})`;
-  }
-
-  if (color) {
-    boxStyle["--c"] = color;
+  for (let index = 0; index < propArr.length; index++) {
+    const el = propArr[index];
+    if (el) {
+      boxStyle[`--${el}`] = convertHtmlProp(el, scale);
+    }
   }
 
   return React.createElement(tag, {
     className: classes,
-    style: boxStyle,
+    style: { ...boxStyle, ...style },
     ...props,
   });
 };
