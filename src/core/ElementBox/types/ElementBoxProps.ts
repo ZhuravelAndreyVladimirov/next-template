@@ -5,4 +5,5 @@ export interface ElementBoxProps extends React.HTMLProps<HTMLElement> {
   fs?: number | string;
   fw?: FontWidth;
   lh?: number | string;
+  ff?: string;
 }

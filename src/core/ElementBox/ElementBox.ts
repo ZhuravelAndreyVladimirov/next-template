@@ -9,6 +9,7 @@ export const ElementBox = ({
   style,
   fs,
   fw,
+  ff,
   lh,
   ...props
 }: ElementBoxProps) => {
@@ -27,6 +28,10 @@ export const ElementBox = ({
 
   if (lh) {
     boxStyle["--lh"] = `${lh}${typeof lh === "number" ? "px" : ""}`;
+  }
+
+  if (ff) {
+    boxStyle["--ff"] = `var(${ff})`;
   }
 
   return React.createElement(tag, {

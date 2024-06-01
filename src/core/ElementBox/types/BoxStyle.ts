@@ -4,4 +4,5 @@ export interface BoxStyle extends React.CSSProperties {
   "--fw"?: FontWidth;
   "--fs"?: string;
   "--lh"?: string;
+  "--ff"?: string;
 }

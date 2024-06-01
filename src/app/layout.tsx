@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import "@/style/reset.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import { roboto_reg } from "@/assets/font/fonts";
+import { JoinClass } from "@/helpers/JoinClass";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,9 +14,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const htmlClasses = JoinClass.merge(roboto_reg.variable);
+
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className={htmlClasses}>
+      <body>{children}</body>
     </html>
   );
 }
