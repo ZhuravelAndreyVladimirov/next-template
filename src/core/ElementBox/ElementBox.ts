@@ -1,14 +1,27 @@
 import React from "react";
-import { ElementBoxProps } from "./types";
+import styles from "./element-box.module.scss";
+import { BoxStyle, ElementBoxProps } from "./types";
 import { JoinClass } from "@/helpers/JoinClass";
-import fontWidth from "./styles/font-width.module.scss";
 
 export const ElementBox = ({
   tag = "div",
-  fs,
+  className,
+  style,
   fw,
   ...props
 }: ElementBoxProps) => {
-  const classes = JoinClass.merge(fw ? fontWidth[`fw_${fw}`] : undefined);
-  return React.createElement(tag, { className: classes, ...props });
+  const classes = JoinClass.merge(className, styles.element);
+  const boxStyle: BoxStyle = {
+    ...style,
+  };
+
+  if (fw) {
+    boxStyle["--fw"] = `${fw}`;
+  }
+
+  return React.createElement(tag, {
+    className: classes,
+    style: boxStyle,
+    ...props,
+  });
 };

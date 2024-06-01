@@ -1,2 +1,2 @@
 export * from "./ElementBox";
-export * from "./types";
+export type { ElementBoxProps } from "./types";
