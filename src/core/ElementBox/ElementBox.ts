@@ -9,6 +9,7 @@ export const ElementBox = ({
   style,
   fs,
   fw,
+  lh,
   ...props
 }: ElementBoxProps) => {
   const classes = JoinClass.merge(className, styles.element);
@@ -21,7 +22,11 @@ export const ElementBox = ({
   }
 
   if (fs) {
-    boxStyle["--fs"] = `${fs}px`;
+    boxStyle["--fs"] = `${fs}${typeof fs === "number" ? "px" : ""}`;
+  }
+
+  if (lh) {
+    boxStyle["--lh"] = `${lh}${typeof lh === "number" ? "px" : ""}`;
   }
 
   return React.createElement(tag, {
