@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./element-box.module.scss";
-import { BoxStyle, ElementBoxProps } from "./types";
+import { ElementBoxProps } from "./types";
 import { convertHtmlProp } from "./helpers/convertHtmlProp";
 
 export const ElementBox = ({
@@ -16,7 +16,7 @@ export const ElementBox = ({
   ...props
 }: ElementBoxProps) => {
   const classes = `${styles.element} ${className}`;
-  const boxStyle: BoxStyle = {};
+  const boxStyle: Record<string, string> = {};
 
   const propArr = [fz, fw, lh, ff, color];
 
