@@ -9,6 +9,7 @@ interface ElementBoxStyleProps {
   fs?: CssProps["fontStyle"];
   font?: CssProps["font"];
   fv?: CssProps["fontVariant"];
+  fv_num?: CssProps["fontVariantNumeric"];
 }
 
 interface ElementBoxReactProps

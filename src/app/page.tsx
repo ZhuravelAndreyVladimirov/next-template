@@ -13,8 +13,9 @@ export default function Home() {
         fs="italic"
         font="revert"
         fv="all-small-caps"
+        fv_num="oldstyle-nums"
       >
-        Hello world!
+        Hello world! 1234567
       </UiText>
     </>
   );
