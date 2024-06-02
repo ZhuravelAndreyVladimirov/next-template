@@ -6,10 +6,11 @@ export default function Home() {
       <UiText
         aria-atomic
         fz={30}
-        fw="400"
+        fw="500"
         lh={123}
         ff="--font-roboto-regular"
         color="red"
+        fs="italic"
       >
         Hello world!
       </UiText>

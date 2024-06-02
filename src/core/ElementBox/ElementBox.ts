@@ -11,14 +11,15 @@ export const ElementBox = ({
   fw,
   ff,
   lh,
+  fs,
   color,
   scale,
   ...props
 }: ElementBoxProps) => {
   const classes = `${styles.element}${className ? " " + className : ""}`;
-  const boxStyle: Record<string, string> = {};
+  const styleProps = { fz, fw, lh, ff, c: color, fs };
 
-  const styleProps = { fz, fw, lh, ff, c: color };
+  const boxStyle: Record<string, string> = {};
 
   for (const [key, value] of Object.entries(styleProps)) {
     if (value) {

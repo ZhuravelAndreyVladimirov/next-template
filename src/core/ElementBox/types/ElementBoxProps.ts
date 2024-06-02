@@ -1,9 +1,12 @@
-export interface ElementBoxStyleProps {
-  fz?: React.CSSProperties["fontSize"];
-  fw?: React.CSSProperties["fontWeight"];
-  lh?: React.CSSProperties["lineHeight"];
-  ff?: React.CSSProperties["fontFamily"];
-  color?: React.CSSProperties["color"];
+type CssProps = React.CSSProperties;
+
+interface ElementBoxStyleProps {
+  fz?: CssProps["fontSize"];
+  fw?: Fw | CssProps["fontWeight"];
+  lh?: CssProps["lineHeight"];
+  ff?: CssProps["fontFamily"];
+  color?: CssProps["color"];
+  fs?: CssProps["fontStyle"];
 }
 
 interface ElementBoxReactProps
@@ -15,3 +18,5 @@ export interface ElementBoxProps
   scale?: number;
   tag?: string;
 }
+
+type Fw = "100" | "200" | "300" | "400" | "500" | "600" | "700" | "800" | "900";
