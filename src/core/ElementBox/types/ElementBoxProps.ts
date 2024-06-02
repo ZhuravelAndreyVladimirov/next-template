@@ -1,11 +1,17 @@
-import { FontWidth } from "@/core/ElementBox/types";
+export interface ElementBoxStyleProps {
+  fz?: React.CSSProperties["fontSize"];
+  fw?: React.CSSProperties["fontWeight"];
+  lh?: React.CSSProperties["lineHeight"];
+  ff?: React.CSSProperties["fontFamily"];
+  color?: React.CSSProperties["color"];
+}
 
-export interface ElementBoxProps extends React.HTMLProps<HTMLElement> {
+interface ElementBoxReactProps
+  extends Omit<React.HTMLProps<HTMLElement>, "color"> {}
+
+export interface ElementBoxProps
+  extends ElementBoxReactProps,
+    ElementBoxStyleProps {
   scale?: number;
   tag?: string;
-  fz?: number | string;
-  fw?: FontWidth | string;
-  lh?: "normal" | number | string;
-  ff?: string;
-  color?: string;
 }

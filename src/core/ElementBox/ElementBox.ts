@@ -15,15 +15,14 @@ export const ElementBox = ({
   scale,
   ...props
 }: ElementBoxProps) => {
-  const classes = `${styles.element} ${className}`;
+  const classes = `${styles.element}${className ? " " + className : ""}`;
   const boxStyle: Record<string, string> = {};
 
-  const propArr = [fz, fw, lh, ff, color];
+  const styleProps = { fz, fw, lh, ff, c: color };
 
-  for (let index = 0; index < propArr.length; index++) {
-    const el = propArr[index];
-    if (el) {
-      boxStyle[`--${el}`] = convertHtmlProp(el, scale);
+  for (const [key, value] of Object.entries(styleProps)) {
+    if (value) {
+      boxStyle[`--${key}`] = convertHtmlProp(value, scale);
     }
   }
 

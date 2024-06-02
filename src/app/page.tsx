@@ -4,9 +4,10 @@ export default function Home() {
   return (
     <>
       <UiText
+        aria-atomic
         fz={30}
         fw="400"
-        lh={"200%"}
+        lh={123}
         ff="--font-roboto-regular"
         color="red"
       >
