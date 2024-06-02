@@ -13,11 +13,13 @@ export const ElementBox = ({
   lh,
   fs,
   color,
+  font,
+  fv,
   scale,
   ...props
 }: ElementBoxProps) => {
   const classes = `${styles.element}${className ? " " + className : ""}`;
-  const styleProps = { fz, fw, lh, ff, c: color, fs };
+  const styleProps = { fz, fw, lh, ff, c: color, fs, font, fv };
 
   const boxStyle: Record<string, string> = {};
 

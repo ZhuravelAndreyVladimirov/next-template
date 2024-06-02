@@ -11,6 +11,8 @@ export default function Home() {
         ff="--font-roboto-regular"
         color="red"
         fs="italic"
+        font="revert"
+        fv="all-small-caps"
       >
         Hello world!
       </UiText>

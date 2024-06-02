@@ -1,8 +1,10 @@
 .element {
+  font: var(--font);
   font-weight: var(--fw);
   font-size: var(--fz);
   line-height: var(--lh);
   font-family: var(--ff);
   color: var(--c);
   font-style: var(--fs);
+  font-variant: var(--fv);
 }

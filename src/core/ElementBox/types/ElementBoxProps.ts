@@ -7,6 +7,8 @@ interface ElementBoxStyleProps {
   ff?: CssProps["fontFamily"];
   color?: CssProps["color"];
   fs?: CssProps["fontStyle"];
+  font?: CssProps["font"];
+  fv?: CssProps["fontVariant"];
 }
 
 interface ElementBoxReactProps
