@@ -10,6 +10,9 @@ interface ElementBoxStyleProps {
   font?: CssProps["font"];
   fv?: CssProps["fontVariant"];
   fv_num?: CssProps["fontVariantNumeric"];
+  // letter_spacing?: CssProps["letterSpacing"];
+  text_align?: CssProps["textAlign"];
+  vertical_align?: CssProps["verticalAlign"];
 }
 
 interface ElementBoxReactProps

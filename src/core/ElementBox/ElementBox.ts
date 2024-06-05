@@ -1,26 +1,18 @@
 import React from "react";
-import styles from "./element-box.module.scss";
+import styles from "./element-box.module.css";
 import { ElementBoxProps } from "./types";
 import { convertHtmlProp } from "./helpers/convertHtmlProp";
+import { getStyledProps } from "./helpers/getStyledProps";
 
 export const ElementBox = ({
   tag = "div",
   className,
   style,
-  fz,
-  fw,
-  ff,
-  lh,
-  fs,
-  color,
-  font,
-  fv,
-  fv_num,
   scale,
   ...props
 }: ElementBoxProps) => {
   const classes = `${styles.element}${className ? " " + className : ""}`;
-  const styleProps = { fz, fw, lh, ff, c: color, fs, font, fv, fv_num };
+  const [styleProps, otherProps] = getStyledProps(props);
 
   const boxStyle: Record<string, string> = {};
 
@@ -33,6 +25,6 @@ export const ElementBox = ({
   return React.createElement(tag, {
     className: classes,
     style: { ...boxStyle, ...style },
-    ...props,
+    ...otherProps,
   });
 };

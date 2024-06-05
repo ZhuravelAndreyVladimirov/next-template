@@ -1,4 +1,5 @@
 .element {
+  /* font */
   font: var(--font);
   font-weight: var(--fw);
   font-size: var(--fz);
@@ -8,4 +9,7 @@
   font-style: var(--fs);
   font-variant: var(--fv);
   font-variant-numeric: var(--fv_num);
+  /* letter-spacing: var(--letter_spacing); */
+  text-align: var(--text_align);
+  vertical-align: var(--vertical_align);
 }

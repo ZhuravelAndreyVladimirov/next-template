@@ -4,7 +4,6 @@ export default function Home() {
   return (
     <>
       <UiText
-        aria-atomic
         fz={30}
         fw="500"
         lh={123}
@@ -14,6 +13,8 @@ export default function Home() {
         font="revert"
         fv="all-small-caps"
         fv_num="oldstyle-nums"
+        text_align="center"
+        vertical_align={"text-bottom"}
       >
         Hello world! 1234567
       </UiText>
