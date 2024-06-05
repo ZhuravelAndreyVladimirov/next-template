@@ -1,4 +1,16 @@
 .element {
+  /* layout */
+  position: var(--pos);
+  top: var(--top);
+  right: var(--right);
+  bottom: var(--bottom);
+  left: var(--left);
+  display: var(--d);
+  visibility: var(--visibility);
+  overflow: var(--overflow);
+  overflow-x: var(--overflow_x);
+  overflow-y: var(--overflow_y);
+  z-index: var(--z);
   /* font */
   font: var(--font);
   font-weight: var(--fw);
@@ -10,6 +22,6 @@
   font-variant: var(--fv);
   font-variant-numeric: var(--fv_num);
   /* letter-spacing: var(--letter_spacing); */
-  text-align: var(--text_align);
-  vertical-align: var(--vertical_align);
+  text-align: var(--t_align);
+  vertical-align: var(--v_align);
 }
