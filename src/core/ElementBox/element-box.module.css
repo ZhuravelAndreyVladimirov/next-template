@@ -11,6 +11,22 @@
   overflow-x: var(--overflow_x);
   overflow-y: var(--overflow_y);
   z-index: var(--z);
+  /* Grid & Flex */
+  flex: var(--flex);
+  flex-basis: var(--flex_basis);
+  flex-direction: var(--flex_direction);
+  flex-grow: var(--flex_grow);
+  flex-shrink: var(--flex_shrink);
+  flex-wrap: var(--flex_wrap);
+  order: var(--order);
+
+  grid-auto-columns: var(--gac);
+  gap: var(--gap);
+  grid-template-columns: var(--g_cols);
+  grid-template-rows: var(--g_rows);
+  grid-auto-flow: var(--gaf);
+  grid-auto-rows: var(--gar);
+
   /* font */
   font: var(--font);
   font-weight: var(--fw);
