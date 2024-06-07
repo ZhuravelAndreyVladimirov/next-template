@@ -26,6 +26,10 @@
   grid-template-rows: var(--g_rows);
   grid-auto-flow: var(--gaf);
   grid-auto-rows: var(--gar);
+  /* spacing */
+
+  padding: var(--p);
+  margin: var(--m);
 
   /* font */
   font: var(--font);

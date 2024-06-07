@@ -48,7 +48,24 @@ interface GridFlex {
   place?: CssProps["placeContent"];
 }
 
-interface ElementBoxStyleProps extends Typography, Layout, GridFlex {}
+interface Spacing {
+  p?: CssProps["padding"];
+  px?: CssProps["padding"];
+  py?: CssProps["padding"];
+  pt?: CssProps["padding"];
+  pr?: CssProps["padding"];
+  pb?: CssProps["padding"];
+  pl?: CssProps["padding"];
+  m?: CssProps["margin"];
+  mx?: CssProps["margin"];
+  my?: CssProps["margin"];
+  mt?: CssProps["margin"];
+  mr?: CssProps["margin"];
+  mb?: CssProps["margin"];
+  ml?: CssProps["margin"];
+}
+
+interface ElementBoxStyleProps extends Typography, Layout, GridFlex, Spacing {}
 
 interface ElementBoxReactProps
   extends Omit<React.HTMLProps<HTMLElement>, "color"> {}

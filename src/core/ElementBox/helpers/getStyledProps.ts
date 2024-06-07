@@ -1,4 +1,5 @@
 import { ElementBoxProps } from "../types";
+import { convertSpacing } from "./convertSpacing";
 
 export const getStyledProps = ({
   ff,
@@ -40,6 +41,20 @@ export const getStyledProps = ({
   justify,
   align,
   place,
+  p,
+  px,
+  py,
+  pt,
+  pr,
+  pb,
+  pl,
+  m,
+  my,
+  mx,
+  mb,
+  mt,
+  mr,
+  ml,
   ...props
 }: ElementBoxProps) => {
   return [
@@ -75,6 +90,8 @@ export const getStyledProps = ({
       lh,
       ff,
       c: color,
+      p: convertSpacing(p, py, px, pt, pr, pb, pl, props.scale),
+      m: convertSpacing(m, my, mx, mt, mr, mb, ml, props.scale),
       fs,
       font,
       fv,

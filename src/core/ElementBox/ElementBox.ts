@@ -12,7 +12,7 @@ export const ElementBox = ({
   ...props
 }: ElementBoxProps) => {
   const classes = `${styles.element}${className ? " " + className : ""}`;
-  const [styleProps, otherProps] = getStyledProps(props);
+  const [styleProps, otherProps] = getStyledProps({ scale, ...props });
 
   const boxStyle: Record<string, string> = {};
 
