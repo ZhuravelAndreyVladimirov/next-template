@@ -65,7 +65,21 @@ interface Spacing {
   ml?: CssProps["margin"];
 }
 
-interface ElementBoxStyleProps extends Typography, Layout, GridFlex, Spacing {}
+interface Sizing {
+  w?: CssProps["width"];
+  w_max?: CssProps["maxWidth"];
+  w_min?: CssProps["minWidth"];
+  h?: CssProps["height"];
+  h_max?: CssProps["maxHeight"];
+  h_min?: CssProps["minHeight"];
+}
+
+interface ElementBoxStyleProps
+  extends Typography,
+    Layout,
+    GridFlex,
+    Spacing,
+    Sizing {}
 
 interface ElementBoxReactProps
   extends Omit<React.HTMLProps<HTMLElement>, "color"> {}

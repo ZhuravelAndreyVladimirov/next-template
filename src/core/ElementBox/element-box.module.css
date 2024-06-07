@@ -11,6 +11,7 @@
   overflow-x: var(--overflow_x);
   overflow-y: var(--overflow_y);
   z-index: var(--z);
+
   /* Grid & Flex */
   flex: var(--flex);
   flex-basis: var(--flex_basis);
@@ -19,17 +20,24 @@
   flex-shrink: var(--flex_shrink);
   flex-wrap: var(--flex_wrap);
   order: var(--order);
-
   grid-auto-columns: var(--gac);
   gap: var(--gap);
   grid-template-columns: var(--g_cols);
   grid-template-rows: var(--g_rows);
   grid-auto-flow: var(--gaf);
   grid-auto-rows: var(--gar);
-  /* spacing */
 
+  /* spacing */
   padding: var(--p);
   margin: var(--m);
+
+  /* sizing */
+  height: var(--h);
+  max-height: var(--h_max);
+  min-height: var(--h_min);
+  width: var(--w);
+  max-width: var(--w_max);
+  min-width: var(--w_min);
 
   /* font */
   font: var(--font);
@@ -41,7 +49,6 @@
   font-style: var(--fs);
   font-variant: var(--fv);
   font-variant-numeric: var(--fv_num);
-  /* letter-spacing: var(--letter_spacing); */
   text-align: var(--t_align);
   vertical-align: var(--v_align);
 }

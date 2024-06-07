@@ -55,6 +55,12 @@ export const getStyledProps = ({
   mt,
   mr,
   ml,
+  h,
+  h_max,
+  h_min,
+  w,
+  w_max,
+  w_min,
   ...props
 }: ElementBoxProps) => {
   return [
@@ -98,6 +104,12 @@ export const getStyledProps = ({
       fv_num,
       t_align: text_align,
       v_align: vertical_align,
+      h,
+      h_max,
+      h_min,
+      w,
+      w_max,
+      w_min,
       pos: position,
     },
     props,
