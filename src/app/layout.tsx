@@ -1,11 +1,9 @@
-import type { Metadata } from "next";
-import "./globals.css";
-import "@/style/reset.css";
 import { roboto_reg } from "@/assets/font/fonts";
 import { JoinClass } from "@/helpers/JoinClass";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Next template",
+  title: "Chakra",
 };
 
 export default function RootLayout({
