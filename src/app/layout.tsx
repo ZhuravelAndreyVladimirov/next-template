@@ -1,21 +1,31 @@
-import { roboto_reg } from "@/assets/font/fonts";
+import { fontVariable } from "@/assets/font/fonts";
 import { JoinClass } from "@/helpers/JoinClass";
+import { RootProvider } from "@/providers/RootProvider";
+import { ColorSchemeScript } from "@mantine/core";
 import { Metadata } from "next";
+import { ReactNode } from "react";
 
 export const metadata: Metadata = {
-  title: "Chakra",
+  title: "Шаблон",
+  description:
+    "ШАблон приложения на next.js при создании приложения стоит в первую очередь изменить мета теги",
 };
+
+const htmlClasses = JoinClass.merge(...fontVariable);
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
-  const htmlClasses = JoinClass.merge(roboto_reg.variable);
-
   return (
-    <html lang="en" className={htmlClasses}>
-      <body>{children}</body>
+    <html lang="ru" className={htmlClasses}>
+      <head>
+        <ColorSchemeScript />
+      </head>
+      <body>
+        <RootProvider>{children}</RootProvider>
+      </body>
     </html>
   );
 }

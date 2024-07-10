@@ -1,11 +1,9 @@
-import Link from "next/link";
-
-import { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Start",
-};
+import { Button, Group } from "@mantine/core";
 
 export default function Home() {
-  return <div className=""></div>;
+  return (
+    <Group py={10} justify="center">
+      <Button>Hello mantine</Button>
+    </Group>
+  );
 }
