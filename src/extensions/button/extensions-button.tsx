@@ -28,15 +28,17 @@ export const ExtensionButton = Button.extend({
     if (props.variant === "white") {
       result["--button-bg"] = "var(--white)";
       result["--button-color"] = "var(--black)";
-      result["--button-hover"] = "var(--20-black)";
+      result["--button-hover"] = "var(--hover-button-black)";
+      result["--button-hover-color"] = "var(--white)";
     } else if (props.variant === "light") {
       result["--button-bg"] = "var(--20-black)";
       result["--button-color"] = "var(--black)";
-      result["--button-hover"] = "var(--50-black)";
+      result["--button-hover"] = "var(--hover-button-black)";
+      result["--button-hover-color"] = "var(--white)";
     } else {
       result["--button-bg"] = "var(--black)";
       result["--button-color"] = "var(--white)";
-      result["--button-hover"] = "var(--50-black)";
+      result["--button-hover"] = "var(--80-black)";
     }
 
     return { root: result };
