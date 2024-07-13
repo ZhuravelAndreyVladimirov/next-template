@@ -1,16 +1,16 @@
 "use client";
 
+import { ReactNode } from "react";
 import {
   createTheme,
   CSSVariablesResolver,
   MantineProvider,
   rem,
 } from "@mantine/core";
-import { ReactNode } from "react";
-import "@mantine/core/styles.css";
 import { roboto_reg } from "@/assets/font/fonts";
 import { ExtensionButton } from "@/extensions";
 
+import "@mantine/core/styles.layer.css";
 interface CustomMantineProviderProps {
   children: ReactNode;
 }
@@ -23,17 +23,20 @@ const theme = createTheme({
     laptop: "64em",
     desktop: "90em",
   },
+
   components: {
     Button: ExtensionButton,
   },
   headings: {
     fontFamily: roboto_reg.variable,
     fontWeight: "400",
+    sizes: {
+      h1: { fontSize: rem(45) },
+    },
   },
   fontSizes: {
     btn: rem(14),
   },
-
   luminanceThreshold: 1,
   defaultRadius: rem(5),
 });
