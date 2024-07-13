@@ -5,6 +5,8 @@ import { ColorSchemeScript } from "@mantine/core";
 import { Metadata } from "next";
 import { ReactNode } from "react";
 
+import "./globals.scss";
+
 export const metadata: Metadata = {
   title: "Шаблон",
   description:

@@ -5,12 +5,10 @@ module.exports = {
     },
     "postcss-simple-vars": {
       variables: {
-        "mantine-breakpoint-xs": "36em",
-        "mantine-breakpoint-sm": "48em",
-        "mantine-breakpoint-md": "62em",
-        "mantine-breakpoint-lg": "75em",
-        "mantine-breakpoint-xl": "88em",
-        "mantine-breakpoint-xxxl": "1931px",
+        "mantine-breakpoint-mobile": "36em",
+        "mantine-breakpoint-tablet": "48em",
+        "mantine-breakpoint-laptop": "64em",
+        "mantine-breakpoint-desktop": "90em",
       },
     },
   },

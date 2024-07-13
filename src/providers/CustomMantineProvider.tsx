@@ -11,12 +11,10 @@ interface CustomMantineProviderProps {
 const theme = createTheme({
   // при внесении правок в breakpoints поправь postcss.config.cjs
   breakpoints: {
-    xs: "36em",
-    sm: "48em",
-    md: "64em",
-    lg: "74em",
-    xl: "90em",
-    xxxl: "1931px",
+    mobile: "36em",
+    tablet: "48em",
+    laptop: "64em",
+    desktop: "90em",
   },
   components: {
     Button: ExtensionButton,
@@ -26,10 +24,10 @@ const theme = createTheme({
     fontWeight: "400",
   },
   fontSizes: {
-    btn: rem(10),
+    btn: rem(14),
   },
   luminanceThreshold: 1,
-  defaultRadius: rem(5),
+  defaultRadius: rem(0),
 });
 
 export const CustomMantineProvider = ({
