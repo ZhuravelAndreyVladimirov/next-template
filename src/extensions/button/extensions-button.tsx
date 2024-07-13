@@ -1,6 +1,7 @@
 "use client";
 
-import { Button, rem } from "@mantine/core";
+import { Button } from "@mantine/core";
+import styles from "./extensions-button.module.scss";
 
 type PartialBtnVars = Partial<
   Record<
@@ -17,24 +18,12 @@ type PartialBtnVars = Partial<
     string | undefined
   >
 >;
-/**
- * @description use props variant white - to white btn, light - to gray btn, in all other cases it will be - black btn
- */
 
 export const ExtensionButton = Button.extend({
   defaultProps: {
-    // radius: "default",
-    // ff: "heading",
-    // fz: {
-    //   base: rem(18),
-    //   desktop: rem(20),
-    // },
-    // fw: "400",
+    ff: "heading",
   },
-  styles: (theme, props) => {
-    return {};
-  },
-  vars: (theme, props) => {
+  vars: (t, props) => {
     const result: PartialBtnVars = {};
     if (props.variant === "white") {
       result["--button-bg"] = "var(--white)";
@@ -52,9 +41,9 @@ export const ExtensionButton = Button.extend({
 
     return { root: result };
   },
-  classNames: (theme, props) => {
+  classNames: () => {
     return {
-      root: "",
+      root: styles.root,
     };
   },
 });

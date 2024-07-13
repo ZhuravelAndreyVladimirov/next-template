@@ -1,8 +1,8 @@
 import { createTheme, MantineProvider, rem } from "@mantine/core";
 import { ReactNode } from "react";
 import "@mantine/core/styles.css";
-import { ExtensionButton } from "@/uiExtensions";
 import { roboto_reg } from "@/assets/font/fonts";
+import { ExtensionButton } from "@/extensions";
 
 interface CustomMantineProviderProps {
   children: ReactNode;
@@ -27,7 +27,7 @@ const theme = createTheme({
     btn: rem(14),
   },
   luminanceThreshold: 1,
-  defaultRadius: rem(0),
+  defaultRadius: rem(5),
 });
 
 export const CustomMantineProvider = ({

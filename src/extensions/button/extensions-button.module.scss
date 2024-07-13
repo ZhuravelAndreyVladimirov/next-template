@@ -1,0 +1,47 @@
+.root {
+  transition: background 0.15s ease-in;
+  --button-padding-x: 30px;
+  --button-fz: 18px;
+  line-height: 100%;
+  @include larger-than($laptop) {
+    --button-padding-x: 40px;
+    --button-fz: 20px;
+  }
+
+  width: 100%;
+  max-width: 365px;
+  height: 60px;
+
+  &:focus-visible {
+    outline-color: var(--black);
+  }
+
+  &[data-variant="light"] {
+    &:focus-visible {
+      outline-color: var(--20-black);
+    }
+  }
+
+  &[data-variant="white"] {
+    &:focus-visible {
+      outline-color: var(--white);
+    }
+  }
+
+  &[data-disabled="true"] {
+    background: red;
+  }
+
+  &[data-size="sm"] {
+    --button-padding-x-sm: 15px;
+    --button-fz: 15px;
+    width: 175px;
+    height: 40px;
+    font-weight: 500;
+    line-height: 140%;
+    @include larger-than($laptop) {
+      --button-padding-x-sm: 25px;
+      --button-fz: 18px;
+    }
+  }
+}
