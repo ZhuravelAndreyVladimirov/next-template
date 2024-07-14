@@ -1,10 +1,10 @@
-import { CustomLink, PrimaryBtn, SecondaryBtn } from "@/ui";
-import { Flex, Group, Title } from "@mantine/core";
+import { CustomLink, PrimaryBtn, SecondaryBtn, Title } from "@/ui";
+import { Flex, Group } from "@mantine/core";
 
 export default function Home() {
   return (
     <Flex gap={10} direction={"column"} justify="center" align={"center"}>
-      <Title variant="white" order={1}>
+      <Title variant="black" order={1}>
         Hello template
       </Title>
       <Group w={"100%"} py={{ base: 10, desktop: 20 }} justify="center">
