@@ -1,0 +1,21 @@
+.root {
+  --color: var(--black);
+  --size: rem(14) &[data-variant= "white"] {
+    --color: var(--white);
+  }
+
+  color: var(--color);
+  font-size: var(--size);
+
+  @include larger-than($tablet) {
+    --size: rem(16);
+  }
+
+  @include larger-than($laptop) {
+    --size: rem(18);
+  }
+
+  @include larger-than($desktop) {
+    --size: rem(22);
+  }
+}

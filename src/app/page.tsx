@@ -1,5 +1,5 @@
-import { CustomLink, PrimaryBtn, SecondaryBtn, Title } from "@/ui";
-import { Flex, Group } from "@mantine/core";
+import { CustomLink } from "@/ui";
+import { Button, Flex, Group, Text, Title } from "@mantine/core";
 
 export default function Home() {
   return (
@@ -7,9 +7,15 @@ export default function Home() {
       <Title variant="black" order={1}>
         Hello template
       </Title>
+      <Text w={800} variant="">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores id
+        expedita laborum tempora vel totam doloribus eius nulla quas debitis!
+        Repellendus porro consectetur optio magnam deleniti corrupti illo fugit
+        atque!
+      </Text>
       <Group w={"100%"} py={{ base: 10, desktop: 20 }} justify="center">
-        <PrimaryBtn variant="light">Primary button</PrimaryBtn>
-        <SecondaryBtn>Secondary btn</SecondaryBtn>
+        <Button variant="light">Primary button</Button>
+        <Button size="sm">Secondary btn</Button>
         <CustomLink
           link={{
             href: "https://tabler.io/docs/getting-started/download",

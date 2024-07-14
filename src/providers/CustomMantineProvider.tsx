@@ -8,7 +8,7 @@ import {
   rem,
 } from "@mantine/core";
 import { roboto_reg } from "@/assets/font/fonts";
-import { ExtensionButton, ExtensionTitle } from "@/extensions";
+import { ExtensionButton, ExtensionText, ExtensionTitle } from "@/extensions";
 
 import "@mantine/core/styles.layer.css";
 interface CustomMantineProviderProps {
@@ -27,6 +27,7 @@ const theme = createTheme({
   components: {
     Button: ExtensionButton,
     Title: ExtensionTitle,
+    Text: ExtensionText,
   },
   headings: {
     fontFamily: roboto_reg.variable,
