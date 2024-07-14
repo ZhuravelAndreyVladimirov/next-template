@@ -1,21 +1,21 @@
 .root {
-  --color: var(--black);
-  --size: rem(14) &[data-variant= "white"] {
-    --color: var(--white);
+  --c: var(--black);
+  --fz: rem(14) &[data-variant= "white"] {
+    --c: var(--white);
   }
 
-  color: var(--color);
-  font-size: var(--size);
+  color: var(--c);
+  font-size: var(--fz);
 
   @include larger-than($tablet) {
-    --size: rem(16);
+    --fz: rem(16);
   }
 
   @include larger-than($laptop) {
-    --size: rem(18);
+    --fz: rem(18);
   }
 
   @include larger-than($desktop) {
-    --size: rem(22);
+    --fz: rem(22);
   }
 }
