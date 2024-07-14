@@ -4,7 +4,9 @@ import { Flex, Group, Title } from "@mantine/core";
 export default function Home() {
   return (
     <Flex gap={10} direction={"column"} justify="center" align={"center"}>
-      <Title order={1}>Hello template</Title>
+      <Title variant="white" order={1}>
+        Hello template
+      </Title>
       <Group w={"100%"} py={{ base: 10, desktop: 20 }} justify="center">
         <PrimaryBtn variant="light">Primary button</PrimaryBtn>
         <SecondaryBtn>Secondary btn</SecondaryBtn>

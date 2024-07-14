@@ -2,15 +2,15 @@
   transition: background 0.15s ease-in, color 0.15s ease-in;
   --button-padding-x: 30px;
   --button-fz: 18px;
+  width: 100%;
+  max-width: 365px;
+  height: 60px;
   line-height: 100%;
+
   @include larger-than($laptop) {
     --button-padding-x: 40px;
     --button-fz: 20px;
   }
-
-  width: 100%;
-  max-width: 365px;
-  height: 60px;
 
   &:focus-visible {
     outline-color: var(--black);

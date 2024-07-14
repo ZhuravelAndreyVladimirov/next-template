@@ -1,0 +1,6 @@
+.root {
+  --title-c: var(--black);
+  &[data-variant="white"] {
+    --title-c: var(--white);
+  }
+}

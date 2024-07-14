@@ -8,7 +8,7 @@ import {
   rem,
 } from "@mantine/core";
 import { roboto_reg } from "@/assets/font/fonts";
-import { ExtensionButton } from "@/extensions";
+import { ExtensionButton, ExtensionTitle } from "@/extensions";
 
 import "@mantine/core/styles.layer.css";
 interface CustomMantineProviderProps {
@@ -26,12 +26,27 @@ const theme = createTheme({
 
   components: {
     Button: ExtensionButton,
+    Title: ExtensionTitle,
   },
   headings: {
     fontFamily: roboto_reg.variable,
     fontWeight: "400",
     sizes: {
-      h1: { fontSize: rem(45) },
+      h1: {
+        fontSize: "var(--h1-fz)",
+        fontWeight: "500",
+        lineHeight: "140%",
+      },
+      h2: {
+        fontSize: "var(--h2-fz)",
+        fontWeight: "500",
+        lineHeight: "120%",
+      },
+      h3: {
+        fontSize: "var(--h3-fz)",
+        fontWeight: "500",
+        lineHeight: "110%",
+      },
     },
   },
   fontSizes: {
