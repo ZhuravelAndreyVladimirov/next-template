@@ -7,7 +7,7 @@ export default function Home() {
       <Title variant="black" order={1}>
         Hello template
       </Title>
-      <Text w={800} variant="">
+      <Text w={800} variant="black">
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores id
         expedita laborum tempora vel totam doloribus eius nulla quas debitis!
         Repellendus porro consectetur optio magnam deleniti corrupti illo fugit
@@ -15,14 +15,14 @@ export default function Home() {
       </Text>
       <Group w={"100%"} py={{ base: 10, desktop: 20 }} justify="center">
         <Button variant="light">Primary button</Button>
-        <Button size="sm">Secondary btn</Button>
+        <Button sm>Secondary btn</Button>
         <CustomLink
           link={{
             href: "https://tabler.io/docs/getting-started/download",
             target: "_blank",
           }}
         >
-          styles btn Link
+          styles Link
         </CustomLink>
       </Group>
     </Flex>

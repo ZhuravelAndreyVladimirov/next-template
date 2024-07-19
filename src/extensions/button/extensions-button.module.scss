@@ -32,10 +32,10 @@
     background: red;
   }
 
-  &[data-size="sm"] {
+  &.sm {
     --button-padding-x-sm: 15px;
     --button-fz: 15px;
-    width: 175px;
+    width: 185px;
     height: 40px;
     font-weight: 500;
     line-height: 140%;

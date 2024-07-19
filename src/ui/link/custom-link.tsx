@@ -7,7 +7,7 @@ import { CustomLinkProps } from "./types";
 export const CustomLink = ({ link, ...props }: CustomLinkProps) => {
   return (
     <Button
-      size="sm"
+      sm
       {...props}
       renderRoot={(_props) => <Link {...link} {..._props} />}
     />

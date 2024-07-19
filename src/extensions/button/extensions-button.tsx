@@ -2,6 +2,7 @@
 
 import { Button } from "@mantine/core";
 import styles from "./extensions-button.module.scss";
+import { JoinClass } from "@/helpers/JoinClass";
 
 type PartialBtnVars = Partial<
   Record<
@@ -43,9 +44,9 @@ export const ExtensionButton = Button.extend({
 
     return { root: result };
   },
-  classNames: () => {
+  classNames: (t, props) => {
     return {
-      root: styles.root,
+      root: JoinClass.merge(styles.root, props.sm ? styles.sm : undefined),
     };
   },
 });
