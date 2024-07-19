@@ -44,9 +44,9 @@ export const ExtensionButton = Button.extend({
 
     return { root: result };
   },
-  classNames: (t, props) => {
+  classNames: (t, { sm, ...props }) => {
     return {
-      root: JoinClass.merge(styles.root, props.sm ? styles.sm : undefined),
+      root: JoinClass.merge(styles.root, sm ? styles.sm : undefined),
     };
   },
 });

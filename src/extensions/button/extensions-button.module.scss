@@ -25,6 +25,7 @@
   &[data-variant="white"] {
     &:focus-visible {
       outline-color: var(--white);
+      --button-bg: var(--white);
     }
   }
 

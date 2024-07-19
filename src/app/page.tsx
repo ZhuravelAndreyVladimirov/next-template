@@ -15,7 +15,9 @@ export default function Home() {
       </Text>
       <Group w={"100%"} py={{ base: 10, desktop: 20 }} justify="center">
         <Button variant="light">Primary button</Button>
-        <Button sm>Secondary btn</Button>
+        <Button variant="white" sm>
+          Secondary btn
+        </Button>
         <CustomLink
           link={{
             href: "https://tabler.io/docs/getting-started/download",
