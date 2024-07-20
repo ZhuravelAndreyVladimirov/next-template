@@ -4,20 +4,20 @@ import { Button, Flex, Group, Text, Title } from "@mantine/core";
 
 export default function Home() {
   return (
-    <Flex gap={10} direction={"column"} justify="center" align={"center"}>
-      <Title variant="black" order={1}>
+    <Flex align={"center"} direction={"column"} gap={10} justify="center">
+      <Title order={1} variant="black">
         Hello template
       </Title>
-      <Text w={800} variant="black">
+      <Text variant="black" w={800}>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolores id
         expedita laborum tempora vel totam doloribus eius nulla quas debitis!
         Repellendus porro consectetur optio magnam deleniti corrupti illo fugit
         atque!
       </Text>
-      <Group w={"100%"} py={{ base: 10, desktop: 20 }} justify="center">
+      <Group justify="center" py={{ base: 10, desktop: 20 }} w={"100%"}>
         <Button variant="light">Primary button</Button>
-        <Button variant="white" sm>
-          Secondary btn
+        <Button sm variant="white">
+          sm btn
         </Button>
         <CustomLink
           link={{
