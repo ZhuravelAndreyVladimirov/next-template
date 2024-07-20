@@ -13,6 +13,9 @@
   "dependencies": {
     "@mantine/core": "^7.11.1",
     "@mantine/hooks": "^7.11.1",
+    "@typescript-eslint/eslint-plugin": "^7.16.1",
+    "eslint-plugin-perfectionist": "^2.11.0",
+    "eslint-plugin-prettier": "^5.2.1",
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18",
@@ -35,10 +38,10 @@
     "postcss": "^8.4.39",
     "postcss-preset-mantine": "^1.15.0",
     "postcss-simple-vars": "^7.0.1",
+    "prettier": "3.0.3",
+    "prettier-plugin-css-order": "2.0.1",
     "sass": "^1.77.8",
     "ts-jest": "^29.1.2",
-    "typescript": "^5",
-    "prettier": "3.0.3",
-    "prettier-plugin-css-order": "2.0.1"
+    "typescript": "^5"
   }
 }

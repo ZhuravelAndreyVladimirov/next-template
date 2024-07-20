@@ -1,7 +1,8 @@
 "use client";
 
-import { useBearStore } from "@/store/example";
 import { Button, Flex, Text, Title } from "@mantine/core";
+
+import { useBearStore } from "@/store/example";
 
 export const Bears = () => {
   const bears = useBearStore((state) => state.bears);
@@ -11,7 +12,7 @@ export const Bears = () => {
       <Title order={2}>Пример работы стора</Title>
       <Text>{bears}</Text>
       <Button onClick={() => handleClick(1)} sm>
-        Click
+        Click btn
       </Button>
     </Flex>
   );
