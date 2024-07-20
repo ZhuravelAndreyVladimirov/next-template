@@ -52,8 +52,12 @@ export class ValidationHelper {
   }
   /**
    *
-   * @param value
-   * @returns {boolean}
+   * @param {string} value Verified email
+   * @returns {boolean} is the transmitted email address valid
+   * @example
+   * ValidationHelper.isEmail('')                 // false
+   * ValidationHelper.isEmail('plainaddress')     // false
+   * ValidationHElper.isEmail('email@domain.com') // true
    */
 
   static isEmail(value: string): boolean {
