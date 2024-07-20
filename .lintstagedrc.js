@@ -1,5 +1,5 @@
 module.exports = {
-  "**/src/**/*.scss": (filenames) => {
+  "**/src/**/*.{scss, css, sass}": (filenames) => {
     return [`yarn prettier --write ${filenames.join(" ")}`];
   },
   "**/src/**/*.{ts,tsx,js,jsx}": (filenames) => {
