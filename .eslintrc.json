@@ -9,13 +9,11 @@
     "next/core-web-vitals",
     "plugin:perfectionist/recommended-natural",
     "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "prettier"
   ],
   "rules": {
     "no-unused-vars": "off",
-    "@typescript-eslint/no-unused-vars": [
-      "warn",
-    ],
     "@typescript-eslint/ban-types": "off",
     "no-unused-expressions": "warn",
     "perfectionist/sort-imports": [
