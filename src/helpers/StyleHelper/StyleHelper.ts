@@ -1,4 +1,4 @@
-export class JoinClass {
+export class StyleHelper {
   static merge(...classNames: Array<string | undefined>): string {
     return classNames.filter((cn) => cn !== undefined).join(" ");
   }
