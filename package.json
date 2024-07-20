@@ -6,7 +6,8 @@
     "dev": "next dev -p 3000 -H 127.0.0.1",
     "build": "next build",
     "start": "next start -H 127.0.0.1",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest"
   },
   "dependencies": {
     "@mantine/core": "^7.11.1",
@@ -17,6 +18,7 @@
     "zustand": "^4.5.4"
   },
   "devDependencies": {
+    "ts-jest": "^29.1.2",
     "sass": "^1.77.8",
     "@types/node": "^20",
     "@types/react": "^18",
@@ -31,6 +33,7 @@
     "postcss-simple-vars": "^7.0.1",
     "typescript": "^5",
     "jest": "^29.7.0",
-    "jest-environment-jsdom": "^29.7.0"
+    "jest-environment-jsdom": "^29.7.0",
+    "@types/jest": "^29.5.12"
   }
 }
