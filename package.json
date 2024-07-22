@@ -8,7 +8,8 @@
     "start": "next start -H 127.0.0.1",
     "lint": "next lint",
     "test": "jest",
-    "prepare": "husky"
+    "prepare": "husky",
+    "docs": "typedoc --readme README.md --name typedin --out ./docs/ --tsconfig tsconfig.json --excludePrivate  --excludeExternals"
   },
   "dependencies": {
     "@mantine/core": "^7.11.1",
@@ -16,9 +17,11 @@
     "@typescript-eslint/eslint-plugin": "^7.16.1",
     "eslint-plugin-perfectionist": "^2.11.0",
     "eslint-plugin-prettier": "^5.2.1",
+    "jsdoc": "^4.0.3",
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18",
+    "typedoc": "^0.26.5",
     "zustand": "^4.5.4"
   },
   "devDependencies": {
