@@ -1,9 +1,17 @@
-// type LenMinMAxProps = {
-//   max: number;
-//   min: number;
-//   value: number | string;
-// };
+type LenMinMAxProps = {
+  max: number;
+  min: number;
+};
+
+type Zone = "ru";
+// type PhoneZone = [string] =string;
+
 export class ValidationHelper {
+  static phoneZone = {
+    ru: {
+      len: 11,
+    },
+  };
   /**
    *
    * @param {string} value Verified email
@@ -58,15 +66,37 @@ export class ValidationHelper {
 
     return false;
   }
-
   /**
    *
-   * @param param0
-   * @returns
+   * @description Возвращает true если телефон соответствует переданному региону false если нет
    */
-  // static lenMinMax({ max, min }: LenMinMAxProps): boolean {
-  //   return true;
-  // }
+  static isPhoneRegion(value: number | string, zone: Zone = "ru") {
+    if (!ValidationHelper.len(ValidationHelper.phoneZone[zone].len, value))
+      return false;
+  }
+  /**
+   *
+   * @param {number} length
+   * @param {number | string} value
+   * @returns {boolean}
+   * @description Функция возвращает равно ли значение переданной длине
+   */
+
+  static len(length: number, value: number | string): boolean {
+    return length === String(value).length;
+  }
+
+  /**
+   * @param {string | number} value
+   * @param {LenMinMAxProps} obj
+   * @returns {boolean}
+   * @description Функция проверяет на то соответствует ли переданное значение указанному интервалу
+   */
+  static lenInterval(value: number | string, obj: LenMinMAxProps): boolean {
+    if (!ValidationHelper.minLen(obj.min, value)) return false;
+    if (!ValidationHelper.maxLen(obj.max, value)) return false;
+    return true;
+  }
 
   /**
    *
@@ -96,3 +126,4 @@ export class ValidationHelper {
     return len > String(value).length;
   }
 }
+console.log(ValidationHelper.phoneZone.ru.len);
