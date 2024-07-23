@@ -11,7 +11,7 @@ export const Bears = () => {
     <Flex direction="column" gap={20}>
       <Title order={2}>Пример работы стора</Title>
       <Text>{bears}</Text>
-      <Button onClick={() => handleClick(1)} sm>
+      <Button onClick={() => handleClick(1)} sm={true}>
         Click btn
       </Button>
     </Flex>

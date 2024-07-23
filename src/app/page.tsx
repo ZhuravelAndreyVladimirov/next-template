@@ -1,3 +1,4 @@
+import { ThemeToggle } from "@/components";
 import { Bears } from "@/components/bearsStoreExample";
 import { CustomLink } from "@/ui";
 import { Button, Flex, Group, Text, Title } from "@mantine/core";
@@ -5,6 +6,9 @@ import { Button, Flex, Group, Text, Title } from "@mantine/core";
 export default function Home() {
   return (
     <Flex align={"center"} direction={"column"} gap={10} justify="center">
+      <Flex pos={"fixed"} right={10} top={10}>
+        <ThemeToggle />
+      </Flex>
       <Title order={1} variant="black">
         Hello template
       </Title>
@@ -16,7 +20,7 @@ export default function Home() {
       </Text>
       <Group justify="center" py={{ base: 10, desktop: 20 }} w={"100%"}>
         <Button variant="light">Primary button</Button>
-        <Button sm variant="white">
+        <Button sm={true} variant="white">
           sm btn
         </Button>
         <CustomLink

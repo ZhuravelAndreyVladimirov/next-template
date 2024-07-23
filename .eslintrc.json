@@ -13,7 +13,7 @@
     "prettier"
   ],
   "rules": {
-    "no-unused-vars": "off",
+    "no-unused-vars": "error",
     "@typescript-eslint/ban-types": "off",
     "no-unused-expressions": "warn",
     "perfectionist/sort-imports": [

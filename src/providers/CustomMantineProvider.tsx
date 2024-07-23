@@ -1,14 +1,15 @@
 "use client";
 
-import { ReactNode } from "react";
+import { ExtensionButton, ExtensionText, ExtensionTitle } from "@/extensions";
 import {
-  createTheme,
   CSSVariablesResolver,
   MantineProvider,
+  createTheme,
   rem,
 } from "@mantine/core";
+import { ReactNode } from "react";
+
 import { roboto_reg } from "@/assets/font/fonts";
-import { ExtensionButton, ExtensionText, ExtensionTitle } from "@/extensions";
 
 import "@mantine/core/styles.layer.css";
 interface CustomMantineProviderProps {
@@ -18,16 +19,20 @@ interface CustomMantineProviderProps {
 const theme = createTheme({
   // при внесении правок в breakpoints поправь postcss.config.cjs
   breakpoints: {
+    desktop: "90em",
+    laptop: "64em",
     mobile: "36em",
     tablet: "48em",
-    laptop: "64em",
-    desktop: "90em",
   },
 
   components: {
     Button: ExtensionButton,
-    Title: ExtensionTitle,
     Text: ExtensionText,
+    Title: ExtensionTitle,
+  },
+  defaultRadius: rem(5),
+  fontSizes: {
+    btn: rem(14),
   },
   headings: {
     fontFamily: roboto_reg.variable,
@@ -50,35 +55,50 @@ const theme = createTheme({
       },
     },
   },
-  fontSizes: {
-    btn: rem(14),
-  },
   luminanceThreshold: 1,
-  defaultRadius: rem(5),
 });
 
-const resolver: CSSVariablesResolver = (theme) => ({
-  variables: {
-    "--black": "#333",
-    "--white": "#f8f8f8",
-    "--80-black": "rgba(51, 51, 51, 0.8)",
-    "--50-black": "rgba(51, 51, 51, 0.5)",
-    "--30-black": "rgba(51, 51, 51, 0.3)",
+const resolver: CSSVariablesResolver = () => ({
+  dark: {
     "--20-black": "rgba(51, 51, 51, 0.2)",
+    "--30-black": "rgba(51, 51, 51, 0.3)",
+    "--50-black": "rgba(51, 51, 51, 0.5)",
+    "--80-black": "rgba(51, 51, 51, 0.8)",
+    "--black": "#f8f8f8",
     "--hover-button-black": "#212121",
+    "--white": "#333",
   },
-  light: {},
-  dark: {},
+  light: {
+    "--20-black": "rgba(51, 51, 51, 0.2)",
+    "--30-black": "rgba(51, 51, 51, 0.3)",
+    "--50-black": "rgba(51, 51, 51, 0.5)",
+    "--80-black": "rgba(51, 51, 51, 0.8)",
+    "--black": "#333",
+    "--hover-button-black": "#212121",
+    "--white": "#f8f8f8",
+  },
+  variables: {
+    "--20-black": "rgba(51, 51, 51, 0.2)",
+    "--30-black": "rgba(51, 51, 51, 0.3)",
+    "--50-black": "rgba(51, 51, 51, 0.5)",
+    "--80-black": "rgba(51, 51, 51, 0.8)",
+    "--black": "#333",
+    "--hover-button-black": "#212121",
+    "--white": "#f8f8f8",
+  },
 });
 
 export const CustomMantineProvider = ({
   children,
-}: CustomMantineProviderProps) => (
-  <MantineProvider
-    cssVariablesResolver={resolver}
-    withStaticClasses={false}
-    theme={theme}
-  >
-    {children}
-  </MantineProvider>
-);
+}: CustomMantineProviderProps) => {
+  return (
+    <MantineProvider
+      cssVariablesResolver={resolver}
+      defaultColorScheme="auto"
+      theme={theme}
+      withStaticClasses={false}
+    >
+      {children}
+    </MantineProvider>
+  );
+};
