@@ -69,10 +69,12 @@ export class ValidationHelper {
   /**
    *
    * @description Возвращает true если телефон соответствует переданному региону false если нет
+   *
    */
   static isPhoneRegion(value: number | string, zone: Zone = "ru") {
     if (!ValidationHelper.len(ValidationHelper.phoneZone[zone].len, value))
       return false;
+    return true;
   }
   /**
    *

@@ -34,7 +34,8 @@
   },
   "typedocOptions": {
     "entryPoints": [
-      "src/helpers/*.{ts,tsx}" // <--- take everything from this location
+      "src/helpers/**/*.{ts,tsx}",
+      "./mantine.d.ts"
     ],
     "out": "docs/" // <--- output directory
   },
