@@ -1,4 +1,17 @@
 export class StyleHelper {
+  static addPrefix(prefix: string, className: string): string {
+    return prefix.concat(className);
+  }
+
+  /**
+   *
+   * @param prefix
+   * @param className
+   * @returns {string}
+   * @example
+   * StyeHelper.addPrefix("prefixName__", "className") // "prefixName__className"
+   */
+
   /**
    *
    * @param  classNames
@@ -8,18 +21,5 @@ export class StyleHelper {
    */
   static merge(...classNames: Array<string | undefined>): string {
     return classNames.filter((cn) => cn !== undefined).join(" ");
-  }
-
-  /**
-   *
-   * @param prefix
-   * @param className
-   * @returns {string}
-   * @example
-   * StyeHelper.addPrefix("prefixName__", "className") // "prefixName__", "className"
-   */
-
-  static addPrefix(prefix: string, className: string): string {
-    return prefix.concat(className);
   }
 }
