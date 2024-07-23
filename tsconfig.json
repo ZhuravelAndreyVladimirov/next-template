@@ -32,6 +32,12 @@
       ]
     }
   },
+  "typedocOptions": {
+    "entryPoints": [
+      "src/helpers/*.{ts,tsx}" // <--- take everything from this location
+    ],
+    "out": "docs/" // <--- output directory
+  },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
