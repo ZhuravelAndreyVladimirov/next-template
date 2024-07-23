@@ -1,4 +1,4 @@
-import { StyleHelper } from "./StyleHelper";
+import { StyleHelper } from "../StyleHelper";
 
 describe("Merge class names in one string", () => {
   it("Concat all strings when no undefined classNames", () => {

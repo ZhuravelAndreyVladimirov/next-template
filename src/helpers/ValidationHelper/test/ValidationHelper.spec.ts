@@ -1,4 +1,4 @@
-import { ValidationHelper } from "./ValidationHelper";
+import { ValidationHelper } from "../ValidationHelper";
 
 describe("ValidationHelper. Checking for an empty value", () => {
   it("Checking the value of a string", () =>

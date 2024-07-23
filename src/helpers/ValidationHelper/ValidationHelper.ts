@@ -1,3 +1,5 @@
+import { isEmailFunc, isEmptyFunc, isPhoneRegionFunc } from "./utils";
+
 type LenMinMAxProps = {
   max: number;
   min: number;
@@ -22,28 +24,7 @@ export class ValidationHelper {
    * ValidationHElper.isEmail('email@domain.com') // true
    */
   static isEmail(value: string): boolean {
-    if (ValidationHelper.isEmpty(value)) return false;
-    if (ValidationHelper.maxLen(254, value)) return false;
-
-    const name = value.split("@")[0];
-
-    if (ValidationHelper.maxLen(64, name)) return false;
-
-    const domain = value.slice(value.indexOf("@") + 1);
-    const firstDomain = domain.split(".")[0];
-
-    if (firstDomain[0] === "-" || firstDomain.slice(-1) === "-") return false;
-
-    if (ValidationHelper.maxLen(63, firstDomain)) return false;
-
-    const regExp =
-      /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
-
-    if (!regExp.test(value)) return false;
-
-    if (value.includes(" ")) return false;
-
-    return true;
+    return isEmailFunc(value);
   }
   /**
    *
@@ -58,23 +39,19 @@ export class ValidationHelper {
  
    */
   static isEmpty(value: null | number | string | undefined): boolean {
-    if (typeof value === "undefined") return true;
-
-    if (!value) return true;
-
-    if (value === "") return true;
-
-    return false;
+    return isEmptyFunc(value);
   }
   /**
    *
    * @description Возвращает true если телефон соответствует переданному региону false если нет
+   * @alpha
+   * Не написаны тесты!!!!
+   *
    *
    */
+
   static isPhoneRegion(value: number | string, zone: Zone = "ru") {
-    if (!ValidationHelper.len(ValidationHelper.phoneZone[zone].len, value))
-      return false;
-    return true;
+    return isPhoneRegionFunc(value, zone);
   }
   /**
    *
@@ -82,6 +59,7 @@ export class ValidationHelper {
    * @param {number | string} value
    * @returns {boolean}
    * @description Функция возвращает равно ли значение переданной длине
+   * Не написаны тесты!!!!
    */
 
   static len(length: number, value: number | string): boolean {
@@ -93,11 +71,14 @@ export class ValidationHelper {
    * @param {LenMinMAxProps} obj
    * @returns {boolean}
    * @description Функция проверяет на то соответствует ли переданное значение указанному интервалу
+   * Не написаны тесты!!!!
+   *
    */
   static lenInterval(value: number | string, obj: LenMinMAxProps): boolean {
-    if (!ValidationHelper.minLen(obj.min, value)) return false;
-    if (!ValidationHelper.maxLen(obj.max, value)) return false;
-    return true;
+    return (
+      ValidationHelper.maxLen(obj.max, value) &&
+      ValidationHelper.minLen(obj.min, value)
+    );
   }
 
   /**
@@ -128,4 +109,3 @@ export class ValidationHelper {
     return len > String(value).length;
   }
 }
-console.log(ValidationHelper.phoneZone.ru.len);
