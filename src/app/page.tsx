@@ -21,7 +21,7 @@ export default function Home() {
       <Group justify="center" py={{ base: 10, desktop: 20 }} w={"100%"}>
         <Button variant="light">Primary button</Button>
         <Button sm={true} variant="white">
-          sm btn
+          small btn
         </Button>
         <CustomLink
           link={{
