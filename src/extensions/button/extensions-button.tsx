@@ -1,26 +1,32 @@
 "use client";
 
-import { Button } from "@mantine/core";
-import styles from "./extensions-button.module.scss";
 import { StyleHelper } from "@/helpers";
+import { Button } from "@mantine/core";
+
+import styles from "./extensions-button.module.scss";
 
 type PartialBtnVars = Partial<
   Record<
-    | "--button-justify"
-    | "--button-height"
-    | "--button-padding-x"
-    | "--button-fz"
-    | "--button-radius"
+    | "--button-bd"
     | "--button-bg"
+    | "--button-color"
+    | "--button-fz"
+    | "--button-height"
     | "--button-hover"
     | "--button-hover-color"
-    | "--button-color"
-    | "--button-bd",
+    | "--button-justify"
+    | "--button-padding-x"
+    | "--button-radius",
     string | undefined
   >
 >;
 
 export const ExtensionButton = Button.extend({
+  classNames: (t, { sm }) => {
+    return {
+      root: StyleHelper.merge(styles.root, sm ? styles.sm : undefined),
+    };
+  },
   defaultProps: {
     ff: "heading",
   },
@@ -43,10 +49,5 @@ export const ExtensionButton = Button.extend({
     }
 
     return { root: result };
-  },
-  classNames: (t, { sm, ...props }) => {
-    return {
-      root: StyleHelper.merge(styles.root, sm ? styles.sm : undefined),
-    };
   },
 });

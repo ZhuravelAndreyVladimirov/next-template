@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+
 import { CustomMantineProvider } from "./CustomMantineProvider";
 
 interface RootProviderProps {

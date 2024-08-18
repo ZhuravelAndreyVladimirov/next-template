@@ -2,6 +2,7 @@ import { create } from "zustand";
 
 interface BearState {
   bears: number;
+  // eslint-disable-next-line no-unused-vars
   increase: (by: number) => void;
 }
 

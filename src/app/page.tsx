@@ -1,5 +1,4 @@
 import { ThemeToggle } from "@/components";
-import { Bears } from "@/components/bearsStoreExample";
 import { CustomLink } from "@/ui";
 import { Button, Flex, Group, Text, Title } from "@mantine/core";
 
@@ -32,7 +31,6 @@ export default function Home() {
           styles Link
         </CustomLink>
       </Group>
-      <Bears />
     </Flex>
   );
 }
