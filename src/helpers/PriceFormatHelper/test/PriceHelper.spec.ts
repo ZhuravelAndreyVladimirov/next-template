@@ -41,6 +41,12 @@ describe("Сериализация в int PriceFormatHelper метод serializa
     expect(price).toBe(1234123);
   });
 
+  it("Проверка если передать строку 'asdf.' в метод serializationInt должно вернуть null", () => {
+    const price = PH.serializationInt("asdf.");
+
+    expect(price).toBe(null);
+  });
+
   it("Проверка если передать строку '100 000 000' в метод serializationInt должно вернуть 100000000", () => {
     const price = PH.serializationInt("100 000 000");
 
@@ -90,6 +96,36 @@ describe("Проверка метода serializationFloat класса PriceFor
   it("Проверка передачи строки '100 000 000.12' ожидаемый результат 100000000.12", () => {
     const price = PH.serializationFloat("100 000 000.12");
     expect(price).toBe(100000000.12);
+  });
+
+  it("Проверка передачи строки '100 000 000.1' ожидаемый результат 100000000.1", () => {
+    const price = PH.serializationFloat("100 000 000.1");
+    expect(price).toBe(100000000.1);
+  });
+
+  it("Проверка передачи строки '100 000 000.' ожидаемый результат 100000000", () => {
+    const price = PH.serializationFloat("100 000 000.");
+    expect(price).toBe(100000000);
+  });
+
+  it("Проверка передачи строки '100,00' ожидаемый результат 10000", () => {
+    const price = PH.serializationFloat("100,00");
+    expect(price).toBe(10000);
+  });
+
+  it("Проверка передачи строки 'asdasd,' ожидаемый результат 10000", () => {
+    const price = PH.serializationFloat("asdasd,");
+    expect(price).toBe(null);
+  });
+
+  it("Проверка передачи строки '100 000 000....' ожидаемый результат 100000000", () => {
+    const price = PH.serializationFloat("100 000 000....");
+    expect(price).toBe(100000000);
+  });
+
+  it("Проверка передачи строки '100 o00 000' ожидаемый результат 10000000", () => {
+    const price = PH.serializationFloat("100 o00 000");
+    expect(price).toBe(10000000);
   });
 });
 

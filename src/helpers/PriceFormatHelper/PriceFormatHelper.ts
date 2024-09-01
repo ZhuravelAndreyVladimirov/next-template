@@ -43,6 +43,10 @@ export class PriceFormatHelper {
         : ""
     }`;
 
+    if (Number.isNaN(Number.parseFloat(concatPrice))) {
+      return null;
+    }
+
     return Number.parseFloat(concatPrice);
   }
 
@@ -59,6 +63,9 @@ export class PriceFormatHelper {
       return Number.parseInt(String(price));
     }
 
+    if (Number.isNaN(Number.parseInt(price.replace(/[^0-9]/g, "")))) {
+      return null;
+    }
     return Number.parseInt(price.replace(/[^0-9]/g, ""));
   }
 }
