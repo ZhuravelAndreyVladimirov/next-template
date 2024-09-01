@@ -85,3 +85,17 @@ describe("Проверка метода maskInt класса PriceFormatHelper",
     expect(price).toBe("10 000 000 000");
   });
 });
+
+describe("Проверка метода serializationFloat класса PriceFormatHelper", () => {
+  it("Проверка передачи строки '100 000 000.12' ожидаемый результат 100000000.12", () => {
+    const price = PH.serializationFloat("100 000 000.12");
+    expect(price).toBe(100000000.12);
+  });
+});
+
+describe("Проверка метода maskFloat класса PriceFormatHelper", () => {
+  it("Проверка передачи строки '100 0000.12' ожидаемый результат 1 000 000.12", () => {
+    const price = PH.maskFloat("100 0000.12");
+    expect(price).toBe("1 000 000.12");
+  });
+});
