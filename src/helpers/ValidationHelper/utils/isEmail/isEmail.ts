@@ -1,4 +1,4 @@
-import { ValidationHelper } from "../ValidationHelper";
+import { ValidationHelper } from "../../ValidationHelper";
 
 export function isEmailFunc(value: string): boolean {
   if (ValidationHelper.isEmpty(value)) return false;

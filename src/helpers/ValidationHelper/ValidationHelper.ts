@@ -9,11 +9,17 @@ type Zone = "ru";
 // type PhoneZone = [string] =string;
 
 export class ValidationHelper {
-  static phoneZone = {
-    ru: {
-      len: 11,
-    },
-  };
+  /**
+   *
+   * @param {number} length
+   * @param {number | string} value
+   * @returns {boolean}
+   * @description Функция возвращает равно ли значение переданной длине
+   * Не написаны тесты!!!!
+   */
+  static fixLen(length: number, value: number | string): boolean {
+    return length === String(value).length;
+  }
   /**
    *
    * @param {string} value Verified email
@@ -26,6 +32,7 @@ export class ValidationHelper {
   static isEmail(value: string): boolean {
     return isEmailFunc(value);
   }
+
   /**
    *
    * @param {string | number|undefined | null} value string | number | undefined | null
@@ -41,6 +48,7 @@ export class ValidationHelper {
   static isEmpty(value: null | number | string | undefined): boolean {
     return isEmptyFunc(value);
   }
+
   /**
    *
    * @description Возвращает true если телефон соответствует переданному региону false если нет
@@ -52,18 +60,6 @@ export class ValidationHelper {
 
   static isPhoneRegion(value: number | string, zone: Zone = "ru") {
     return isPhoneRegionFunc(value, zone);
-  }
-  /**
-   *
-   * @param {number} length
-   * @param {number | string} value
-   * @returns {boolean}
-   * @description Функция возвращает равно ли значение переданной длине
-   * Не написаны тесты!!!!
-   */
-
-  static len(length: number, value: number | string): boolean {
-    return length === String(value).length;
   }
 
   /**

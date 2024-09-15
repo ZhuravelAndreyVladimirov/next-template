@@ -1,3 +1,3 @@
-export * from "./isEmail";
-export * from "./isEmpty";
-export * from "./isPhoneRegion";
+export * from "./isEmail/isEmail";
+export * from "./isEmpty/isEmpty";
+export * from "./isPhoneRegion/isPhoneRegion";
