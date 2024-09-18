@@ -1,4 +1,4 @@
-import { isEmailFunc, isEmptyFunc, isPhoneRegionFunc } from "./utils";
+import { fixLen, isEmailFunc, isEmptyFunc, isPhoneRegionFunc } from "./utils";
 
 type LenMinMAxProps = {
   max: number;
@@ -15,10 +15,9 @@ export class ValidationHelper {
    * @param {number | string} value
    * @returns {boolean}
    * @description Функция возвращает равно ли значение переданной длине
-   * Не написаны тесты!!!!
    */
-  static fixLen(length: number, value: number | string): boolean {
-    return length === String(value).length;
+  static fixLen(length: number, value: null | number | string): boolean {
+    return fixLen(length, value);
   }
   /**
    *
@@ -54,8 +53,6 @@ export class ValidationHelper {
    * @description Возвращает true если телефон соответствует переданному региону false если нет
    * @alpha
    * Не написаны тесты!!!!
-   *
-   *
    */
 
   static isPhoneRegion(value: number | string, zone: Zone = "ru") {
