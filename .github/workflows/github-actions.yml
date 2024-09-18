@@ -27,4 +27,4 @@ jobs:
       - name: initial modules
         run: npm instal
       - name: build project
-        run: npm build
+        run: npm run build
