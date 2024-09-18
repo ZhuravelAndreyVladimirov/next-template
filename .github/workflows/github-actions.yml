@@ -1,6 +1,10 @@
 name: GitHub Actions merge master
 run-name: ${{ github.actor }} Created a pull request in the master branch
-on: [push]
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
 jobs:
   init:
     runs-on: ubuntu-latest
