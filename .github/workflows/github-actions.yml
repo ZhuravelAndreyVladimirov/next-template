@@ -1,0 +1,27 @@
+name: GitHub Actions merge master
+run-name: ${{ github.actor }} Created a pull request in the master branch
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+jobs:
+  init:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [22.x]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Starting Node.js ${{matrix.node-version}}
+        uses: actions/setup-node@v3
+        with:
+          node-versions: ${{matrix.node-version}}
+      - name: initial modules
+        run: yarn
+      - name: build project
+        run: yarn build
+      - name: es-lint
+        run: yarn lint
+      - name: unit tests
+        run: yarn jest
