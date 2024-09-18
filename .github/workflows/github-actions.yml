@@ -17,3 +17,7 @@ jobs:
         run: yarn
       - name: build project
         run: yarn build
+      - name: es-lint
+        run: yarn lint
+      - name: unit tests
+        run: yarn jest
