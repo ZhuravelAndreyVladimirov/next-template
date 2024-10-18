@@ -37,7 +37,7 @@
       "src/helpers/**/*.{ts,tsx}",
       "./mantine.d.ts"
     ],
-    "out": "docs/" // <--- output directory
+    "out": "docs/info/" // <--- output directory
   },
   "include": [
     "next-env.d.ts",
