@@ -3,7 +3,7 @@
 import { StyleHelper } from "@/helpers";
 import { Button } from "@mantine/core";
 
-import styles from "./extensions-button.module.scss";
+import styles from "./ExtensionButton.module.scss";
 
 type PartialBtnVars = Partial<
   Record<

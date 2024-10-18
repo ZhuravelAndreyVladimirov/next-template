@@ -1,5 +1,7 @@
 .root {
-  transition: background 0.15s ease-in, color 0.15s ease-in;
+  transition:
+    background 0.15s ease-in,
+    color 0.15s ease-in;
   --button-padding-x: 30px;
   --button-fz: 18px;
   width: 100%;
