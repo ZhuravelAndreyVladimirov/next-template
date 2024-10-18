@@ -1,10 +1,6 @@
 .root {
   --c: var(--black);
-  --fz: rem(14) &[data-variant= "white"] {
-    --c: var(--white);
-  }
-
-  color: var(--c);
+  --fz: rem(14) &[data-variant= "white"] {--c: var(--white) ;} color: var(--c);
   font-size: var(--fz);
 
   @include larger-than($tablet) {

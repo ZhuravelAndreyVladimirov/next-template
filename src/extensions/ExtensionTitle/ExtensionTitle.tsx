@@ -1,6 +1,6 @@
 import { Title } from "@mantine/core";
 
-import styles from "./extensions-title.module.scss";
+import styles from "./ExtensionTitle.module.scss";
 
 export const ExtensionTitle = Title.extend({
   classNames: () => {

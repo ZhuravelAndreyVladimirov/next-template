@@ -15,10 +15,11 @@
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18",
+    "validator": "^13.12.0",
     "zustand": "^4.5.4"
   },
   "devDependencies": {
-    "typedoc": "^0.26.5",
+    "@types/validator": "^13.12.2",
     "@mantine/core": "^7.11.1",
     "@mantine/hooks": "^7.11.1",
     "@types/jest": "^29.5.12",
@@ -44,6 +45,7 @@
     "prettier-plugin-css-order": "2.0.1",
     "sass": "^1.77.8",
     "ts-jest": "^29.1.2",
+    "typedoc": "^0.26.5",
     "typescript": "^5"
   }
 }

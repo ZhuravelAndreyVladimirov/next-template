@@ -8,8 +8,6 @@ export class PriceFormatHelper {
       return null;
     }
 
-    console.log(Math.ceil((newPrice % 1) * 100));
-
     return `${PriceFormatHelper.maskInt(Math.floor(newPrice))}.${
       newPrice % 1 <= 0 ? "00" : Math.ceil((newPrice % 1) * 100)
     }`;

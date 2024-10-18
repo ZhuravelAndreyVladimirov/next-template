@@ -1,3 +1,3 @@
-export * from "./button/extensions-button";
-export * from "./text/extensions-text";
-export * from "./title/extensions-title";
+export * from "./ExtensionButton/ExtensionButton";
+export * from "./ExtensionText/ExtensionText";
+export * from "./ExtensionTitle/ExtensionTitle";

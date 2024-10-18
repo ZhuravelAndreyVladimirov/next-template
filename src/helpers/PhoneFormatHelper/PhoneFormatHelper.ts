@@ -1,8 +1,16 @@
-type PhoneMask = null | number | string | undefined;
-type PhoneSerialization = null | number | string | undefined;
+type Phone = null | number | string | undefined;
 
 export class PhoneFormatHelper {
-  static mask(phone: PhoneMask): string {
+  /**
+   * @static
+   * @param {Phone} phone
+   * @returns {string}
+   * @description The method formats the transmitted number to the format of a Russian phone number
+   * @example
+   * PhoneFormatHelper.mask("12345678900") // "+1 (234) 567-89-00"
+   *
+   */
+  static mask(phone: Phone): string {
     if (!phone) {
       return "";
     }
@@ -14,8 +22,16 @@ export class PhoneFormatHelper {
       `${val.substring(4, 7)}-${val.substring(7, 9)}-${val.substring(9, 11)}`
     );
   }
-
-  static serialization(phone: PhoneSerialization): null | number {
+  /**
+   *
+   * @static
+   * @param {Phone} phone
+   * @returns {null | number}
+   * @description The method serializes the passed phone number and returns it as number
+   * @example
+   * PhoneFormatHelper.serialization("+1 (234) 567-89-00") //12345678900
+   */
+  static serialization(phone: Phone): null | number {
     if (!phone && typeof phone !== "string") {
       return null;
     }
