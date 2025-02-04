@@ -1,21 +1,28 @@
 {
   "parser": "@typescript-eslint/parser",
-  "plugins": [
-    "react",
-    "@typescript-eslint",
-    "prettier"
-  ],
+  "plugins": ["react", "@typescript-eslint", "prettier"],
   "extends": [
     "next/core-web-vitals",
     "plugin:perfectionist/recommended-natural",
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
-    "prettier"
+    "prettier",
+    "plugin:storybook/recommended"
   ],
   "rules": {
     "no-unused-vars": "error",
+    "react-hooks/exhaustive-deps": "off",
     "@typescript-eslint/ban-types": "off",
     "no-unused-expressions": "warn",
+    "react/no-unescaped-entities": 0,
+    "perfectionist/sort-exports": "off",
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto",
+        "perfectionist/sort-exports": "off"
+      }
+    ],
     "perfectionist/sort-imports": [
       "warn",
       {
@@ -23,12 +30,8 @@
         "order": "asc",
         "custom-groups": {
           "value": {
-            "images": [
-              "@images/**"
-            ],
-            "shared": [
-              "@/shared"
-            ]
+            "images": ["@images/**"],
+            "shared": ["@/shared"]
           }
         },
         "groups": [
@@ -39,22 +42,12 @@
             "sibling-type",
             "index-type"
           ],
-          [
-            "builtin",
-            "external"
-          ],
+          ["builtin", "external"],
           "internal",
           "shared",
           "images",
-          [
-            "parent",
-            "sibling",
-            "index"
-          ],
-          [
-            "style",
-            "side-effect"
-          ],
+          ["parent", "sibling", "index"],
+          ["style", "side-effect"],
           "unknown"
         ],
         "newlines-between": "always",
