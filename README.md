@@ -1,3 +1,7 @@
+# Шаблон для быстрого развертывания проекта на NEXT.JS 
+В ветке `master` доступна стабильная 14 версия
+В ветке `NEXT-15` доступна 15 версия некста, сейчас не рекомендую ее использовать, пока тестовая сборка
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
