@@ -1,6 +1,5 @@
 "use client";
 
-import { ExtensionButton, ExtensionText, ExtensionTitle } from "@/extensions";
 import {
   CSSVariablesResolver,
   MantineProvider,
@@ -25,11 +24,7 @@ const theme = createTheme({
     tablet: "48em",
   },
 
-  components: {
-    Button: ExtensionButton,
-    Text: ExtensionText,
-    Title: ExtensionTitle,
-  },
+  components: {},
   defaultRadius: rem(5),
   fontSizes: {
     btn: rem(14),

@@ -1,8 +1,0 @@
-.root {
-  --c: var(--black);
-  &[data-variant="white"] {
-    --c: var(--white);
-  }
-
-  color: var(--c);
-}
