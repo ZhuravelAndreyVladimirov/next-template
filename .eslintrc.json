@@ -6,8 +6,8 @@
     "plugin:perfectionist/recommended-natural",
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
-    "prettier",
-    "plugin:storybook/recommended"
+    "prettier"
+    // "plugin:storybook/recommended"
   ],
   "rules": {
     "no-unused-vars": "error",
