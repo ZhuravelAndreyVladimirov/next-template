@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 3000 -H 127.0.0.1",
+    "dev": "next dev --turbopack -p 3000 -H 127.0.0.1",
     "build": "next build",
     "start": "next start -H 127.0.0.1",
     "lint": "next lint",
@@ -12,9 +12,9 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "next": "14.2.3",
-    "react": "^18",
-    "react-dom": "^18",
+    "next": "15.1.6",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
     "validator": "^13.12.0",
     "zustand": "^4.5.4"
   },
@@ -24,12 +24,12 @@
     "@mantine/hooks": "^7.11.1",
     "@types/jest": "^29.5.12",
     "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/react": "19.0.8",
+    "@types/react-dom": "19.0.3",
     "@typescript-eslint/eslint-plugin": "^7.16.1",
     "autoprefixer": "^10.4.19",
     "eslint": "^8",
-    "eslint-config-next": "14.2.3",
+    "eslint-config-next": "15.1.6",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-perfectionist": "^2.11.0",
     "eslint-plugin-prettier": "^5.2.1",
@@ -47,5 +47,9 @@
     "ts-jest": "^29.1.2",
     "typedoc": "^0.26.5",
     "typescript": "^5"
+  },
+  "resolutions": {
+    "@types/react": "19.0.8",
+    "@types/react-dom": "19.0.3"
   }
 }
