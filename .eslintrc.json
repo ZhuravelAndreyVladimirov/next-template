@@ -6,8 +6,8 @@
     "plugin:perfectionist/recommended-natural",
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
-    "prettier"
-    // "plugin:storybook/recommended"
+    "prettier",
+    "plugin:storybook/recommended"
   ],
   "rules": {
     "no-unused-vars": "error",
@@ -44,8 +44,6 @@
           ],
           ["builtin", "external"],
           "internal",
-          "shared",
-          "images",
           ["parent", "sibling", "index"],
           ["style", "side-effect"],
           "unknown"
