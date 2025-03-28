@@ -1,3 +1,4 @@
+import { MountedWrapper } from "@/components";
 import { StyleHelper } from "@/helpers";
 import { RootProvider } from "@/providers/RootProvider";
 import { ColorSchemeScript } from "@mantine/core";
@@ -5,8 +6,6 @@ import { Metadata } from "next";
 import { ReactNode } from "react";
 
 import { fontVariable } from "@/assets/font/fonts";
-
-import "./globals.scss";
 
 export const metadata: Metadata = {
   description:
@@ -24,7 +23,9 @@ export default function RootLayout({
   return (
     <html className={htmlClasses} lang="ru">
       <head>
-        <ColorSchemeScript />
+        <MountedWrapper>
+          <ColorSchemeScript />
+        </MountedWrapper>
       </head>
       <body>
         <RootProvider>{children}</RootProvider>
