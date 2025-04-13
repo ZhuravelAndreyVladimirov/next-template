@@ -11,6 +11,7 @@ import { ReactNode } from "react";
 import { roboto_reg } from "@/assets/font/fonts";
 
 import "@mantine/core/styles.layer.css";
+import "@mantine/dropzone/styles.css";
 interface CustomMantineProviderProps {
   children: ReactNode;
 }
@@ -24,7 +25,35 @@ const theme = createTheme({
     tablet: "48em",
   },
 
+  colors: {
+    black: [
+      "#f5f5f5",
+      "#e7e7e7",
+      "#cdcdcd",
+      "#b2b2b2",
+      "#8e8e8e",
+      "#6e6e6e",
+      "#525252",
+      "#393939",
+      "#262626",
+      "#121212",
+    ],
+    dark: [
+      "#C1C2C5",
+      "#A6A7AB",
+      "#909296",
+      "#5C5F66",
+      "#373A40",
+      "#2C2E33",
+      "#25262B",
+      "#1A1B1E",
+      "#141517",
+      "#101113",
+    ],
+  },
+
   components: {},
+
   defaultRadius: rem(5),
   fontSizes: {
     btn: rem(14),
@@ -51,6 +80,8 @@ const theme = createTheme({
     },
   },
   luminanceThreshold: 1,
+
+  primaryColor: "dark",
 });
 
 const resolver: CSSVariablesResolver = () => ({
@@ -89,7 +120,8 @@ export const CustomMantineProvider = ({
   return (
     <MantineProvider
       cssVariablesResolver={resolver}
-      defaultColorScheme="auto"
+      defaultColorScheme="light"
+      forceColorScheme="light"
       theme={theme}
       withStaticClasses={false}
     >
