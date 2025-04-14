@@ -70,7 +70,7 @@ export default function Home() {
             </div>
           </Flex>
 
-          <Flex direction={"column"} flex={1} gap={20} miw={540}>
+          <Flex direction={"column"} flex={1} gap={20}>
             <TextInput
               description="Ссылка на сайт"
               onChange={onChangeText}
