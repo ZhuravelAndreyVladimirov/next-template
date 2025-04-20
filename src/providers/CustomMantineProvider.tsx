@@ -25,32 +25,7 @@ const theme = createTheme({
     tablet: "48em",
   },
 
-  colors: {
-    black: [
-      "#f5f5f5",
-      "#e7e7e7",
-      "#cdcdcd",
-      "#b2b2b2",
-      "#8e8e8e",
-      "#6e6e6e",
-      "#525252",
-      "#393939",
-      "#262626",
-      "#121212",
-    ],
-    dark: [
-      "#C1C2C5",
-      "#A6A7AB",
-      "#909296",
-      "#5C5F66",
-      "#373A40",
-      "#2C2E33",
-      "#25262B",
-      "#1A1B1E",
-      "#141517",
-      "#101113",
-    ],
-  },
+  colors: {},
 
   components: {},
 
@@ -85,33 +60,9 @@ const theme = createTheme({
 });
 
 const resolver: CSSVariablesResolver = () => ({
-  dark: {
-    "--20-black": "rgba(51, 51, 51, 0.2)",
-    "--30-black": "rgba(51, 51, 51, 0.3)",
-    "--50-black": "rgba(51, 51, 51, 0.5)",
-    "--80-black": "rgba(51, 51, 51, 0.8)",
-    "--black": "#f8f8f8",
-    "--hover-button-black": "#212121",
-    "--white": "#333",
-  },
-  light: {
-    "--20-black": "rgba(51, 51, 51, 0.2)",
-    "--30-black": "rgba(51, 51, 51, 0.3)",
-    "--50-black": "rgba(51, 51, 51, 0.5)",
-    "--80-black": "rgba(51, 51, 51, 0.8)",
-    "--black": "#333",
-    "--hover-button-black": "#212121",
-    "--white": "#f8f8f8",
-  },
-  variables: {
-    "--20-black": "rgba(51, 51, 51, 0.2)",
-    "--30-black": "rgba(51, 51, 51, 0.3)",
-    "--50-black": "rgba(51, 51, 51, 0.5)",
-    "--80-black": "rgba(51, 51, 51, 0.8)",
-    "--black": "#333",
-    "--hover-button-black": "#212121",
-    "--white": "#f8f8f8",
-  },
+  dark: {},
+  light: {},
+  variables: {},
 });
 
 export const CustomMantineProvider = ({

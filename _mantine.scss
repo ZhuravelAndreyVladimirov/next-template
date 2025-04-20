@@ -43,7 +43,11 @@ $desktop: "90em";
     @content;
   }
 }
+/**
 
+Коментарий
+
+*/
 @mixin larger-than($breakpoint) {
   @media (min-width: $breakpoint) {
     @content;
