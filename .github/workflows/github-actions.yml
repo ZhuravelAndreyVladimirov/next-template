@@ -1,10 +1,10 @@
 name: GitHub Actions merge master
 run-name: ${{ github.actor }} Created a pull request in the master branch
 on:
-  push:
-    branches: [master]
+  # push:
+  #   branches: [master, staging]
   pull_request:
-    branches: [master]
+    branches: [master, staging]
 jobs:
   init:
     runs-on: ubuntu-latest
@@ -17,6 +17,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-versions: ${{matrix.node-version}}
+      - name: enable corepack
+        run: corepack enable
       - name: initial modules
         run: yarn
       - name: build project
