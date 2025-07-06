@@ -4,12 +4,12 @@ import { Text } from "@mantine/core";
 
 const meta: Meta<typeof Text> = {
   argTypes: {
-    variant: {
+    size: {
       control: {
         type: "radio",
       },
-      description: "Тип текста",
-      options: ["lg", "md", "sm", "decoration", "caption"],
+      description: "Размер текста",
+      options: ["lg", "md", "sm"],
     },
   },
   // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#action-args
@@ -21,7 +21,7 @@ const meta: Meta<typeof Text> = {
   },
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ["autodocs"],
-  title: "UI Компоненты/Text",
+  title: "UI Компоненты/UiText",
 };
 
 export default meta;
@@ -31,34 +31,34 @@ type Story = StoryObj<typeof Text>;
 export const Body: Story = {
   args: {
     children: "lorem text Body",
-    variant: "lg",
+    size: "lg",
   },
 };
 
 export const Body1: Story = {
   args: {
     children: "lorem text Body 1",
-    variant: "md",
+    size: "md",
   },
 };
 
 export const Body2: Story = {
   args: {
     children: "lorem text Body 2",
-    variant: "sm",
+    size: "sm",
   },
 };
 
 export const Decoration: Story = {
   args: {
     children: "lorem text Body Decoration",
-    variant: "decoration",
+    decoration: true,
   },
 };
 
 export const Captions: Story = {
   args: {
+    caption: true,
     children: "lorem text Body caption",
-    variant: "caption",
   },
 };
