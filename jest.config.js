@@ -19,6 +19,7 @@ const config = {
     "^@/src/(.*)$": "<rootDir>/src/$1",
   },
   testPathIgnorePatterns: ["<rootDir>/.next/", "<rootDir>/node_modules/"],
+  setupFilesAfterEnv: ["<rootDir>/src/setupTests.ts"],
 };
 
 module.exports = createJestConfig(config);
