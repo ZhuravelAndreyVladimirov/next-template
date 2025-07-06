@@ -6,7 +6,4 @@ export const UiText = Text.extend({
   classNames() {
     return { root: styles.root };
   },
-  defaultProps: {
-    variant: "md",
-  },
 });

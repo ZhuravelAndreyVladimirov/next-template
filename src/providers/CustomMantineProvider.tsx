@@ -10,7 +10,7 @@ import { ReactNode } from "react";
 
 import { roboto_reg } from "@/assets/font/fonts";
 
-import "@mantine/core/styles.layer.css";
+import "@mantine/core/styles.css";
 import "@mantine/dropzone/styles.css";
 interface CustomMantineProviderProps {
   children: ReactNode;
