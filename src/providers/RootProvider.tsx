@@ -1,3 +1,4 @@
+import { ModalsProvider } from "@mantine/modals";
 import { ReactNode } from "react";
 
 import { CustomMantineProvider } from "./CustomMantineProvider";
@@ -7,5 +8,7 @@ interface RootProviderProps {
 }
 
 export const RootProvider = ({ children }: RootProviderProps) => (
-  <CustomMantineProvider>{children}</CustomMantineProvider>
+  <CustomMantineProvider>
+    <ModalsProvider>{children}</ModalsProvider>
+  </CustomMantineProvider>
 );

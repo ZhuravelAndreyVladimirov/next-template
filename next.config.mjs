@@ -4,7 +4,7 @@ const nextConfig = {
     optimizePackageImports: ["@mantine/core", "@mantine/hooks"],
   },
   sassOptions: {
-    prependData: `@import "./_mantine.scss";`,
+    prependData: `@use "./_mantine.scss";`,
   },
 };
 
