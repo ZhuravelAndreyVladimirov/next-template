@@ -28,8 +28,31 @@ export const RegisterModal: FC = () => {
     },
   });
 
+  const handleSubmit = async (values: RegisterFormValues) => {
+    let AuthModule;
+    try {
+      AuthModule = await import("@/api/Auth/Auth");
+    } catch (importError) {
+      // обработка ошибки импорта
+      return;
+    }
+
+    try {
+      await AuthModule.Auth.register(values);
+    } catch (loginError) {
+      // обработка ошибки логина
+      return;
+    }
+    try {
+      const { closeModal } = await import("@mantine/modals");
+      closeModal("auth-modal");
+    } catch (closeModalError) {
+      // обработка ошибки закрытия модального окна
+    }
+  };
+
   return (
-    <Box component="form" onSubmit={form.onSubmit(() => {})}>
+    <Box component="form" onSubmit={form.onSubmit(handleSubmit)}>
       <Stack>
         <TextInput
           label="Email"
