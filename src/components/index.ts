@@ -3,3 +3,4 @@ export * from "./MountedWrapper";
 export * from "./VirtualizedList";
 export * from "./authModal";
 export * from "./registerModal";
+export * from "./Header";

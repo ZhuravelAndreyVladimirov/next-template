@@ -1,8 +1,15 @@
 import { UserService } from "@/api/UserService/UserService";
-import { MountedWrapper } from "@/components";
+import { Header, MountedWrapper } from "@/components";
 import { StyleHelper } from "@/helpers";
 import { RootProvider } from "@/providers/RootProvider";
-import { ColorSchemeScript } from "@mantine/core";
+import { UserHydrationProvider } from "@/providers/UserHydrationProvider";
+import {
+  AppShell,
+  AppShellFooter,
+  AppShellHeader,
+  AppShellMain,
+  ColorSchemeScript,
+} from "@mantine/core";
 import { Metadata } from "next";
 import { cookies } from "next/headers";
 import { ReactNode } from "react";
@@ -45,7 +52,16 @@ export default async function RootLayout({
         </MountedWrapper>
       </head>
       <body>
-        <RootProvider>{children}</RootProvider>
+        <RootProvider>
+          <UserHydrationProvider SSRUser={user} />
+          <AppShell>
+            <AppShellHeader>
+              <Header SSRUser={user} />
+            </AppShellHeader>
+            <AppShellMain>{children}</AppShellMain>
+            <AppShellFooter></AppShellFooter>
+          </AppShell>
+        </RootProvider>
       </body>
     </html>
   );

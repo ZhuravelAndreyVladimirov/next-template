@@ -30,6 +30,19 @@ export class Auth {
   }
 
   /**
+   * Выход пользователя (logout)
+   * @returns Ответ сервера или ошибка
+   */
+  static async logout(): Promise<void> {
+    try {
+      await API.post("/auth/logout");
+    } catch (error) {
+      // Можно добавить кастомную обработку ошибок
+      throw error;
+    }
+  }
+
+  /**
    * Регистрация пользователя
    * @param payload { email, login, password }
    * @returns Ответ сервера или ошибка

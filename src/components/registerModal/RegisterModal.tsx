@@ -3,6 +3,8 @@ import { Box, Button, PasswordInput, Stack, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { FC } from "react";
 
+import { useUserStore } from "@/store/user";
+
 interface RegisterFormValues {
   confirmPassword: string;
   email: string;
@@ -28,6 +30,8 @@ export const RegisterModal: FC = () => {
     },
   });
 
+  const { setUser } = useUserStore();
+
   const handleSubmit = async (values: RegisterFormValues) => {
     let AuthModule;
     try {
@@ -38,7 +42,9 @@ export const RegisterModal: FC = () => {
     }
 
     try {
-      await AuthModule.Auth.register(values);
+      const res = await AuthModule.Auth.register(values);
+
+      setUser(res.user);
     } catch (loginError) {
       // обработка ошибки логина
       return;
