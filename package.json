@@ -19,6 +19,7 @@
     "@mantine/dropzone": "^8.1.2",
     "@mantine/hooks": "^8.1.2",
     "@tabler/icons-react": "^3.34.0",
+    "axios": "^1.10.0",
     "next": "^15.3.5",
     "qr-border-plugin": "^0.1.1",
     "qr-code-styling": "^1.9.1",

@@ -16,7 +16,7 @@ jobs:
       - name: Starting Node.js ${{matrix.node-version}}
         uses: actions/setup-node@v3
         with:
-          node-versions: ${{matrix.node-version}}
+          node-version: ${{matrix.node-version}}
       - name: enable corepack
         run: corepack enable
       - name: initial modules
