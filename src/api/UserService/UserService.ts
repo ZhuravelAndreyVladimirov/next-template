@@ -14,6 +14,13 @@ export class UserService {
         ? { headers: { Cookie: `token=${options.token}` } }
         : undefined;
       const response = await API.get<{ user: User }>("/user/me", config);
+      if (
+        !response ||
+        !response.data ||
+        typeof response.data.user === "undefined"
+      ) {
+        throw new TypeError("User not found in API response");
+      }
       return response.data;
     } catch (error) {
       // Можно добавить кастомную обработку ошибок
