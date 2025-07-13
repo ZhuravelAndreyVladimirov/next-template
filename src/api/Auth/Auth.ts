@@ -1,6 +1,6 @@
-import { User } from "@/store/user";
+import { API } from "@/api";
 
-import { API } from "../API/API";
+import { User } from "@/store/user";
 
 export interface LoginPayload {
   email: string;
