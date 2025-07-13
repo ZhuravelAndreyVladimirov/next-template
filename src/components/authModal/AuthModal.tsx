@@ -4,18 +4,18 @@ import { useForm } from "@mantine/form";
 import { FC } from "react";
 
 interface AuthFormValues {
-  login: string;
+  email: string;
   password: string;
 }
 
 export const AuthModal: FC = () => {
   const form = useForm<AuthFormValues>({
     initialValues: {
-      login: "",
+      email: "",
       password: "",
     },
     validate: {
-      login: (value) => (value.length >= 3 ? null : "Логин слишком короткий"),
+      email: (value) => (value.length >= 3 ? null : "Логин слишком короткий"),
       password: (value) => (value.length >= 6 ? null : "Минимум 6 символов"),
     },
   });
@@ -46,9 +46,9 @@ export const AuthModal: FC = () => {
     <Box component="form" onSubmit={form.onSubmit(handleSubmit)}>
       <Stack>
         <TextInput
-          label="Логин"
-          placeholder="Введите логин"
-          {...form.getInputProps("login")}
+          label="Email"
+          placeholder="Введите email"
+          {...form.getInputProps("email")}
           required
         />
         <PasswordInput

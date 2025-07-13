@@ -24,7 +24,7 @@ import axios from "axios";
  * }
  */
 export const API: import("axios").AxiosInstance = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL || "/api", // Можно переопределить через .env
+  baseURL: process.env.NEXT_PUBLIC_BASE_URL || "/api", // Можно переопределить через .env
   timeout: 10000, // 10 секунд
   withCredentials: true, // если требуется авторизация через cookie
 });
