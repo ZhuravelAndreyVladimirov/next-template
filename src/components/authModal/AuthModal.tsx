@@ -3,6 +3,8 @@ import { Box, Button, PasswordInput, Stack, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { FC } from "react";
 
+import { useUserStore } from "@/store/user";
+
 interface AuthFormValues {
   email: string;
   password: string;
@@ -20,26 +22,35 @@ export const AuthModal: FC = () => {
     },
   });
 
-  const handleSubmit = async (values: AuthFormValues) => {
-    let AuthModule;
-    try {
-      AuthModule = await import("@/api/Auth/Auth");
-    } catch (importError) {
-      // обработка ошибки импорта
-      return;
-    }
+  const { setUser } = useUserStore();
 
+  const handleSubmit = async (values: AuthFormValues) => {
     try {
-      await AuthModule.Auth.login(values);
+      let AuthModule;
+      try {
+        AuthModule = await import("@/api/Auth/Auth");
+      } catch (importError) {
+        // обработка ошибки импорта
+        return;
+      }
+
+      try {
+        const res = await AuthModule.Auth.login(values);
+        setUser(res.user);
+      } catch (loginError) {
+        // обработка ошибки логина
+        return;
+      }
     } catch (loginError) {
-      // обработка ошибки логина
+      //Обработка ошибки логина
       return;
-    }
-    try {
-      const { closeModal } = await import("@mantine/modals");
-      closeModal("auth-modal");
-    } catch (closeModalError) {
-      // обработка ошибки закрытия модального окна
+    } finally {
+      try {
+        const { closeModal } = await import("@mantine/modals");
+        closeModal("auth-modal");
+      } catch (closeModalError) {
+        // обработка ошибки закрытия модального окна
+      }
     }
   };
   return (

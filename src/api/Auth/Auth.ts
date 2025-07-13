@@ -1,3 +1,5 @@
+import { User } from "@/store/user";
+
 import { API } from "../API/API";
 
 export interface LoginPayload {
@@ -19,7 +21,7 @@ export class Auth {
    */
   static async login(payload: LoginPayload) {
     try {
-      const response = await API.post("/auth/login", payload);
+      const response = await API.post<{ user: User }>("/auth/login", payload);
       return response.data;
     } catch (error) {
       // Можно добавить кастомную обработку ошибок
@@ -34,7 +36,10 @@ export class Auth {
    */
   static async register(payload: RegisterPayload) {
     try {
-      const response = await API.post("/auth/register", payload);
+      const response = await API.post<{ user: User }>(
+        "/auth/register",
+        payload,
+      );
       return response.data;
     } catch (error) {
       // Можно добавить кастомную обработку ошибок
