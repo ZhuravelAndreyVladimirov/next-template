@@ -1,5 +1,5 @@
-import { Box } from "@mantine/core";
+import { MainPage } from "@/screens";
 
 export default function Home() {
-  return <Box>123</Box>;
+  return <MainPage />;
 }

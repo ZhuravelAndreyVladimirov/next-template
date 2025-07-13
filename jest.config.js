@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 /**
  * For a detailed explanation regarding each configuration property, visit:
  * https://jestjs.io/docs/configuration
@@ -13,13 +14,13 @@ const createJestConfig = nextJest({
 
 const config = {
   coverageProvider: "v8",
-  testEnvironment: "jsdom",
-  preset: "ts-jest",
   moduleNameMapper: {
-    "^@/src/(.*)$": "<rootDir>/src/$1",
+    "^@/(.*)$": "<rootDir>/src/$1",
   },
-  testPathIgnorePatterns: ["<rootDir>/.next/", "<rootDir>/node_modules/"],
+  preset: "ts-jest",
   setupFilesAfterEnv: ["<rootDir>/src/setupTests.ts"],
+  testEnvironment: "jsdom",
+  testPathIgnorePatterns: ["<rootDir>/.next/", "<rootDir>/node_modules/"],
 };
 
 module.exports = createJestConfig(config);
