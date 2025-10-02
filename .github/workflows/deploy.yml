@@ -59,8 +59,8 @@ jobs:
           tags: |
             ghcr.io/zhuravelandreyvladimirov/next-template:master
             ghcr.io/zhuravelandreyvladimirov/next-template:${{ github.sha }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          # cache-from: type=gha
+          # cache-to: type=gha,mode=max
 
   deploy:
     name: Deploy to server
