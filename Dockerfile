@@ -7,8 +7,9 @@ COPY . .
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV NODE_ENV=production
 
+# Копируем только нужные файлы для лучшего кэширования
 COPY package.json yarn.lock ./
-RUN corepack enable && yarn install --immutable --production=false
+RUN corepack enable && yarn install --immutable
 
 COPY . .
 RUN yarn build
