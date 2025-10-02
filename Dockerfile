@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY package.json yarn.lock .yarnrc.yml ./
 
-RUN corepack enable && yarn install --immutable
+RUN corepack enable && corepack prepare yarn@4.6.0 --activate && yarn install --immutable
 
 COPY . .
 RUN yarn build
@@ -23,13 +23,20 @@ RUN apt-get update && apt-get install -y \
 
 RUN groupadd -r nextjs && useradd -r -g nextjs nextjs
 
+RUN corepack enable && corepack prepare yarn@4.6.0 --activate
+
+# Создаем директории для кэша Corepack и Yarn, даем права пользователю nextjs
+RUN mkdir -p /home/nextjs/.cache/node/corepack && chown -R nextjs:nextjs /home/nextjs/.cache
+RUN mkdir -p /app/.yarn && chown -R nextjs:nextjs /app
+
 COPY --from=builder --chown=nextjs:nextjs /app/public ./public
 COPY --from=builder --chown=nextjs:nextjs /app/.next ./.next
 COPY --from=builder --chown=nextjs:nextjs /app/node_modules ./node_modules
 COPY --from=builder --chown=nextjs:nextjs /app/package.json ./package.json
+COPY --from=builder --chown=nextjs:nextjs /app/yarn.lock ./yarn.lock
 
 USER nextjs
 
 EXPOSE 3000
 
-CMD ["yarn", "start"]
+CMD ["npm", "start"]
