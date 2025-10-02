@@ -2,11 +2,14 @@ FROM node:22 AS builder
 
 WORKDIR /app
 
-# Копируем файлы зависимостей
-COPY package.json yarn.lock ./
+# 1. Копируем конфигурацию Yarn и зависимости
+COPY package.json yarn.lock .yarnrc.yml ./
+COPY .yarn ./.yarn
+
+# 2. Устанавливаем зависимости (включая sharp)
 RUN corepack enable && yarn install --immutable
 
-# Копируем исходный код и билдим
+# 3. Копируем исходный код и билдим
 COPY . .
 RUN yarn build
 
@@ -18,23 +21,20 @@ ENV NEXT_TELEMETRY_DISABLED=1
 ENV PORT=3000
 ENV HOSTNAME="0.0.0.0"
 
-# Устанавливаем системные зависимости для sharp
+# 4. Устанавливаем системные зависимости для sharp
 RUN apt-get update && apt-get install -y \
-    build-essential \
-    curl \
+    libvips-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# Устанавливаем sharp отдельно (если нужно)
-RUN corepack enable && yarn global add sharp
-
-# Создаем пользователя
+# 5. Создаем пользователя
 RUN groupadd -r nextjs && useradd -r -g nextjs nextjs
 
-# Копируем билд
+# 6. Копируем билд и зависимости
 COPY --from=builder --chown=nextjs:nextjs /app/public ./public
 COPY --from=builder --chown=nextjs:nextjs /app/.next ./.next
 COPY --from=builder --chown=nextjs:nextjs /app/node_modules ./node_modules
 COPY --from=builder --chown=nextjs:nextjs /app/package.json ./package.json
+COPY --from=builder --chown=nextjs:nextjs /app/.yarnrc.yml ./
 
 USER nextjs
 
