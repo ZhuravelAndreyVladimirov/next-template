@@ -9,7 +9,7 @@ export const MainPage = () => {
     <Box p={40}>
       {user && (
         <Box>
-          <Text>{user.email}</Text>
+          <Text>Тестовое сообщение</Text>
         </Box>
       )}
     </Box>
