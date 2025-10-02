@@ -6,29 +6,32 @@ COPY . .
 
 ENV NEXT_TELEMETRY_DISABLED=1
 
-ENV NEXT_PUBLIC_BASE_URL=/api
-ENV BASE_URL=/api
+# Явно указываем production для builder стадии
+ENV NODE_ENV=production
 
-RUN corepack enable
-RUN yarn install --immutable
+# Копируем только нужные файлы для лучшего кэширования
+COPY package.json yarn.lock ./
+RUN corepack enable && yarn install --immutable --production=false
+
+COPY . .
 RUN yarn build
 
 FROM gcr.io/distroless/nodejs22-debian12 AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production
-ENV NEXT_SHARP_PATH=/app/node_modules/sharp
-
 ENV NEXT_TELEMETRY_DISABLED=1
-
-COPY --from=builder /app/public ./public
-
-COPY --from=builder /app/.next/standalone ./
-COPY --from=builder /app/.next/static ./.next/static
-
-EXPOSE 3000
-
 ENV PORT=3000
 ENV HOSTNAME="0.0.0.0"
+
+# Создаем пользователя для безопасности
+RUN chown -R 1000:1000 /app
+USER 1000
+
+COPY --from=builder --chown=1000:1000 /app/public ./public
+COPY --from=builder --chown=1000:1000 /app/.next/standalone ./
+COPY --from=builder --chown=1000:1000 /app/.next/static ./.next/static
+
+EXPOSE 3000
 
 CMD ["./server.js"]
