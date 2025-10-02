@@ -2,15 +2,11 @@ FROM node:22 AS builder
 
 WORKDIR /app
 
-COPY . .
-
-ENV NEXT_TELEMETRY_DISABLED=1
-ENV NODE_ENV=production
-
-# Копируем только нужные файлы для лучшего кэширования
+# Копируем файлы зависимостей
 COPY package.json yarn.lock ./
 RUN corepack enable && yarn install --immutable
 
+# Копируем исходный код и билдим
 COPY . .
 RUN yarn build
 
@@ -22,15 +18,26 @@ ENV NEXT_TELEMETRY_DISABLED=1
 ENV PORT=3000
 ENV HOSTNAME="0.0.0.0"
 
-# Создаем пользователя и меняем права
-RUN groupadd -r nextjs && useradd -r -g nextjs nextjs
-RUN chown -R nextjs:nextjs /app
-USER nextjs
+# Устанавливаем системные зависимости для sharp
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
 
-COPY --from=builder /app/public ./public
-COPY --from=builder /app/.next/standalone ./
-COPY --from=builder /app/.next/static ./.next/static
+# Устанавливаем sharp отдельно (если нужно)
+RUN corepack enable && yarn global add sharp
+
+# Создаем пользователя
+RUN groupadd -r nextjs && useradd -r -g nextjs nextjs
+
+# Копируем билд
+COPY --from=builder --chown=nextjs:nextjs /app/public ./public
+COPY --from=builder --chown=nextjs:nextjs /app/.next ./.next
+COPY --from=builder --chown=nextjs:nextjs /app/node_modules ./node_modules
+COPY --from=builder --chown=nextjs:nextjs /app/package.json ./package.json
+
+USER nextjs
 
 EXPOSE 3000
 
-CMD ["./server.js"]
+CMD ["yarn", "start"]
