@@ -6,6 +6,7 @@ import React from "react";
 import { User, useUserStore } from "@/store/user";
 
 import style from "./Header.module.scss";
+import { ThemeToggle } from "@/components";
 
 export interface HeaderProps {
   SSRUser?: User | null;
@@ -98,6 +99,8 @@ export const Header = ({ SSRUser }: HeaderProps) => {
           </Button>
         )}
       </div>
+
+      <ThemeToggle />
     </Flex>
   );
 };

@@ -23,6 +23,8 @@
         "perfectionist/sort-exports": "off"
       }
     ],
+    "perfectionist/sort-jsx-props": "off",
+    "perfectionist/sort-objects": "off",
     "perfectionist/sort-imports": [
       "warn",
       {
