@@ -1,0 +1,1 @@
+export { UiTypographyStylesProvider } from "./TypographyStylesProvider";

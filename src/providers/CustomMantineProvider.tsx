@@ -9,7 +9,6 @@ import {
 import { ReactNode } from "react";
 
 import { roboto_reg } from "@/assets/font/fonts";
-import { UiText } from "@/ui/UiText/UiText";
 
 import "@mantine/core/styles.css";
 import "@mantine/dropzone/styles.css";
@@ -28,9 +27,7 @@ const theme = createTheme({
 
   colors: {},
 
-  components: {
-    Text: UiText,
-  },
+  components: {},
 
   defaultRadius: rem(5),
   fontSizes: {

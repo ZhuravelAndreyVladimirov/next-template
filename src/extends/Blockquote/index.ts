@@ -1,0 +1,1 @@
+export { UiBlockquote } from "./Blockquote";

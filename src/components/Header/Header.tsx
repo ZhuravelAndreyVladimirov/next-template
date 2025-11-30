@@ -1,4 +1,5 @@
 "use client";
+import { ThemeToggle } from "@/components";
 import { Button, Flex, Group } from "@mantine/core";
 import { useMounted } from "@mantine/hooks";
 import React from "react";
@@ -6,7 +7,6 @@ import React from "react";
 import { User, useUserStore } from "@/store/user";
 
 import style from "./Header.module.scss";
-import { ThemeToggle } from "@/components";
 
 export interface HeaderProps {
   SSRUser?: User | null;
