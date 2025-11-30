@@ -15,7 +15,13 @@ import { SegmentedControl } from "@mantine/core";
 
 const meta: Meta<typeof SegmentedControl> = {
   argTypes: {},
-  args: {},
+  args: {
+    data: [
+      { label: "React", value: "react" },
+      { label: "Angular", value: "angular" },
+      { label: "Vue", value: "vue" },
+    ],
+  },
   component: SegmentedControl,
   parameters: {
     layout: "centered",
@@ -28,5 +34,11 @@ export default meta;
 type Story = StoryObj<typeof SegmentedControl>;
 
 export const Default: Story = {
-  args: {},
+  args: {
+    data: [
+      { label: "React", value: "react" },
+      { label: "Angular", value: "angular" },
+      { label: "Vue", value: "vue" },
+    ],
+  },
 };

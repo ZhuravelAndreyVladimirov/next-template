@@ -15,7 +15,13 @@ import { RingProgress } from "@mantine/core";
 
 const meta: Meta<typeof RingProgress> = {
   argTypes: {},
-  args: {},
+  args: {
+    sections: [
+      { value: 40, color: "blue" },
+      { value: 30, color: "green" },
+      { value: 30, color: "yellow" },
+    ],
+  },
   component: RingProgress,
   parameters: {
     layout: "centered",
@@ -28,5 +34,11 @@ export default meta;
 type Story = StoryObj<typeof RingProgress>;
 
 export const Default: Story = {
-  args: {},
+  args: {
+    sections: [
+      { value: 40, color: "blue" },
+      { value: 30, color: "green" },
+      { value: 30, color: "yellow" },
+    ],
+  },
 };
