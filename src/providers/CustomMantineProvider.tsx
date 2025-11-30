@@ -58,7 +58,6 @@ const theme = createTheme({
     },
   },
   luminanceThreshold: 1,
-
   primaryColor: "dark",
 });
 
@@ -75,7 +74,6 @@ export const CustomMantineProvider = ({
     <MantineProvider
       cssVariablesResolver={resolver}
       defaultColorScheme="light"
-      forceColorScheme="light"
       theme={theme}
       withStaticClasses={false}
     >

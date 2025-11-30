@@ -4,3 +4,4 @@ export * from "./VirtualizedList";
 export * from "./authModal";
 export * from "./registerModal";
 export * from "./Header";
+export * from "./ThemeToggle";

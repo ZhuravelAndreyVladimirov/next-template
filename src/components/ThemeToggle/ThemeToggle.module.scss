@@ -1,0 +1,369 @@
+.sunAppear {
+  animation: sunRiseSmooth 0.3s ease-out forwards;
+  animation-delay: 0.25s;
+  display: inline-block;
+  will-change: transform, opacity;
+  opacity: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.sunDisappear {
+  animation: sunSetSmooth 0.3s ease-out forwards;
+  display: inline-block;
+  will-change: transform, opacity;
+  opacity: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.moonAppear {
+  animation: moonRiseSmooth 0.3s ease-out forwards;
+  animation-delay: 0.25s;
+  display: inline-block;
+  will-change: transform, opacity;
+  opacity: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.moonDisappear {
+  animation: moonSetSmooth 0.3s ease-out forwards;
+  display: inline-block;
+  will-change: transform, opacity;
+  opacity: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.leftSectionContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.rightSectionContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.starsContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.star1,
+.star2,
+.star3 {
+  position: absolute;
+  font-size: 0.6em;
+  animation: starAppear 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+.star1 {
+  top: -15%;
+  left: 5%;
+  animation-delay: 0.3s;
+}
+
+.star2 {
+  top: 50%;
+  left: 15%;
+  animation-delay: 0.4s;
+}
+
+.star3 {
+  top: 100%;
+  left: 25%;
+  animation-delay: 0.5s;
+}
+
+.cloud {
+  position: absolute;
+  top: 50%;
+  right: -5px;
+  transform: translateY(-50%);
+  font-size: 1.5em;
+  animation: cloudAppear 0.5s ease-out forwards;
+  opacity: 0;
+  animation-delay: 0.3s;
+  z-index: 3;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2)) 
+          drop-shadow(0 1px 2px rgba(0, 0, 0, 0.15))
+          brightness(1.05) 
+          contrast(1.05);
+}
+
+@keyframes starAppear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes cloudAppear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.button {
+  --button-bg: var(--mantine-color-blue-1);
+  --button-hover: var(--mantine-color-blue-2);
+  --button-active: var(--mantine-color-blue-2);
+
+  transition: background-color 0.5s ease-in-out;
+  height: 45px;
+  width: 90px;
+  overflow: hidden;
+  position: relative;
+
+  [data-mantine-color-scheme="dark"] & {
+    --button-bg: var(--mantine-color-dark-4);
+
+    @media (hover: hover) {
+      --button-hover: var(--mantine-color-dark-5);
+    }
+
+    @media (hover: none) {
+      &:active {
+        --button-active: var(--mantine-color-dark-5);
+      }
+    }
+  }
+}
+
+.buttonContent {
+  position: absolute;
+  top: 0;
+  left: -25%;
+  width: 80%;
+  height: 100%;
+  border-radius: var(--mantine-radius-lg);
+  will-change: transform;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
+  [data-mantine-color-scheme="light"] & {
+    background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+    box-shadow: 0 2px 12px rgba(255, 216, 155, 0.4);
+  }
+
+  [data-mantine-color-scheme="dark"] & {
+    background: linear-gradient(135deg, #1e293b 0%, #374151 100%);
+    box-shadow: 0 2px 12px rgba(30, 41, 59, 0.6);
+  }
+}
+
+.buttonContentRight {
+  animation: slideToRight 0.5s ease-out forwards;
+}
+
+.buttonContentLeft {
+  animation: slideToLeft 0.5s ease-out forwards;
+}
+
+@keyframes slideToRight {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(90%);
+  }
+}
+
+@keyframes slideToLeft {
+  0% {
+    transform: translateX(90%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Солнце: дугой поднимается снизу-справа */
+@keyframes sunRiseSmooth {
+  0% {
+    transform: translate(15px, 15px) scale(0.8);
+    opacity: 0;
+  }
+  10% {
+    transform: translate(12px, 13px) scale(0.82);
+  }
+  20% {
+    transform: translate(9px, 11px) scale(0.84);
+  }
+  30% {
+    transform: translate(6px, 9px) scale(0.86);
+  }
+  40% {
+    transform: translate(5px, 7px) scale(0.88);
+  }
+  50% {
+    transform: translate(3px, 5px) scale(0.9);
+  }
+  60% {
+    transform: translate(3px, 3px) scale(0.92);
+  }
+  70% {
+    transform: translate(2px, 2px) scale(0.94);
+  }
+  80% {
+    transform: translate(1px, 1px) scale(0.96);
+  }
+  90% {
+    transform: translate(0.5px, 0.5px) scale(0.98);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Солнце: дугой уходит вверх-вправо */
+@keyframes sunSetSmooth {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  10% {
+    transform: translate(3px, -2px) scale(0.98);
+  }
+  20% {
+    transform: translate(6px, -4px) scale(0.96);
+  }
+  30% {
+    transform: translate(8px, -6px) scale(0.94);
+  }
+  40% {
+    transform: translate(9px, -8px) scale(0.92);
+  }
+  50% {
+    transform: translate(10px, -9px) scale(0.9);
+  }
+  60% {
+    transform: translate(11px, -8px) scale(0.88);
+  }
+  70% {
+    transform: translate(12px, -6px) scale(0.86);
+  }
+  80% {
+    transform: translate(13px, -4px) scale(0.84);
+  }
+  90% {
+    transform: translate(14px, -2px) scale(0.82);
+  }
+  99% {
+    transform: translate(15px, 0) scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(15px, 15px) scale(0.8);
+    opacity: 0;
+  }
+}
+
+/* Луна: дугой опускается сверху-слева */
+@keyframes moonRiseSmooth {
+  0% {
+    transform: translate(-15px, -15px) scale(0.8);
+    opacity: 0;
+  }
+  10% {
+    transform: translate(-12px, -13px) scale(0.82);
+  }
+  20% {
+    transform: translate(-9px, -11px) scale(0.84);
+  }
+  30% {
+    transform: translate(-6px, -9px) scale(0.86);
+  }
+  40% {
+    transform: translate(-5px, -7px) scale(0.88);
+  }
+  50% {
+    transform: translate(-4px, -5px) scale(0.9);
+  }
+  60% {
+    transform: translate(-3px, -3px) scale(0.92);
+  }
+  70% {
+    transform: translate(-2px, -2px) scale(0.94);
+  }
+  80% {
+    transform: translate(-1px, -1px) scale(0.96);
+  }
+  90% {
+    transform: translate(-0.5px, -0.5px) scale(0.98);
+  }
+  99% {
+    transform: translate(-0.1px, -0.1px) scale(0.99);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Луна: дугой уходит вниз-влево */
+@keyframes moonSetSmooth {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  10% {
+    transform: translate(-3px, 2px) scale(0.98);
+  }
+  20% {
+    transform: translate(-6px, 4px) scale(0.96);
+  }
+  30% {
+    transform: translate(-8px, 6px) scale(0.94);
+  }
+  40% {
+    transform: translate(-9px, 8px) scale(0.92);
+  }
+  50% {
+    transform: translate(-10px, 9px) scale(0.9);
+  }
+  60% {
+    transform: translate(-11px, 11px) scale(0.88);
+  }
+  70% {
+    transform: translate(-12px, 12px) scale(0.86);
+  }
+  80% {
+    transform: translate(-13px, 13px) scale(0.84);
+  }
+  90% {
+    transform: translate(-14px, 14px) scale(0.82);
+  }
+  99% {
+    transform: translate(-15px, 15px) scale(0.81);
+    opacity: 0.1;
+  }
+  100% {
+    transform: translate(-15px, -15px) scale(0.8);
+    opacity: 0;
+  }
+}
