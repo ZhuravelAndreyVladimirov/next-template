@@ -33,7 +33,7 @@ interface VirtualizedListProps<T> extends React.HTMLAttributes<HTMLDivElement> {
   items: T[];
   onLoadMore: () => void;
   overscan?: number;
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+   
   renderItem: (
     // eslint-disable-next-line no-unused-vars
     item: T,

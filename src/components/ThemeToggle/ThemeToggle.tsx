@@ -6,9 +6,7 @@ import React from "react";
 
 import styles from "./ThemeToggle.module.scss";
 
-export interface ThemeToggleProps {}
-
-export const ThemeToggle = ({}: ThemeToggleProps) => {
+export const ThemeToggle = () => {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   const mounted = useMounted();
 
@@ -70,7 +68,7 @@ export const ThemeToggle = ({}: ThemeToggleProps) => {
             ? isDark
               ? styles.buttonContentRight
               : styles.buttonContentLeft
-            : styles.buttonContentLeft,
+            : styles.buttonContentLeft
         )}
         suppressHydrationWarning
       />

@@ -18,7 +18,7 @@ if (process.env.NODE_ENV !== "production") {
   // Исключение: разрешён импорт из CustomMantineProvider
   const stack = new Error().stack;
   if (!stack?.includes("CustomMantineProvider")) {
-    // eslint-disable-next-line no-console
+     
     console.error(
       '[ARCHITECTURE ERROR] 🚨 Вы импортировали src/extends/Anchor/Anchor.ts напрямую! Используйте только import { Anchor } from "@mantine/core".',
     );

@@ -13,7 +13,9 @@ export class UserService {
       const config = options?.token
         ? { headers: { Cookie: `token=${options.token}` } }
         : undefined;
+
       const response = await API.get<{ user: User }>("/user/me", config);
+
       if (
         !response ||
         !response.data ||
@@ -21,10 +23,18 @@ export class UserService {
       ) {
         throw new TypeError("User not found in API response");
       }
+
       return response.data;
     } catch (error) {
-      // Можно добавить кастомную обработку ошибок
-      throw error;
+      console.error("Ошибка при получении пользователя:", error);
+
+      if (error instanceof TypeError) {
+        throw error;
+      }
+
+      throw new Error(
+        `Ошибка сервиса пользователя: ${error instanceof Error ? error.message : String(error)}`
+      );
     }
   }
 }

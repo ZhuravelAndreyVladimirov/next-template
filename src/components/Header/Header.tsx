@@ -47,7 +47,7 @@ export const Header = ({ SSRUser }: HeaderProps) => {
       await Auth.logout();
       resetUser();
     } catch (error) {
-      //Обработка ошибки события выхода
+      console.warn(error);
     }
   };
 

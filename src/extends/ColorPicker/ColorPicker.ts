@@ -22,9 +22,9 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 export const UiColorPicker = ColorPicker.extend({
-  /* eslint-disable @typescript-eslint/no-unused-vars, no-unused-vars */
+  /* eslint-disable no-unused-vars */
   classNames(_theme, _props) {
     return { preview: styles.root };
   },
-  /* eslint-enable @typescript-eslint/no-unused-vars, no-unused-vars */
+  /* eslint-enable no-unused-vars */
 }) as typeof ColorPicker;

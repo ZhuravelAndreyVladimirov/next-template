@@ -30,7 +30,7 @@ export const AuthModal: FC = () => {
       try {
         AuthModule = await import("@/api/Auth/Auth");
       } catch (importError) {
-        // обработка ошибки импорта
+        console.warn(importError);
         return;
       }
 
@@ -38,18 +38,18 @@ export const AuthModal: FC = () => {
         const res = await AuthModule.Auth.login(values);
         setUser(res.user);
       } catch (loginError) {
-        // обработка ошибки логина
+        console.warn(loginError);
         return;
       }
     } catch (loginError) {
-      //Обработка ошибки логина
+      console.warn(loginError);
       return;
     } finally {
       try {
         const { closeModal } = await import("@mantine/modals");
         closeModal("auth-modal");
       } catch (closeModalError) {
-        // обработка ошибки закрытия модального окна
+        console.warn(closeModalError);
       }
     }
   };

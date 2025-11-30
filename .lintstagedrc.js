@@ -1,5 +1,6 @@
+/* eslint-disable no-undef */
 module.exports = {
-  "**/src/**/*.{scss, css, sass}": (filenames) => {
+  "**/src/**/*.{scss,css,sass}": (filenames) => {
     return [`yarn prettier --write ${filenames.join(" ")}`];
   },
   "**/src/**/*.{ts,tsx,js,jsx}": (filenames) => {
