@@ -1,0 +1,1 @@
+export { UiTabs } from "./Tabs";

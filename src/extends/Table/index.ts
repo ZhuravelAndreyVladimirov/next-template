@@ -1,0 +1,1 @@
+export { UiTable } from "./Table";

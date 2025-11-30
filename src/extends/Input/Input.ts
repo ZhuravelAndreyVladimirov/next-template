@@ -1,0 +1,30 @@
+import { Input } from "@mantine/core";
+
+import styles from "./Input.module.scss";
+
+/**
+ * 🚨 ВАЖНО: Никогда не используйте этот файл напрямую в проекте! 🚨
+ *
+ * Этот файл предназначен исключительно для конфигурации Mantine и демонстрации компонента Input.
+ * Для использования компонента Input в приложении импортируйте его только из библиотеки Mantine:
+ *
+ *   import { Input } from '@mantine/core';
+ *
+ * Не импортируйте ничего из src/extends/Input/Input.ts — это приведёт к ошибкам и нарушению архитектуры.
+ *
+ * Если вы видите это сообщение в консоли — вы импортировали Input напрямую, что ЗАПРЕЩЕНО!
+ */
+if (process.env.NODE_ENV !== "production") {
+  const stack = new Error().stack;
+  if (!stack?.includes("CustomMantineProvider")) {
+    console.error(`[ARCHITECTURE ERROR] 🚨`);
+  }
+}
+
+export const UiInput = Input.extend({
+  /* eslint-disable @typescript-eslint/no-unused-vars, no-unused-vars */
+  classNames(_theme, _props) {
+    return { input: styles.root };
+  },
+  /* eslint-enable @typescript-eslint/no-unused-vars, no-unused-vars */
+}) as typeof Input;

@@ -1,0 +1,1 @@
+export { UiTagsInput } from "./TagsInput";

@@ -1,0 +1,32 @@
+import { ActionIcon } from "@mantine/core";
+
+import styles from "./ActionIcon.module.scss";
+
+/**
+ * 🚨 ВАЖНО: Никогда не используйте этот файл напрямую в проекте! 🚨
+ *
+ * Этот файл предназначен исключительно для конфигурации Mantine и демонстрации компонента ActionIcon.
+ * Для использования компонента ActionIcon в приложении импортируйте его только из библиотеки Mantine:
+ *
+ *   import { ActionIcon } from "@mantine/core";
+ *
+ * Не импортируйте ничего из src/extends/ActionIcon/ActionIcon.ts — это приведёт к ошибкам и нарушению архитектуры.
+ *
+ * Если вы видите это сообщение в консоли — вы импортировали ActionIcon напрямую, что ЗАПРЕЩЕНО!
+ */
+if (process.env.NODE_ENV !== "production") {
+  // Исключение: разрешён импорт из CustomMantineProvider
+  const stack = new Error().stack;
+  if (!stack?.includes("CustomMantineProvider")) {
+    // eslint-disable-next-line no-console
+    console.error(
+      '[ARCHITECTURE ERROR] 🚨 Вы импортировали src/extends/ActionIcon/ActionIcon.ts напрямую! Используйте только import { ActionIcon } from "@mantine/core".',
+    );
+  }
+}
+
+export const UiActionIcon = ActionIcon.extend({
+  classNames() {
+    return { root: styles.root };
+  },
+});

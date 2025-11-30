@@ -1,0 +1,1 @@
+export { UiCard } from "./Card";

@@ -1,0 +1,1 @@
+export { UiPagination } from "./Pagination";
