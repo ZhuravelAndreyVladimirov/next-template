@@ -77,7 +77,8 @@ jobs:
             export REGISTRY_URL="ghcr.io"
             export REGISTRY_USERNAME="${{ github.actor }}"
             export REGISTRY_PASSWORD="${{ secrets.GITHUB_TOKEN }}"
-            IMAGE_NAME="ghcr.io/zhuravelandreyvladimirov/next-template:main"
+            IMAGE_NAME_MAIN="ghcr.io/zhuravelandreyvladimirov/next-template:main"
+            IMAGE_NAME_SHA="ghcr.io/zhuravelandreyvladimirov/next-template:${{ github.sha }}"
             CONTAINER_NAME="next-template"
             
             # Логинимся в GitHub Container Registry
@@ -87,22 +88,49 @@ jobs:
             docker stop $CONTAINER_NAME 2>/dev/null || true
             docker rm $CONTAINER_NAME 2>/dev/null || true
             
-            # Удаляем старый образ для освобождения места (опционально)
-            docker rmi $IMAGE_NAME 2>/dev/null || true
+            # Удаляем старые образы для гарантии обновления
+            docker rmi $IMAGE_NAME_MAIN 2>/dev/null || true
+            docker rmi $IMAGE_NAME_SHA 2>/dev/null || true
             
-            # Получаем новый образ (--no-cache для гарантии обновления)
-            docker pull $IMAGE_NAME
+            # Получаем новый образ по SHA (гарантированно новый)
+            echo "Pulling image with SHA: ${{ github.sha }}"
+            docker pull $IMAGE_NAME_SHA --quiet || true
             
-            # Запускаем новый контейнер
+            # Если образ по SHA не найден, используем main (fallback)
+            if ! docker image inspect $IMAGE_NAME_SHA >/dev/null 2>&1; then
+              echo "SHA image not found, pulling main tag with --pull always..."
+              docker pull $IMAGE_NAME_MAIN --quiet
+              IMAGE_TO_USE=$IMAGE_NAME_MAIN
+            else
+              IMAGE_TO_USE=$IMAGE_NAME_SHA
+              echo "Successfully pulled SHA image"
+            fi
+            
+            # Показываем информацию об образе
+            echo "Image details:"
+            docker image inspect $IMAGE_TO_USE --format '{{.Id}} {{.Created}}' || true
+            
+            echo "Using image: $IMAGE_TO_USE"
+            
+            # Запускаем новый контейнер с принудительным обновлением
             docker run -d \
               --name $CONTAINER_NAME \
               --restart unless-stopped \
               -p 3000:3000 \
               -e NODE_ENV=production \
-              $IMAGE_NAME
+              -e NEXT_PUBLIC_BUILD_ID="${{ github.sha }}" \
+              -e BUILD_VERSION="${{ github.sha }}" \
+              $IMAGE_TO_USE
             
-            # Очищаем неиспользуемые образы
-            docker image prune -f
+            # Ждем немного для запуска контейнера
+            sleep 3
             
             # Проверяем статус контейнера
             docker ps | grep $CONTAINER_NAME || echo "Warning: Container might not be running"
+            
+            # Показываем логи для отладки
+            echo "Container logs (last 20 lines):"
+            docker logs --tail 20 $CONTAINER_NAME 2>&1 || true
+            
+            # Очищаем неиспользуемые образы
+            docker image prune -f
