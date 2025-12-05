@@ -12,7 +12,8 @@
     "prepare": "husky",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "cli": "node node_modules/ks-react-cli-lib"
+    "cli": "node node_modules/ks-react-cli-lib",
+    "analyze:chunks": "node scripts/analyze-chunks.js"
   },
   "dependencies": {
     "@mantine/core": "^8.3.9",
