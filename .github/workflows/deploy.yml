@@ -84,9 +84,29 @@ jobs:
             # Логинимся в GitHub Container Registry
             echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
             
-            # Останавливаем и удаляем старый контейнер (если существует)
+            # Останавливаем и удаляем ВСЕ контейнеры, связанные с проектом
+            echo "Stopping all next-template containers..."
+            # Останавливаем контейнеры по имени
             docker stop $CONTAINER_NAME 2>/dev/null || true
+            docker stop next-template-next-app-1 2>/dev/null || true
+            # Останавливаем все контейнеры, использующие порт 3000
+            docker ps --filter "publish=3000" --format "{{.ID}}" | xargs -r docker stop 2>/dev/null || true
+            # Останавливаем все контейнеры с образом next-template
+            docker ps --filter "ancestor=ghcr.io/zhuravelandreyvladimirov/next-template" --format "{{.ID}}" | xargs -r docker stop 2>/dev/null || true
+            
+            # Удаляем остановленные контейнеры
+            echo "Removing stopped containers..."
             docker rm $CONTAINER_NAME 2>/dev/null || true
+            docker rm next-template-next-app-1 2>/dev/null || true
+            docker ps -a --filter "ancestor=ghcr.io/zhuravelandreyvladimirov/next-template" --format "{{.ID}}" | xargs -r docker rm 2>/dev/null || true
+            
+            # Проверяем, что порт 3000 свободен
+            echo "Checking if port 3000 is free..."
+            if docker ps --filter "publish=3000" --format "{{.ID}}" | grep -q .; then
+              echo "WARNING: Port 3000 is still in use! Force stopping containers..."
+              docker ps --filter "publish=3000" --format "{{.ID}}" | xargs -r docker stop -t 0 2>/dev/null || true
+              sleep 2
+            fi
             
             # Удаляем старые образы для гарантии обновления (включая старый тег master)
             echo "Cleaning up old images..."
@@ -121,7 +141,15 @@ jobs:
             
             echo "Using image: $IMAGE_TO_USE"
             
+            # Проверяем еще раз, что порт свободен перед запуском
+            if docker ps --filter "publish=3000" --format "{{.ID}}" | grep -q .; then
+              echo "ERROR: Port 3000 is still occupied! Cannot start new container."
+              docker ps --filter "publish=3000"
+              exit 1
+            fi
+            
             # Запускаем новый контейнер с принудительным обновлением
+            echo "Starting new container..."
             docker run -d \
               --name $CONTAINER_NAME \
               --restart unless-stopped \
@@ -132,7 +160,14 @@ jobs:
               $IMAGE_TO_USE
             
             # Ждем немного для запуска контейнера
-            sleep 3
+            sleep 5
+            
+            # Проверяем, что контейнер запустился
+            if ! docker ps --filter "name=$CONTAINER_NAME" --format "{{.ID}}" | grep -q .; then
+              echo "ERROR: Container failed to start!"
+              docker ps -a --filter "name=$CONTAINER_NAME"
+              exit 1
+            fi
             
             # Проверяем статус контейнера
             docker ps | grep $CONTAINER_NAME || echo "Warning: Container might not be running"
