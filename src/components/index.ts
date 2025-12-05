@@ -5,3 +5,4 @@ export * from "./authModal";
 export * from "./registerModal";
 export * from "./Header";
 export * from "./ThemeToggle";
+export * from "./FeatureCard";

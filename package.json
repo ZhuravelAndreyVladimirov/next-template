@@ -23,6 +23,7 @@
     "@tabler/icons-react": "^3.34.0",
     "axios": "^1.12.0",
     "next": "16.0.7",
+    "next-intl": "^4.5.8",
     "qr-border-plugin": "^0.1.1",
     "qr-code-styling": "^1.9.1",
     "qrcode": "^1.5.4",
