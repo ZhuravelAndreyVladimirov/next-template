@@ -77,5 +77,32 @@ jobs:
             export REGISTRY_URL="ghcr.io"
             export REGISTRY_USERNAME="${{ github.actor }}"
             export REGISTRY_PASSWORD="${{ secrets.GITHUB_TOKEN }}"
-            cd ~/next-template
-            ./deploy.sh
+            IMAGE_NAME="ghcr.io/zhuravelandreyvladimirov/next-template:main"
+            CONTAINER_NAME="next-template"
+            
+            # Логинимся в GitHub Container Registry
+            echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
+            
+            # Останавливаем и удаляем старый контейнер (если существует)
+            docker stop $CONTAINER_NAME 2>/dev/null || true
+            docker rm $CONTAINER_NAME 2>/dev/null || true
+            
+            # Удаляем старый образ для освобождения места (опционально)
+            docker rmi $IMAGE_NAME 2>/dev/null || true
+            
+            # Получаем новый образ (--no-cache для гарантии обновления)
+            docker pull $IMAGE_NAME
+            
+            # Запускаем новый контейнер
+            docker run -d \
+              --name $CONTAINER_NAME \
+              --restart unless-stopped \
+              -p 3000:3000 \
+              -e NODE_ENV=production \
+              $IMAGE_NAME
+            
+            # Очищаем неиспользуемые образы
+            docker image prune -f
+            
+            # Проверяем статус контейнера
+            docker ps | grep $CONTAINER_NAME || echo "Warning: Container might not be running"
