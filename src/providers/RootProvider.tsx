@@ -1,3 +1,5 @@
+'use client';
+
 import { ModalsProvider } from "@mantine/modals";
 import { ReactNode } from "react";
 

@@ -1,13 +1,6 @@
-import { Header, MountedWrapper } from "@/components";
+import ClientAppShell from "@/components/ClientAppShell";
+import ClientColorScheme from "@/components/ClientColorScheme";
 import { StyleHelper } from "@/helpers";
-import { RootProvider } from "@/providers/RootProvider";
-import {
-  AppShell,
-  AppShellFooter,
-  AppShellHeader,
-  AppShellMain,
-  ColorSchemeScript,
-} from "@mantine/core";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { Metadata } from "next";
@@ -43,7 +36,7 @@ export default async function RootLayout({
   params: Promise<{ locale: string }>;
 }>) {
   const { locale } = await params;
-  
+
   // Ensure that the incoming `locale` is valid
   if (!locales.includes(locale as any)) {
     notFound();
@@ -52,25 +45,15 @@ export default async function RootLayout({
   // Providing all messages to the client
   // side is the easiest way to get started
   const messages = await getMessages({ locale });
-  
+
   return (
     <html className={htmlClasses} lang={locale}>
       <head>
-        <MountedWrapper>
-          <ColorSchemeScript />
-        </MountedWrapper>
+        <ClientColorScheme />
       </head>
       <body>
         <NextIntlClientProvider messages={messages}>
-          <RootProvider>
-            <AppShell>
-              <AppShellHeader>
-                <Header />
-              </AppShellHeader>
-              <AppShellMain>{children}</AppShellMain>
-              <AppShellFooter></AppShellFooter>
-            </AppShell>
-          </RootProvider>
+          <ClientAppShell>{children}</ClientAppShell>
         </NextIntlClientProvider>
       </body>
     </html>
