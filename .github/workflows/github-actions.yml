@@ -1,8 +1,8 @@
-name: GitHub Actions merge master
+name: GitHub Actions merge main
 run-name: ${{ github.actor }} Created a pull request in the main branch
 on:
   # push:
-  #   branches: [master, staging]
+  #   branches: [main, staging]
   pull_request:
     branches: [main, staging]
 jobs:
