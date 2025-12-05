@@ -88,17 +88,26 @@ jobs:
             docker stop $CONTAINER_NAME 2>/dev/null || true
             docker rm $CONTAINER_NAME 2>/dev/null || true
             
-            # Удаляем старые образы для гарантии обновления
+            # Удаляем старые образы для гарантии обновления (включая старый тег master)
+            echo "Cleaning up old images..."
             docker rmi $IMAGE_NAME_MAIN 2>/dev/null || true
             docker rmi $IMAGE_NAME_SHA 2>/dev/null || true
+            docker rmi ghcr.io/zhuravelandreyvladimirov/next-template:master 2>/dev/null || true
             
-            # Получаем новый образ по SHA (гарантированно новый)
+            # Очищаем build cache Docker для гарантии свежего образа
+            docker builder prune -f 2>/dev/null || true
+            
+            # Получаем новый образ по SHA с принудительным обновлением
             echo "Pulling image with SHA: ${{ github.sha }}"
             docker pull $IMAGE_NAME_SHA --quiet || true
             
             # Если образ по SHA не найден, используем main (fallback)
             if ! docker image inspect $IMAGE_NAME_SHA >/dev/null 2>&1; then
-              echo "SHA image not found, pulling main tag with --pull always..."
+              echo "SHA image not found, pulling main tag with force update..."
+              # Принудительно обновляем образ main, игнорируя локальный кэш
+              docker pull $IMAGE_NAME_MAIN --quiet
+              # Удаляем старый образ main и тянем заново для гарантии
+              docker rmi $IMAGE_NAME_MAIN 2>/dev/null || true
               docker pull $IMAGE_NAME_MAIN --quiet
               IMAGE_TO_USE=$IMAGE_NAME_MAIN
             else
@@ -132,5 +141,11 @@ jobs:
             echo "Container logs (last 20 lines):"
             docker logs --tail 20 $CONTAINER_NAME 2>&1 || true
             
-            # Очищаем неиспользуемые образы
-            docker image prune -f
+            # Агрессивная очистка: удаляем все неиспользуемые образы и кэш
+            echo "Cleaning up unused Docker resources..."
+            docker image prune -af --filter "until=24h" 2>/dev/null || docker image prune -af || true
+            docker system prune -f --volumes 2>/dev/null || true
+            
+            # Показываем список оставшихся образов для отладки
+            echo "Remaining images:"
+            docker images | grep next-template || echo "No next-template images found"
