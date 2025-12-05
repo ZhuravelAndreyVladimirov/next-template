@@ -11,7 +11,7 @@ export default [
       "**/.next/**",
       "**/dist/**",
       "**/build/**",
-      "**/*.config.js",
+      "**/*.config.{js,mjs,ts}",
       "**/coverage/**",
       "**/public/**",
     ],
@@ -50,6 +50,14 @@ export default [
       "no-undef": "off",
       ...nextPlugin.configs.recommended.rules,
       ...nextPlugin.configs["core-web-vitals"].rules,
+    },
+  },
+  {
+    files: ["*.config.{js,mjs,ts}", ".*rc.{js,mjs,ts}"],
+    languageOptions: {
+      globals: {
+        process: "readonly",
+      },
     },
   },
 ];
