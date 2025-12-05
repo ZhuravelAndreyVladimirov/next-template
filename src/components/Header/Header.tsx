@@ -1,58 +1,25 @@
 "use client";
 import { ThemeToggle } from "@/components";
-import { Button, Flex, Group } from "@mantine/core";
-import { useMounted } from "@mantine/hooks";
+import { Anchor, Flex, Group, SegmentedControl } from "@mantine/core";
+import { useLocale } from "next-intl";
 import React from "react";
-
-import { User, useUserStore } from "@/store/user";
+import { type Locale } from "@/i18n";
+import { Link, usePathname, useRouter } from "@/navigation";
 
 import style from "./Header.module.scss";
 
-export interface HeaderProps {
-  SSRUser?: User | null;
-}
+export const Header = () => {
+  const locale = useLocale() as Locale;
+  const router = useRouter();
+  const pathname = usePathname();
 
-const handleOpenAuth = async () => {
-  const { openModal } = await import("@mantine/modals");
-  const { AuthModal } = await import("@/components/authModal/AuthModal");
-  openModal({
-    centered: true,
-    children: <AuthModal />,
-    modalId: "auth-modal",
-    withCloseButton: true,
-  });
-};
-
-const handleOpenRegister = async () => {
-  const { openModal } = await import("@mantine/modals");
-  const { RegisterModal } = await import(
-    "@/components/registerModal/RegisterModal"
-  );
-  openModal({
-    centered: true,
-    children: <RegisterModal />,
-    modalId: "register-modal",
-    withCloseButton: true,
-  });
-};
-
-export const Header = ({ SSRUser }: HeaderProps) => {
-  const { resetUser, user } = useUserStore();
-
-  const mounted = useMounted();
-
-  const handleLogout = async () => {
-    try {
-      const { Auth } = await import("@/api");
-      await Auth.logout();
-      resetUser();
-    } catch (error) {
-      console.warn(error);
-    }
+  const handleLocaleChange = (value: string) => {
+    const newLocale = value as Locale;
+    router.replace(pathname, { locale: newLocale });
   };
 
   return (
-    <Flex className={style.root} justify={"space-between"}>
+    <Flex className={style.root} justify={"space-between"} align="center">
       <div className={style.logo}>
         {/* Простой SVG-логотип */}
         <svg
@@ -73,34 +40,35 @@ export const Header = ({ SSRUser }: HeaderProps) => {
         </svg>
         <span className={style.logoText}>MyApp</span>
       </div>
-      <div className={style.actions}>
-        {(!user && mounted) || (!mounted && !SSRUser) ? (
-          <Group gap={8}>
-            <Button
-              color="dark"
-              onClick={handleOpenAuth}
-              size="sm"
-              variant="outline"
-            >
-              Войти
-            </Button>
-            <Button color="dark" onClick={handleOpenRegister} size="sm">
-              Зарегистрироваться
-            </Button>
-          </Group>
-        ) : (
-          <Button
-            color="red"
-            onClick={handleLogout}
-            size="sm"
-            variant="outline"
-          >
-            Выйти
-          </Button>
-        )}
-      </div>
 
-      <ThemeToggle />
+      <Group gap="md">
+        {/* Навигация */}
+        <Group gap="xs">
+          <Link href="/static-test" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <Anchor component="span" size="sm" style={{ cursor: 'pointer' }}>
+              Static Test
+            </Anchor>
+          </Link>
+          <Link href="/dynamic-test" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <Anchor component="span" size="sm" style={{ cursor: 'pointer' }}>
+              Dynamic Test
+            </Anchor>
+          </Link>
+        </Group>
+
+        {/* Переключатель локали */}
+        <SegmentedControl
+          value={locale}
+          onChange={handleLocaleChange}
+          data={[
+            { label: 'RU', value: 'ru' },
+            { label: 'EN', value: 'en' },
+          ]}
+          size="sm"
+        />
+
+        <ThemeToggle />
+      </Group>
     </Flex>
   );
 };

@@ -1,0 +1,235 @@
+{
+  "common": {
+    "welcome": "Welcome",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success"
+  },
+  "meta": {
+    "title": "Template",
+    "description": "Next.js application template. When creating an application, you should first change the meta tags"
+  },
+  "hero": {
+    "title": "Modern Solutions for Your Business",
+    "subtitle": "Creating innovative products using cutting-edge technologies",
+    "cta": "Get Started",
+    "learnMore": "Learn More"
+  },
+  "features": {
+    "title": "Our Features",
+    "subtitle": "Everything you need for a successful project",
+    "feature1": {
+      "title": "Fast Development",
+      "description": "Using modern technologies and best practices to accelerate the development process"
+    },
+    "feature2": {
+      "title": "Scalability",
+      "description": "Architecture that grows with your business and handles any load"
+    },
+    "feature3": {
+      "title": "Security",
+      "description": "Multi-level data protection and compliance with international security standards"
+    },
+    "feature4": {
+      "title": "24/7 Support",
+      "description": "Our team is always ready to help you at any time of day"
+    },
+    "feature5": {
+      "title": "Integrations",
+      "description": "Easy integration with popular services and third-party APIs"
+    },
+    "feature6": {
+      "title": "Analytics",
+      "description": "Detailed analytics and reporting for informed decision-making"
+    }
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "We are a team of professionals",
+    "description": "Over 10 years of experience in web application and mobile solution development. We help companies of all sizes achieve their goals with technology.",
+    "stats": {
+      "projects": "Completed Projects",
+      "clients": "Happy Clients",
+      "experience": "Years of Experience",
+      "team": "Team Members"
+    }
+  },
+  "testimonials": {
+    "title": "Client Testimonials",
+    "subtitle": "What they say about us",
+    "testimonial1": {
+      "text": "Excellent work! A team of professionals who really understand business.",
+      "author": "John Smith",
+      "role": "CEO, TechCorp"
+    },
+    "testimonial2": {
+      "text": "Fast development and quality results. Highly recommended!",
+      "author": "Sarah Johnson",
+      "role": "CTO, Startup Inc"
+    },
+    "testimonial3": {
+      "text": "The best solution for our project. Thanks for the professionalism!",
+      "author": "Michael Brown",
+      "role": "Founder, Innovations Plus"
+    }
+  },
+  "pricing": {
+    "title": "Pricing",
+    "subtitle": "Choose the plan that suits you",
+    "plan1": {
+      "name": "Basic",
+      "price": "$99",
+      "period": "/month",
+      "feature1": "Up to 10 projects",
+      "feature2": "5GB storage",
+      "feature3": "Basic support",
+      "feature4": "Email notifications"
+    },
+    "plan2": {
+      "name": "Professional",
+      "price": "$199",
+      "period": "/month",
+      "feature1": "Up to 50 projects",
+      "feature2": "50GB storage",
+      "feature3": "Priority support",
+      "feature4": "All notifications"
+    },
+    "plan3": {
+      "name": "Enterprise",
+      "price": "$499",
+      "period": "/month",
+      "feature1": "Unlimited projects",
+      "feature2": "500GB storage",
+      "feature3": "Personal manager",
+      "feature4": "Custom integrations"
+    }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Answers to popular questions",
+    "q1": "How do I get started?",
+    "a1": "Simply register on our website and choose a suitable pricing plan. We'll help you set up everything you need.",
+    "q2": "Can I change my plan later?",
+    "a2": "Yes, you can change your pricing plan at any time. Changes will take effect in the next billing cycle.",
+    "q3": "What payment methods do you accept?",
+    "a3": "We accept all major credit cards, bank transfers, and cryptocurrencies.",
+    "q4": "Is there a free trial?",
+    "a4": "Yes, we offer a 14-day free trial period for all new users.",
+    "q5": "How do I get support?",
+    "a5": "You can contact our support team via email, chat, or phone. We're available 24/7.",
+    "q6": "Can I export my data?",
+    "a6": "Yes, you can export all your data at any time in various formats."
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Full range of solutions for your business",
+    "service1": {
+      "title": "Web Development",
+      "description": "Creating modern web applications using the latest technologies"
+    },
+    "service2": {
+      "title": "Mobile Development",
+      "description": "Developing native and cross-platform mobile applications"
+    },
+    "service3": {
+      "title": "UI/UX Design",
+      "description": "Creating intuitive and beautiful interfaces for your products"
+    },
+    "service4": {
+      "title": "Consulting",
+      "description": "Expert consultations on architecture and technologies"
+    },
+    "service5": {
+      "title": "DevOps",
+      "description": "Setting up CI/CD, monitoring and process automation"
+    },
+    "service6": {
+      "title": "Testing",
+      "description": "Comprehensive testing of your applications at all levels"
+    }
+  },
+  "team": {
+    "title": "Our Team",
+    "subtitle": "Meet the professionals",
+    "member1": {
+      "name": "Alexander Ivanov",
+      "role": "Lead Developer",
+      "bio": "15 years of experience in enterprise solutions development"
+    },
+    "member2": {
+      "name": "Elena Smirnova",
+      "role": "UX/UI Designer",
+      "bio": "Created over 100 successful interfaces"
+    },
+    "member3": {
+      "name": "Dmitry Petrov",
+      "role": "DevOps Engineer",
+      "bio": "Expert in cloud technologies and automation"
+    },
+    "member4": {
+      "name": "Olga Kozlova",
+      "role": "Project Manager",
+      "bio": "Successfully managing development teams for over 8 years"
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Latest news and articles",
+    "post1": {
+      "title": "10 Best React Development Practices",
+      "excerpt": "Learn advanced React development methods for creating scalable applications",
+      "date": "January 15, 2024"
+    },
+    "post2": {
+      "title": "How to Optimize Next.js Performance",
+      "excerpt": "Practical tips for improving loading speed and performance of your applications",
+      "date": "January 10, 2024"
+    },
+    "post3": {
+      "title": "TypeScript Introduction for Beginners",
+      "excerpt": "Complete TypeScript guide for those just starting their development journey",
+      "date": "January 5, 2024"
+    }
+  },
+  "timeline": {
+    "title": "Our History",
+    "subtitle": "Important milestones in company development",
+    "event1": {
+      "year": "2014",
+      "title": "Company Founded",
+      "description": "Started with a small team of 3 people"
+    },
+    "event2": {
+      "year": "2016",
+      "title": "First Major Project",
+      "description": "Completed project for Fortune 500 company"
+    },
+    "event3": {
+      "year": "2018",
+      "title": "Team Expansion",
+      "description": "Grew to 50 employees"
+    },
+    "event4": {
+      "year": "2020",
+      "title": "International Recognition",
+      "description": "Received award for best startup of the year"
+    },
+    "event5": {
+      "year": "2024",
+      "title": "New Horizons",
+      "description": "Opened offices in 5 countries"
+    }
+  },
+  "cta": {
+    "title": "Ready to Start?",
+    "subtitle": "Contact us today and get a free consultation",
+    "button": "Contact Us"
+  },
+  "footer": {
+    "links": "Useful Links",
+    "company": "Company",
+    "support": "Support",
+    "legal": "Legal Information",
+    "copyright": "All rights reserved"
+  }
+}
