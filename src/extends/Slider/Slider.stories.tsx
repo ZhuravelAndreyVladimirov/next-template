@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 
-import { Slider } from "@mantine/core";
+import { Slider } from '@mantine/core';
 
 /**
  * ВАЖНО: Никогда не используйте этот файл напрямую в проекте.
@@ -18,10 +18,10 @@ const meta: Meta<typeof Slider> = {
   args: {},
   component: Slider,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-  tags: ["autodocs"],
-  title: "UI Компоненты/Slider",
+  tags: ['autodocs'],
+  title: 'UI Компоненты/Slider',
 };
 
 export default meta;

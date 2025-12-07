@@ -1,13 +1,12 @@
-import { fireEvent, render, screen } from "@testing-library/react";
-import React from "react";
+import { fireEvent, render, screen } from '@testing-library/react';
+import React from 'react';
 
-import { VirtualizedList } from "./VirtualizedList";
+import { VirtualizedList } from './VirtualizedList';
 
-const genItems = (n: number) =>
-  Array.from({ length: n }, (_, i) => ({ id: i, name: `Item ${i}` }));
+const genItems = (n: number) => Array.from({ length: n }, (_, i) => ({ id: i, name: `Item ${i}` }));
 
-describe("VirtualizedList", () => {
-  it("рендерит только видимые элементы + overscan", () => {
+describe('VirtualizedList', () => {
+  it('рендерит только видимые элементы + overscan', () => {
     const items = genItems(100);
     render(
       <VirtualizedList
@@ -24,12 +23,12 @@ describe("VirtualizedList", () => {
     );
     // По умолчанию viewportHeight=800, overscan=2, itemHeight=50
     // (800/50)=16, +2 overscan сверху и снизу = 20
-    const rendered = screen.getAllByTestId("item");
+    const rendered = screen.getAllByTestId('item');
     expect(rendered.length).toBeGreaterThanOrEqual(18); // с запасом
     expect(rendered.length).toBeLessThanOrEqual(22);
   });
 
-  it("корректно позиционирует элементы (top)", () => {
+  it('корректно позиционирует элементы (top)', () => {
     const items = genItems(10);
     render(
       <VirtualizedList
@@ -43,15 +42,15 @@ describe("VirtualizedList", () => {
         )}
       />,
     );
-    const rendered = screen.getAllByTestId("item");
+    const rendered = screen.getAllByTestId('item');
     rendered.forEach((el) => {
-      expect(el.style.position).toBe("absolute");
-      expect(el.style.width).toBe("100%");
-      expect(Number(el.style.top.replace("px", "")) % 40).toBe(0);
+      expect(el.style.position).toBe('absolute');
+      expect(el.style.width).toBe('100%');
+      expect(Number(el.style.top.replace('px', '')) % 40).toBe(0);
     });
   });
 
-  it("вызывает onLoadMore при скролле к концу", () => {
+  it('вызывает onLoadMore при скролле к концу', () => {
     const items = genItems(30);
     const onLoadMore = jest.fn();
     render(
@@ -59,9 +58,7 @@ describe("VirtualizedList", () => {
         itemHeight={50}
         items={items}
         onLoadMore={onLoadMore}
-        renderItem={(item, idx, style) => (
-          <div data-testid="item" key={item.id} style={style} />
-        )}
+        renderItem={(item, idx, style) => <div data-testid="item" key={item.id} style={style} />}
       />,
     );
     // Симулируем скролл к концу
@@ -72,33 +69,26 @@ describe("VirtualizedList", () => {
     }, 0);
   });
 
-  it("рендерит пустой контейнер при пустом списке", () => {
+  it('рендерит пустой контейнер при пустом списке', () => {
     render(
-      <VirtualizedList
-        itemHeight={50}
-        items={[]}
-        onLoadMore={jest.fn()}
-        renderItem={() => null}
-      />,
+      <VirtualizedList itemHeight={50} items={[]} onLoadMore={jest.fn()} renderItem={() => null} />,
     );
-    expect(screen.queryAllByTestId("item").length).toBe(0);
+    expect(screen.queryAllByTestId('item').length).toBe(0);
   });
 
-  it("применяет кастомный className и style", () => {
+  it('применяет кастомный className и style', () => {
     render(
       <VirtualizedList
         className="test-class"
         itemHeight={50}
         items={genItems(5)}
         onLoadMore={jest.fn()}
-        renderItem={(item, idx, style) => (
-          <div data-testid="item" key={item.id} style={style} />
-        )}
-        style={{ background: "red" }}
+        renderItem={(item, idx, style) => <div data-testid="item" key={item.id} style={style} />}
+        style={{ background: 'red' }}
       />,
     );
-    const container = screen.getByTestId("container");
-    expect(container).toHaveClass("test-class");
-    expect(container).toHaveStyle({ background: "red" });
+    const container = screen.getByTestId('container');
+    expect(container).toHaveClass('test-class');
+    expect(container).toHaveStyle({ background: 'red' });
   });
 });

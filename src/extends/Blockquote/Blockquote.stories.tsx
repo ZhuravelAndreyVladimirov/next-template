@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 
-import { Blockquote } from "@mantine/core";
+import { Blockquote } from '@mantine/core';
 
 /**
  * ВАЖНО: Никогда не используйте этот файл напрямую в проекте.
@@ -18,10 +18,10 @@ const meta: Meta<typeof Blockquote> = {
   args: {},
   component: Blockquote,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-  tags: ["autodocs"],
-  title: "UI Компоненты/Blockquote",
+  tags: ['autodocs'],
+  title: 'UI Компоненты/Blockquote',
 };
 
 export default meta;

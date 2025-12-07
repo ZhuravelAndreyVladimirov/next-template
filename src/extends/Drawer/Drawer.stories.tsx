@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 
-import { Drawer } from "@mantine/core";
+import { Drawer } from '@mantine/core';
 
 /**
  * ВАЖНО: Никогда не используйте этот файл напрямую в проекте.
@@ -18,10 +18,10 @@ const meta: Meta<typeof Drawer> = {
   args: {},
   component: Drawer,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-  tags: ["autodocs"],
-  title: "UI Компоненты/Drawer",
+  tags: ['autodocs'],
+  title: 'UI Компоненты/Drawer',
 };
 
 export default meta;

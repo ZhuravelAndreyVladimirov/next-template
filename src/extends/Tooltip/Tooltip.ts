@@ -1,6 +1,6 @@
-import { Tooltip } from "@mantine/core";
+import { Tooltip } from '@mantine/core';
 
-import styles from "./Tooltip.module.scss";
+import styles from './Tooltip.module.scss';
 
 /**
  * 🚨 ВАЖНО: Никогда не используйте этот файл напрямую в проекте! 🚨
@@ -14,9 +14,9 @@ import styles from "./Tooltip.module.scss";
  *
  * Если вы видите это сообщение в консоли — вы импортировали Tooltip напрямую, что ЗАПРЕЩЕНО!
  */
-if (process.env.NODE_ENV !== "production") {
+if (process.env.NODE_ENV !== 'production') {
   const stack = new Error().stack;
-  if (!stack?.includes("CustomMantineProvider")) {
+  if (!stack?.includes('CustomMantineProvider')) {
     console.error(
       `[ARCHITECTURE ERROR] 🚨 Вы импортировали src/extends/Tooltip/Tooltip.ts напрямую! Используйте только import { Tooltip } from "@mantine/core".`,
     );

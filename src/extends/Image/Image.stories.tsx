@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 
-import { Image } from "@mantine/core";
+import { Image } from '@mantine/core';
 
 /**
  * ВАЖНО: Никогда не используйте этот файл напрямую в проекте.
@@ -18,10 +18,10 @@ const meta: Meta<typeof Image> = {
   args: {},
   component: Image,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-  tags: ["autodocs"],
-  title: "UI Компоненты/Image",
+  tags: ['autodocs'],
+  title: 'UI Компоненты/Image',
 };
 
 export default meta;

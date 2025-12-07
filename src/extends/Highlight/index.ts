@@ -1,1 +1,1 @@
-export { UiHighlight } from "./Highlight";
+export { UiHighlight } from './Highlight';

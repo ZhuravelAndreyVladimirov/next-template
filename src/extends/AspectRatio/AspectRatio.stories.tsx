@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 
-import { AspectRatio } from "@mantine/core";
+import { AspectRatio } from '@mantine/core';
 
 /**
  * ВАЖНО: Никогда не используйте этот файл напрямую в проекте.
@@ -18,10 +18,10 @@ const meta: Meta<typeof AspectRatio> = {
   args: {},
   component: AspectRatio,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-  tags: ["autodocs"],
-  title: "UI Компоненты/AspectRatio",
+  tags: ['autodocs'],
+  title: 'UI Компоненты/AspectRatio',
 };
 
 export default meta;

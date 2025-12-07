@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Next Template – Modern Next.js starter</title>
+  <desc id="desc">Open Graph cover for Next Template</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b7285" />
+      <stop offset="100%" stop-color="#12b886" />
+    </linearGradient>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#e7f5ff" stop-opacity="0.55" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.12" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="260" cy="180" r="120" fill="#ffcb05" opacity="0.14" />
+  <rect x="420" y="90" width="560" height="360" rx="60" fill="url(#glow)" opacity="0.5" />
+  <rect x="150" y="180" width="220" height="220" rx="48" fill="#e7f5ff" />
+  <rect x="190" y="220" width="140" height="140" rx="32" fill="#0b7285" opacity="0.9" />
+  <rect x="210" y="240" width="100" height="100" rx="26" fill="#e7f5ff" />
+  <path d="M230 320v-80h24l22 30 22-30h24v80h-24v-44l-22 30-22-30v44z" fill="#0b7285" />
+  <circle cx="300" cy="210" r="10" fill="#ffcb05" />
+  <text x="520" y="280" fill="#0b1824" font-family="Inter, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="64" font-weight="800" letter-spacing="1px">Next Template</text>
+  <text x="520" y="340" fill="#0b1824" font-family="Inter, 'Segoe UI', system-ui, -apple-system, sans-serif" font-size="30" font-weight="500" opacity="0.9">
+    Next.js · Mantine · i18n · Ready for PWA
+  </text>
+</svg>

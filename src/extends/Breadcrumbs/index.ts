@@ -1,1 +1,1 @@
-export { UiBreadcrumbs } from "./Breadcrumbs";
+export { UiBreadcrumbs } from './Breadcrumbs';

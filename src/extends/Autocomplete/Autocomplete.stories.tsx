@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 
-import { Autocomplete } from "@mantine/core";
+import { Autocomplete } from '@mantine/core';
 
 /**
  * ВАЖНО: Никогда не используйте этот файл напрямую в проекте.
@@ -18,10 +18,10 @@ const meta: Meta<typeof Autocomplete> = {
   args: {},
   component: Autocomplete,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-  tags: ["autodocs"],
-  title: "UI Компоненты/Autocomplete",
+  tags: ['autodocs'],
+  title: 'UI Компоненты/Autocomplete',
 };
 
 export default meta;

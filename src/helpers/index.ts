@@ -1,1 +1,1 @@
-export * from "./StyleHelper/StyleHelper";
+export * from './StyleHelper/StyleHelper';

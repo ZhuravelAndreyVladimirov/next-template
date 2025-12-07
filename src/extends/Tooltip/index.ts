@@ -1,1 +1,1 @@
-export { UiTooltip } from "./Tooltip";
+export { UiTooltip } from './Tooltip';

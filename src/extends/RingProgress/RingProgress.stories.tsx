@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 
-import { RingProgress } from "@mantine/core";
+import { RingProgress } from '@mantine/core';
 
 /**
  * ВАЖНО: Никогда не используйте этот файл напрямую в проекте.
@@ -17,17 +17,17 @@ const meta: Meta<typeof RingProgress> = {
   argTypes: {},
   args: {
     sections: [
-      { value: 40, color: "blue" },
-      { value: 30, color: "green" },
-      { value: 30, color: "yellow" },
+      { value: 40, color: 'blue' },
+      { value: 30, color: 'green' },
+      { value: 30, color: 'yellow' },
     ],
   },
   component: RingProgress,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-  tags: ["autodocs"],
-  title: "UI Компоненты/RingProgress",
+  tags: ['autodocs'],
+  title: 'UI Компоненты/RingProgress',
 };
 
 export default meta;
@@ -36,9 +36,9 @@ type Story = StoryObj<typeof RingProgress>;
 export const Default: Story = {
   args: {
     sections: [
-      { value: 40, color: "blue" },
-      { value: 30, color: "green" },
-      { value: 30, color: "yellow" },
+      { value: 40, color: 'blue' },
+      { value: 30, color: 'green' },
+      { value: 30, color: 'yellow' },
     ],
   },
 };

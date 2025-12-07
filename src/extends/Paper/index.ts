@@ -1,1 +1,1 @@
-export { UiPaper } from "./Paper";
+export { UiPaper } from './Paper';

@@ -1,1 +1,1 @@
-export { UiAspectRatio } from "./AspectRatio";
+export { UiAspectRatio } from './AspectRatio';

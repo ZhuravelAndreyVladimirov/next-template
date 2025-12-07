@@ -1,1 +1,1 @@
-export { UiBlockquote } from "./Blockquote";
+export { UiBlockquote } from './Blockquote';

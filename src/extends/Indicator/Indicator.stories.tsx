@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 
-import { Indicator } from "@mantine/core";
+import { Indicator } from '@mantine/core';
 
 /**
  * ВАЖНО: Никогда не используйте этот файл напрямую в проекте.
@@ -18,10 +18,10 @@ const meta: Meta<typeof Indicator> = {
   args: {},
   component: Indicator,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-  tags: ["autodocs"],
-  title: "UI Компоненты/Indicator",
+  tags: ['autodocs'],
+  title: 'UI Компоненты/Indicator',
 };
 
 export default meta;

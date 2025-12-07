@@ -1,1 +1,1 @@
-export { UiSelect } from "./Select";
+export { UiSelect } from './Select';

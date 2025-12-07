@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 
-import { ColorPicker } from "@mantine/core";
+import { ColorPicker } from '@mantine/core';
 
 /**
  * ВАЖНО: Никогда не используйте этот файл напрямую в проекте.
@@ -18,10 +18,10 @@ const meta: Meta<typeof ColorPicker> = {
   args: {},
   component: ColorPicker,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-  tags: ["autodocs"],
-  title: "UI Компоненты/ColorPicker",
+  tags: ['autodocs'],
+  title: 'UI Компоненты/ColorPicker',
 };
 
 export default meta;

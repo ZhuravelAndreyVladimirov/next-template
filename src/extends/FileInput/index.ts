@@ -1,1 +1,1 @@
-export { UiFileInput } from "./FileInput";
+export { UiFileInput } from './FileInput';

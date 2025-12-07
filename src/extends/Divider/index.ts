@@ -1,1 +1,1 @@
-export { UiDivider } from "./Divider";
+export { UiDivider } from './Divider';

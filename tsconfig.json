@@ -1,13 +1,7 @@
 {
   "compilerOptions": {
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "target": "ES6",
-    "allowJs": true,
-    "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
@@ -18,8 +12,6 @@
     "jsx": "react-jsx",
     "incremental": true,
     "declaration": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
     "noEmitHelpers": false,
     "plugins": [
       {
@@ -27,16 +19,13 @@
       }
     ],
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
-    }
+      "@/*": ["./src/*"]
+    },
+    "allowJs": true,
+    "skipLibCheck": true
   },
   "typedocOptions": {
-    "entryPoints": [
-      "src/helpers/**/*.{ts,tsx}",
-      "./mantine.d.ts"
-    ],
+    "entryPoints": ["src/helpers/**/*.{ts,tsx}", "./mantine.d.ts"],
     "out": "docs/info/" // <--- output directory
   },
   "include": [
@@ -47,7 +36,5 @@
     "jest.config.js",
     ".next/dev/types/**/*.ts"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }

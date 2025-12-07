@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-labelledby="title desc">
+  <title id="title">Next Template Logo</title>
+  <desc id="desc">Geometric monogram with layered squares</desc>
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b7285" />
+      <stop offset="100%" stop-color="#15aabf" />
+    </linearGradient>
+  </defs>
+  <rect width="160" height="160" rx="28" fill="url(#grad)" />
+  <rect x="26" y="26" width="108" height="108" rx="20" fill="#e7f5ff" />
+  <path d="M52 108V52h18l16 22 16-22h18v56h-18V84l-16 22-16-22v24H52z" fill="#0b7285" />
+  <circle cx="120" cy="44" r="10" fill="#ffcb05" />
+</svg>

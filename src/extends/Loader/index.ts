@@ -1,1 +1,1 @@
-export { UiLoader } from "./Loader";
+export { UiLoader } from './Loader';

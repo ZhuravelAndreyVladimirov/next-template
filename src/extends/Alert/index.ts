@@ -1,1 +1,1 @@
-export { UiAlert } from "./Alert";
+export { UiAlert } from './Alert';

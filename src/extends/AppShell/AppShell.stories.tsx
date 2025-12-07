@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 
-import { AppShell } from "@mantine/core";
+import { AppShell } from '@mantine/core';
 
 /**
  * ВАЖНО: Никогда не используйте этот файл напрямую в проекте.
@@ -18,10 +18,10 @@ const meta: Meta<typeof AppShell> = {
   args: {},
   component: AppShell,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-  tags: ["autodocs"],
-  title: "UI Компоненты/AppShell",
+  tags: ['autodocs'],
+  title: 'UI Компоненты/AppShell',
 };
 
 export default meta;

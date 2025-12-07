@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 
-import { NativeSelect } from "@mantine/core";
+import { NativeSelect } from '@mantine/core';
 
 /**
  * ВАЖНО: Никогда не используйте этот файл напрямую в проекте.
@@ -18,10 +18,10 @@ const meta: Meta<typeof NativeSelect> = {
   args: {},
   component: NativeSelect,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-  tags: ["autodocs"],
-  title: "UI Компоненты/NativeSelect",
+  tags: ['autodocs'],
+  title: 'UI Компоненты/NativeSelect',
 };
 
 export default meta;

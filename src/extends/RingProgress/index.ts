@@ -1,1 +1,1 @@
-export { UiRingProgress } from "./RingProgress";
+export { UiRingProgress } from './RingProgress';

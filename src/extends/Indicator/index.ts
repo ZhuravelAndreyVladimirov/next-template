@@ -1,1 +1,1 @@
-export { UiIndicator } from "./Indicator";
+export { UiIndicator } from './Indicator';

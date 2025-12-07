@@ -1,1 +1,1 @@
-export { UiAppShell } from "./AppShell";
+export { UiAppShell } from './AppShell';

@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 
-import { Textarea } from "@mantine/core";
+import { Textarea } from '@mantine/core';
 
 /**
  * ВАЖНО: Никогда не используйте этот файл напрямую в проекте.
@@ -18,10 +18,10 @@ const meta: Meta<typeof Textarea> = {
   args: {},
   component: Textarea,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-  tags: ["autodocs"],
-  title: "UI Компоненты/Textarea",
+  tags: ['autodocs'],
+  title: 'UI Компоненты/Textarea',
 };
 
 export default meta;

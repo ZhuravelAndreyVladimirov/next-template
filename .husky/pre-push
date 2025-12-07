@@ -1,1 +1,13 @@
-npx jest
+#!/usr/bin/env sh
+set -e
+
+. "$(dirname -- "$0")/_/husky.sh"
+
+yarn lint
+yarn typecheck
+
+if git rev-parse --verify origin/main >/dev/null 2>&1; then
+  yarn test --passWithNoTests --changedSince=origin/main
+else
+  yarn test --passWithNoTests
+fi

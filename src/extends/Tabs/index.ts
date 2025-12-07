@@ -1,1 +1,1 @@
-export { UiTabs } from "./Tabs";
+export { UiTabs } from './Tabs';

@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 
-import { FileInput } from "@mantine/core";
+import { FileInput } from '@mantine/core';
 
 /**
  * ВАЖНО: Никогда не используйте этот файл напрямую в проекте.
@@ -18,10 +18,10 @@ const meta: Meta<typeof FileInput> = {
   args: {},
   component: FileInput,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-  tags: ["autodocs"],
-  title: "UI Компоненты/FileInput",
+  tags: ['autodocs'],
+  title: 'UI Компоненты/FileInput',
 };
 
 export default meta;

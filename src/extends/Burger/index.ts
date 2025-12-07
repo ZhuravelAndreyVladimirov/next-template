@@ -1,1 +1,1 @@
-export { UiBurger } from "./Burger";
+export { UiBurger } from './Burger';

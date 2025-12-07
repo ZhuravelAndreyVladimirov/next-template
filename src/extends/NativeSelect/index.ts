@@ -1,1 +1,1 @@
-export { UiNativeSelect } from "./NativeSelect";
+export { UiNativeSelect } from './NativeSelect';

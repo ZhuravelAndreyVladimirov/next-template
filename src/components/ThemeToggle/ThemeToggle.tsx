@@ -1,16 +1,16 @@
-"use client";
-import { StyleHelper } from "@/helpers";
-import { Button, useMantineColorScheme } from "@mantine/core";
-import { useMounted } from "@mantine/hooks";
-import React from "react";
+'use client';
+import { StyleHelper } from '@/helpers';
+import { Button, useMantineColorScheme } from '@mantine/core';
+import { useMounted } from '@mantine/hooks';
+import React from 'react';
 
-import styles from "./ThemeToggle.module.scss";
+import styles from './ThemeToggle.module.scss';
 
 export const ThemeToggle = () => {
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   const mounted = useMounted();
 
-  const isDark = colorScheme === "dark";
+  const isDark = colorScheme === 'dark';
 
   return (
     <Button
@@ -22,11 +22,7 @@ export const ThemeToggle = () => {
         <div className={styles.leftSectionContainer}>
           <span
             className={
-              mounted
-                ? isDark
-                  ? styles.sunDisappear
-                  : styles.sunAppear
-                : styles.sunAppear
+              mounted ? (isDark ? styles.sunDisappear : styles.sunAppear) : styles.sunAppear
             }
             suppressHydrationWarning
           >
@@ -46,11 +42,7 @@ export const ThemeToggle = () => {
         <div className={styles.rightSectionContainer}>
           <span
             className={
-              mounted
-                ? isDark
-                  ? styles.moonAppear
-                  : styles.moonDisappear
-                : styles.moonDisappear
+              mounted ? (isDark ? styles.moonAppear : styles.moonDisappear) : styles.moonDisappear
             }
             suppressHydrationWarning
           >
@@ -68,7 +60,7 @@ export const ThemeToggle = () => {
             ? isDark
               ? styles.buttonContentRight
               : styles.buttonContentLeft
-            : styles.buttonContentLeft
+            : styles.buttonContentLeft,
         )}
         suppressHydrationWarning
       />
