@@ -1,5 +1,5 @@
-import ClientAppShell from "@/components/ClientAppShell";
-import ClientColorScheme from "@/components/ClientColorScheme";
+import { ClientAppShell } from "@/components";
+import { ClientColorScheme } from "@/components";
 import { StyleHelper } from "@/helpers";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";

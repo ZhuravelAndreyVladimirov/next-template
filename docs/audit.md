@@ -2,9 +2,6 @@
 
 ## P1 — важные
 
-- Docker: второй этап запускает `npm start`, хотя проект на Yarn; не используется standalone-выход; в образ копируются `node_modules`.
-- Безопасность/кэш: глобальный `Cache-Control: public, max-age=31536000, immutable` на `/:path*` кэширует HTML; в `next.config.mjs` остались `console.log`.
-- i18n типизация: `params` в `RootLayout` типизирован как `Promise`, не соответствует Next 16.
 - SEO/a11y: нет базовых мета/OG/robots; `LoadTestPage` перегружен контентом и логами.
 - DX: нет явного Prettier-конфига; в `tsconfig` лишние `allowJs`, `emitDecoratorMetadata`, `experimentalDecorators`, `skipLibCheck: true` скрывает проблемы типов.
 

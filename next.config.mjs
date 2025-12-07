@@ -31,12 +31,7 @@ const nextConfig = {
   // 3. WEBPACK КОНФИГ ДЛЯ ЧАНКОВ
   webpack: (config, { isServer, dev, buildId }) => {
     // Только для клиентской PRODUCTION сборки
-    console.log('isServer', isServer);
-    console.log('dev', dev);
-    console.log('buildId', buildId);
     if (!isServer && !dev) {
-      console.log(`🔧 Оптимизация чанков для сборки ${buildId}`);
-
       // Очищаем дефолтные настройки
       config.optimization.splitChunks = {
         chunks: "all",
@@ -137,6 +132,15 @@ const nextConfig = {
         ],
       },
       {
+        source: "/_next/static/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      {
         source: "/:path*",
         headers: [
           {
@@ -157,7 +161,7 @@ const nextConfig = {
           },
           {
             key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
+            value: "no-store, no-cache, must-revalidate",
           },
         ],
       },

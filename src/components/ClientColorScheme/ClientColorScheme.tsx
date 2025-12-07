@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
 import { ColorSchemeScript } from "@mantine/core";
 
-export default function ClientColorScheme() {
+export const ClientColorScheme = () => {
   return <ColorSchemeScript />;
-}
+};
