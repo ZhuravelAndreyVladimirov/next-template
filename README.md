@@ -3,6 +3,7 @@
 Готовый шаблон на Next.js 16 + React 19 c Mantine UI, next-intl, Yarn 4 (PnP) и настроенными линтерами/форматированием, Storybook и Docker.
 
 ## Стек
+
 - Next.js 16 (Turbopack в dev, standalone build)
 - React 19, TypeScript 5.6
 - Mantine 8, next-intl
@@ -11,10 +12,12 @@
 - Dockerfile для прод-образа, GitHub Actions для CI/CD и публикации в GHCR
 
 ## Требования
+
 - Node 22.x (как в CI), Corepack включен
 - Yarn 4 (pnp)
 
 ## Быстрый старт
+
 ```bash
 corepack enable
 yarn install --immutable
@@ -23,9 +26,12 @@ yarn dev                     # http://localhost:3000
 ```
 
 ## Переменные окружения
+
 | Ключ | Где используется | Назначение / значения по умолчанию |
 | --- | --- | --- |
 | `NEXT_PUBLIC_BASE_URL` | `src/api/API/API.ts` | Базовый URL для запросов. По умолчанию `"/api"`. |
+| `NEXT_PUBLIC_SITE_URL` | `src/app/robots.ts`, `src/app/sitemap.ts` | Базовый URL сайта для генерации `robots.txt`/`sitemap.xml`. |
+| `SITEMAP_ENDPOINT` | `src/app/sitemap.ts` | Опциональный эндпоинт, который отдаёт динамические ссылки для sitemap (`${SITE_URL}/api/sitemap` по умолчанию). |
 | `ANALYZE` | `next.config.mjs` | `true` — включает `@next/bundle-analyzer` при сборке. |
 | `NODE_ENV` | `next.config.mjs`, Docker run | `production` убирает консольные логи (кроме warn/error). |
 | `APP_ENV` | `sentry.*.config.ts`, `/api/health` | Человекочитаемое имя окружения (dev/stage/prod). |
@@ -44,34 +50,44 @@ yarn dev                     # http://localhost:3000
 > Добавляйте кастомные публичные переменные только с префиксом `NEXT_PUBLIC_`, чтобы Next.js мог их отдать на клиент.
 
 ## Скрипты
-- `yarn dev` — dev-сервер (Turbopack).
+
+- `yarn dev` — dev-сервер (Turbopack, fallback на webpack при ошибке).
 - `yarn build` / `yarn start` — сборка и запуск прод-стэндалон-сервера.
 - `yarn lint` — ESLint.
+- `yarn lint:fix` — ESLint с автоисправлением.
+- `yarn format` — форматирование Prettier.
 - `yarn format:check` — проверка Prettier.
 - `yarn typecheck` — строгая проверка типов.
 - `yarn test` — Jest.
+- `yarn test:watch` — Jest в watch-режиме.
+- `yarn test:coverage` — покрытие тестами.
 - `yarn storybook` / `yarn build-storybook` — Storybook в dev/production.
 - `yarn cli` — Быстрое создание компонентов по шаблону.
 
 ## Структура
+
 - `src/app` — роутинг Next.js с локалями (`[locale]`).
-- `src/components` — UI-компоненты 
+- `src/components` — UI-компоненты
 - `src/extends` — Mantine-расширения.
 - `src/api` — конфигурация Axios (`API`).
 - `src/i18n.ts` — next-intl.
 - `docs/` — аудит, шаблоны PR.
 
-## Наблюдаемость
+## Наблюдаемость и SEO
+
 - Error Boundary для всех `[locale]` роутов (`src/app/[locale]/error.tsx`) перехватывает ошибки, показывает понятный fallback и шлёт исключение в Sentry (если указан DSN). Кнопка retry вызывает `reset()` Next.js, ссылка ведёт на корневой путь выбранной локали.
 - Клиентская телеметрия (`ClientAnalytics`) монтируется в layout и отправляет событие `page.view` в Sentry на каждую навигацию; в dev дублирует в консоль. Без DSN код остаётся но ничего не отправляет.
 - Health-check: `GET /api/health` отдаёт `status`, `timestamp`, `uptime`, `APP_ENV`/`NODE_ENV`, `NEXT_PUBLIC_BUILD_ID` и `BUILD_VERSION` (если заданы) — удобно для readiness/liveness.
 - Все переменные Sentry необязательны: оставьте пустыми, если трекинг не нужен; сэмплирование трассировок и replay по умолчанию `0`.
+- SEO: `robots.txt` и `sitemap.xml` генерируются на build/старт. Для динамических страниц можно вернуть массив ссылок из API (`SITEMAP_ENDPOINT`, по умолчанию `/api/sitemap`), а базовый домен берётся из `NEXT_PUBLIC_SITE_URL`.
 
 ## CI/CD
+
 - `.github/workflows/deploy.yml`: линт, формат, typecheck, build, тесты; сборка Docker-образа и публикация в GHCR, далее деплой по SSH на прод.
 - Образы тегируются `main` и `github.sha`; в рантайм передаются `NEXT_PUBLIC_BUILD_ID` и `BUILD_VERSION`.
 
 ### GitHub Actions: secrets и vars
+
 - Secrets (обязательные): `SERVER_HOST`, `SERVER_USERNAME`, `SERVER_SSH_KEY`, `GITHUB_TOKEN` (выдаётся GitHub автоматически для pipeline), опционально свой токен для GHCR.
 - Repository/Environment Vars (не чувствительные, можно задать в Actions > Variables):
   - `REGISTRY_URL` — по умолчанию `ghcr.io`, задайте если используете другой реестр.
@@ -80,10 +96,12 @@ yarn dev                     # http://localhost:3000
 Если не задавать Vars, используются значения из workflow/скрипта.
 
 ## Форматирование и качество
+
 - Husky + lint-staged форматируют/линтят изменённые файлы перед коммитом.
 - Рекомендуемые команды перед PR: `yarn format:check`, `yarn lint`, `yarn typecheck`, `yarn test`.
 
 ## Docker
+
 ```bash
 docker build -t next-template .
 docker run -p 3000:3000 \
@@ -93,4 +111,5 @@ docker run -p 3000:3000 \
 ```
 
 ## i18n
+
 Локали подключены через `next-intl` (см. `src/i18n.ts`), URL содержит `[locale]`.

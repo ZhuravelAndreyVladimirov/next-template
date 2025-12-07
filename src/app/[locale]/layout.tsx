@@ -42,7 +42,11 @@ export default async function RootLayout({
   const messages = await getMessages({ locale });
 
   return (
-    <html className={htmlClasses} lang={locale}>
+    <html
+      className={htmlClasses}
+      data-mantine-color-scheme="light"
+      lang={locale}
+    >
       <head>
         <ClientColorScheme />
       </head>
