@@ -238,5 +238,109 @@
     "support": "Support",
     "legal": "Legal Information",
     "copyright": "All rights reserved"
+  },
+  "preview": {
+    "hero": {
+      "badge": "Next.js 16 + React 19",
+      "title": "Ready-to-use Next.js starter",
+      "subtitle": "Mantine UI, next-intl, ESLint/Prettier, Storybook, Docker, and CI/CD are preconfigured. Follow the README checklist and ship without setup overhead."
+    },
+    "stack": {
+      "title": "What’s inside",
+      "items": {
+        "core": {
+          "title": "Next.js 16 and React 19",
+          "description": "Turbopack in dev, standalone build for prod, TypeScript 5.6, robots.txt and sitemap pages are ready."
+        },
+        "ui": {
+          "title": "UI and localization",
+          "description": "Mantine 8 with AppShell, color scheme toggle, and next-intl locales (ru/en)."
+        },
+        "state": {
+          "title": "State and API",
+          "description": "Zustand store plus a typed Axios API configuration."
+        },
+        "sentry": {
+          "title": "Observability",
+          "description": "Sentry configs for client, server, and edge + ClientAnalytics for page views."
+        },
+        "storybook": {
+          "title": "Storybook and tests",
+          "description": "Storybook 10, component examples, and ready-to-use Jest/Testing Library setup."
+        }
+      }
+    },
+    "quality": {
+      "title": "Quality and DX",
+      "items": {
+        "lint": {
+          "title": "Code style defaults",
+          "description": "ESLint 9 + Prettier (css-order), Husky and lint-staged before each commit."
+        },
+        "tests": {
+          "title": "Testing",
+          "description": "Jest + Testing Library, coverage, playwright/vitest for Storybook."
+        },
+        "cli": {
+          "title": "Automation",
+          "description": "CLI `yarn cli` to scaffold components from a template."
+        }
+      }
+    },
+    "scripts": {
+      "title": "Project scripts",
+      "subtitle": "Common flows from the README",
+      "dev": "Runs the dev server on Turbopack with webpack fallback.",
+      "build": "Builds the app and starts a standalone production server.",
+      "lint": "ESLint checks and autofix via lint:fix.",
+      "format": "Prettier format and format:check.",
+      "typecheck": "Strict type checking with tsc --noEmit.",
+      "test": "Jest: standard, watch, and coverage modes.",
+      "storybook": "Storybook dev and production build.",
+      "analyze": "Analyze client bundles (analyze:chunks)."
+    },
+    "ops": {
+      "title": "CI/CD and infrastructure",
+      "items": {
+        "github": {
+          "title": "GitHub Actions",
+          "description": "Lint, format, typecheck, tests, build, Docker image to GHCR, and SSH deploy."
+        },
+        "docker": {
+          "title": "Docker",
+          "description": "Ready Dockerfile: NODE_ENV=production, BASE_URL, BUILD_ID, and version envs."
+        },
+        "env": {
+          "title": "Environment",
+          "description": "NEXT_PUBLIC_SITE_URL, SENTRY_DSN, BUILD_VERSION, APP_ENV, and more for SEO and monitoring."
+        }
+      }
+    },
+    "observability": {
+      "title": "Observability and SEO",
+      "items": {
+        "health": {
+          "title": "Health-check",
+          "description": "GET /api/health returns status, timestamp, uptime, APP_ENV, and BUILD_VERSION."
+        },
+        "seo": {
+          "title": "SEO ready",
+          "description": "Generated robots.txt and sitemap.xml with optional dynamic SITEMAP_ENDPOINT."
+        },
+        "errors": {
+          "title": "Error handling",
+          "description": "Error Boundary for localized routes, retry button, and Sentry reporting."
+        }
+      }
+    },
+    "quickstart": {
+      "title": "Getting started",
+      "steps": {
+        "corepack": "corepack enable",
+        "install": "yarn install --immutable",
+        "env": "cp .env.example .env.local and fill variables",
+        "dev": "yarn dev — http://localhost:3000"
+      }
+    }
   }
 }

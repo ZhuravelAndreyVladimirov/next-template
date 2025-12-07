@@ -2,7 +2,7 @@ import { ClientAnalytics, ClientAppShell, ClientColorScheme } from '@/components
 import { StyleHelper } from '@/helpers';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
-import { Metadata } from 'next';
+import { Metadata, Viewport } from 'next';
 import { ReactNode } from 'react';
 import { notFound } from 'next/navigation';
 import { locales } from '@/i18n';
@@ -15,10 +15,55 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
+const siteName = "Next Template";
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+  applicationName: siteName,
+  title: {
+    default: siteName,
+    template: "%s | Next Template",
+  },
   description:
-    'ШАблон приложения на next.js при создании приложения стоит в первую очередь изменить мета теги',
-  title: 'Шаблон',
+    "Современный шаблон Next.js + Mantine с i18n, темизацией и готовностью под PWA.",
+  openGraph: {
+    title: siteName,
+    description:
+      "Современный шаблон Next.js + Mantine с i18n, темизацией и готовностью под PWA.",
+    url: "/",
+    siteName,
+    images: [
+      {
+        url: "/og-image.svg",
+        width: 1200,
+        height: 630,
+        alt: siteName,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteName,
+    description:
+      "Современный шаблон Next.js + Mantine с i18n, темизацией и готовностью под PWA.",
+    images: ["/og-image.svg"],
+  },
+  manifest: "/manifest.webmanifest",
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+    apple: "/apple-touch-icon.png",
+  },
+  appleWebApp: {
+    title: siteName,
+    statusBarStyle: "black-translucent",
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0b7285",
 };
 
 const htmlClasses = StyleHelper.merge(...fontVariable);

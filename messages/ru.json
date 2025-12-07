@@ -238,5 +238,109 @@
     "support": "Поддержка",
     "legal": "Правовая информация",
     "copyright": "Все права защищены"
+  },
+  "preview": {
+    "hero": {
+      "badge": "Next.js 16 + React 19",
+      "title": "Готовый шаблон Next.js для быстрого старта",
+      "subtitle": "Mantine UI, next-intl, ESLint/Prettier, Storybook, Docker и CI/CD уже настроены. Используйте README как чек-лист и собирайте продукт без лишней рутины."
+    },
+    "stack": {
+      "title": "Что внутри",
+      "items": {
+        "core": {
+          "title": "Next.js 16 и React 19",
+          "description": "Turbopack в dev, standalone build в prod, TypeScript 5.6, готовые страницы robots.txt и sitemap."
+        },
+        "ui": {
+          "title": "Интерфейс и локализация",
+          "description": "Mantine 8 с готовым AppShell, переключателем темы и next-intl (локали ru/en)."
+        },
+        "state": {
+          "title": "Состояние и API",
+          "description": "Zustand для стора, базовая настройка Axios и типизированный API слой."
+        },
+        "sentry": {
+          "title": "Наблюдаемость",
+          "description": "Конфиги Sentry для клиента, сервера и edge + ClientAnalytics для page view."
+        },
+        "storybook": {
+          "title": "Storybook и тесты",
+          "description": "Storybook 10, пример компонентов и готовая конфигурация для Jest/Testing Library."
+        }
+      }
+    },
+    "quality": {
+      "title": "Качество и DX",
+      "items": {
+        "lint": {
+          "title": "Код-стайл по умолчанию",
+          "description": "ESLint 9 + Prettier (css-order), Husky и lint-staged перед коммитом."
+        },
+        "tests": {
+          "title": "Тестирование",
+          "description": "Jest + Testing Library, coverage, playwright/vitest для Storybook."
+        },
+        "cli": {
+          "title": "Автогенерация",
+          "description": "CLI `yarn cli` помогает создавать компоненты по шаблону."
+        }
+      }
+    },
+    "scripts": {
+      "title": "Команды проекта",
+      "subtitle": "Частые сценарии из README",
+      "dev": "Запускает dev-сервер на Turbopack с фоллбеком на webpack.",
+      "build": "Собирает проект и запускает standalone сервер в production.",
+      "lint": "Проверка ESLint и автоисправление через lint:fix.",
+      "format": "Форматирование и проверка Prettier (format, format:check).",
+      "typecheck": "Строгая проверка типов tsc --noEmit.",
+      "test": "Jest: обычный запуск, watch и coverage.",
+      "storybook": "Storybook dev и production build.",
+      "analyze": "Анализ клиентских чанков (analyze:chunks)."
+    },
+    "ops": {
+      "title": "CI/CD и инфраструктура",
+      "items": {
+        "github": {
+          "title": "GitHub Actions",
+          "description": "Линт, формат, typecheck, тесты, build, Docker-образ в GHCR и деплой по SSH."
+        },
+        "docker": {
+          "title": "Docker",
+          "description": "Готовый Dockerfile: NODE_ENV=production, проброс BASE_URL, BUILD_ID и версии сборки."
+        },
+        "env": {
+          "title": "Переменные окружения",
+          "description": "NEXT_PUBLIC_SITE_URL, SENTRY_DSN, BUILD_VERSION, APP_ENV и другие из README для SEO и мониторинга."
+        }
+      }
+    },
+    "observability": {
+      "title": "Наблюдаемость и SEO",
+      "items": {
+        "health": {
+          "title": "Health-check",
+          "description": "GET /api/health возвращает status, timestamp, uptime, APP_ENV и BUILD_VERSION."
+        },
+        "seo": {
+          "title": "SEO готово",
+          "description": "Автогенерация robots.txt и sitemap.xml с поддержкой динамического SITEMAP_ENDPOINT."
+        },
+        "errors": {
+          "title": "Обработка ошибок",
+          "description": "Error Boundary для локализованных маршрутов, retry и отправка исключений в Sentry."
+        }
+      }
+    },
+    "quickstart": {
+      "title": "Как запустить",
+      "steps": {
+        "corepack": "corepack enable",
+        "install": "yarn install --immutable",
+        "env": "cp .env.example .env.local и заполните переменные",
+        "dev": "yarn dev — http://localhost:3000"
+      }
+    }
   }
 }

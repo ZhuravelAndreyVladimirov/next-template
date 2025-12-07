@@ -7,3 +7,6 @@ export * from './ThemeToggle';
 export * from './ClientAppShell';
 export * from './ClientColorScheme';
 export * from './ClientAnalytics';
+export * from './ClientHeader';
+export * from './ClientFooter';
+export * from './Copyright';

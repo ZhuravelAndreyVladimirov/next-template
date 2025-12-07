@@ -1,5 +1,6 @@
 "use client";
 
+import { ClientFooter, ClientHeader } from "@/components";
 import { RootProvider } from "@/providers/RootProvider";
 import { AppShell } from "@mantine/core";
 import { ReactNode } from "react";
@@ -11,10 +12,18 @@ interface ClientAppShellProps {
 export const ClientAppShell = ({ children }: ClientAppShellProps) => {
   return (
     <RootProvider>
-      <AppShell>
-        <AppShell.Header>{/* {Header content} */}</AppShell.Header>
+      <AppShell
+        padding="md"
+        header={{ height: 80 }}
+        footer={{ height: 64 }}
+      >
+        <AppShell.Header withBorder>
+          <ClientHeader />
+        </AppShell.Header>
         <AppShell.Main>{children}</AppShell.Main>
-        <AppShell.Footer>{/* Footer content */}</AppShell.Footer>
+        <AppShell.Footer withBorder>
+          <ClientFooter />
+        </AppShell.Footer>
       </AppShell>
     </RootProvider>
   );

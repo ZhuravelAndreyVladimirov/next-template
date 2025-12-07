@@ -1,15 +1,14 @@
-import { MetadataRoute } from "next";
+import { MetadataRoute } from 'next';
 
-import { locales } from "@/i18n";
+import { locales } from '@/i18n';
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
-const sitemapApi =
-  process.env.SITEMAP_ENDPOINT || `${siteUrl}/api/sitemap` || undefined;
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
+const sitemapApi = process.env.SITEMAP_ENDPOINT ?? 'http://localhost:3000';
 
 type DynamicEntry = {
   url: string;
   lastModified?: string | Date;
-  changeFrequency?: MetadataRoute.Sitemap[number]["changeFrequency"];
+  changeFrequency?: MetadataRoute.Sitemap[number]['changeFrequency'];
   priority?: number;
 };
 
@@ -26,7 +25,7 @@ async function loadDynamicEntries(): Promise<DynamicEntry[]> {
     const entries = (await res.json()) as DynamicEntry[];
     return entries.filter((entry) => Boolean(entry.url));
   } catch (error) {
-    console.warn("[sitemap] dynamic entries fetch failed", error);
+    console.warn('[sitemap] dynamic entries fetch failed', error);
     return [];
   }
 }
@@ -37,7 +36,7 @@ async function loadDynamicEntries(): Promise<DynamicEntry[]> {
  */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const lastModified = new Date();
-  const changeFrequency = "weekly" as const;
+  const changeFrequency = 'weekly' as const;
 
   const dynamicEntries = await loadDynamicEntries();
 
@@ -58,7 +57,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     ...localizedRoots,
     ...dynamicEntries.map((entry) => ({
-      url: entry.url.startsWith("http") ? entry.url : `${siteUrl}${entry.url}`,
+      url: entry.url.startsWith('http') ? entry.url : `${siteUrl}${entry.url}`,
       lastModified: entry.lastModified ?? lastModified,
       changeFrequency: entry.changeFrequency ?? changeFrequency,
       priority: entry.priority ?? 0.6,

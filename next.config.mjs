@@ -172,8 +172,8 @@ const nextConfig = {
   // 7. ДОПОЛНИТЕЛЬНЫЕ ОПТИМИЗАЦИИ
   sassOptions: {},
 
-  // 8. ВЫХОДНОЙ РЕЖИМ
-  output: "standalone", // Улучшенная оптимизация для продакшена
+  // 8. ВЫХОДНОЙ РЕЖИМ (на Windows standalone ломается из-за copyfile с colon)
+  output: process.platform === "win32" ? undefined : "standalone",
 };
 
 // 9. ПЛАГИН ДЛЯ АНАЛИЗА БАНДЛА (опционально)
