@@ -1,1 +1,1 @@
-export { UiVisuallyHidden } from "./VisuallyHidden";
+export { UiVisuallyHidden } from './VisuallyHidden';

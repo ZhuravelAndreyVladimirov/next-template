@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 
-import { PasswordInput } from "@mantine/core";
+import { PasswordInput } from '@mantine/core';
 
 /**
  * ВАЖНО: Никогда не используйте этот файл напрямую в проекте.
@@ -18,10 +18,10 @@ const meta: Meta<typeof PasswordInput> = {
   args: {},
   component: PasswordInput,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-  tags: ["autodocs"],
-  title: "UI Компоненты/PasswordInput",
+  tags: ['autodocs'],
+  title: 'UI Компоненты/PasswordInput',
 };
 
 export default meta;

@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 
-import { MultiSelect } from "@mantine/core";
+import { MultiSelect } from '@mantine/core';
 
 /**
  * ВАЖНО: Никогда не используйте этот файл напрямую в проекте.
@@ -18,10 +18,10 @@ const meta: Meta<typeof MultiSelect> = {
   args: {},
   component: MultiSelect,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-  tags: ["autodocs"],
-  title: "UI Компоненты/MultiSelect",
+  tags: ['autodocs'],
+  title: 'UI Компоненты/MultiSelect',
 };
 
 export default meta;

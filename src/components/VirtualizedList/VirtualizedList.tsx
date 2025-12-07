@@ -1,5 +1,5 @@
-"use client";
-import React, { useEffect, useMemo, useRef, useState } from "react";
+'use client';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 
 /**
  * VirtualizedList — компонент для эффективного отображения длинных списков с виртуализацией.
@@ -33,7 +33,7 @@ interface VirtualizedListProps<T> extends React.HTMLAttributes<HTMLDivElement> {
   items: T[];
   onLoadMore: () => void;
   overscan?: number;
-   
+
   renderItem: (
     // eslint-disable-next-line no-unused-vars
     item: T,
@@ -62,8 +62,7 @@ export function VirtualizedList<T>({
    * Высота видимой области (viewport).
    * По умолчанию 800px, если window недоступен (SSR).
    */
-  const viewportHeight =
-    typeof window !== "undefined" ? window.innerHeight : 800;
+  const viewportHeight = typeof window !== 'undefined' ? window.innerHeight : 800;
 
   const total = items.length;
 
@@ -71,10 +70,7 @@ export function VirtualizedList<T>({
    * Индекс первого и последнего видимого элемента с учетом overscan.
    */
   const startIndex = Math.max(0, Math.floor(scrollTop / itemHeight) - overscan);
-  const endIndex = Math.min(
-    total,
-    Math.ceil((scrollTop + viewportHeight) / itemHeight) + overscan,
-  );
+  const endIndex = Math.min(total, Math.ceil((scrollTop + viewportHeight) / itemHeight) + overscan);
 
   /**
    * Массив видимых элементов для рендера.
@@ -91,15 +87,14 @@ export function VirtualizedList<T>({
     const handler = () => {
       setScrollTop(window.scrollY);
       // Проверка, близко ли к концу списка для подгрузки новых данных
-      const isNearBottom =
-        window.scrollY + window.innerHeight >= (items.length - 2) * itemHeight;
+      const isNearBottom = window.scrollY + window.innerHeight >= (items.length - 2) * itemHeight;
       if (!fetching.current && isNearBottom) {
         fetching.current = true;
         onLoadMore();
       }
     };
-    window.addEventListener("scroll", handler);
-    return () => window.removeEventListener("scroll", handler);
+    window.addEventListener('scroll', handler);
+    return () => window.removeEventListener('scroll', handler);
   }, [items.length, itemHeight, onLoadMore]);
 
   /**
@@ -116,16 +111,16 @@ export function VirtualizedList<T>({
       ref={listRef}
       style={{
         height: total * itemHeight,
-        position: "relative",
+        position: 'relative',
         ...style,
       }}
       {...rest}
     >
       {visibleItems.map((item, i) =>
         renderItem(item, startIndex + i, {
-          position: "absolute",
+          position: 'absolute',
           top: (startIndex + i) * itemHeight,
-          width: "100%",
+          width: '100%',
         }),
       )}
     </div>

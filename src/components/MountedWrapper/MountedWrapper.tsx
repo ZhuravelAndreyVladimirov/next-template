@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { useMounted } from "@mantine/hooks";
-import React from "react";
+import { useMounted } from '@mantine/hooks';
+import React from 'react';
 
 export interface MountedWrapperProps {
   children: React.ReactNode;

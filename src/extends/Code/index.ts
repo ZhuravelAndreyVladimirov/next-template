@@ -1,1 +1,1 @@
-export { UiCode } from "./Code";
+export { UiCode } from './Code';

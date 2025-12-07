@@ -8,10 +8,10 @@ const intlMiddleware = createMiddleware({
 
   // Used when no locale matches
   defaultLocale: 'ru',
-  
+
   // Show locale prefix only for non-default locale (ru - without prefix, en - with prefix)
   localePrefix: 'as-needed',
-  
+
   // Disable automatic locale detection from browser
   localeDetection: false,
 });

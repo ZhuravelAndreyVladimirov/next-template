@@ -1,1 +1,1 @@
-export { UiTitle } from "./Title";
+export { UiTitle } from './Title';

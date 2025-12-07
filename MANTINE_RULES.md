@@ -14,8 +14,8 @@
 
 ```typescript
 // src/extends/Button/Button.ts
-import { Button } from "@mantine/core";
-import styles from "./Button.module.scss";
+import { Button } from '@mantine/core';
+import styles from './Button.module.scss';
 
 export const UiButton = Button.extend({
   classNames() {
@@ -32,8 +32,8 @@ export const UiButton = Button.extend({
 
 ```typescript
 // src/providers/CustomMantineProvider.tsx
-import { UiButton } from "@/extends/Button";
-import { UiContainer } from "@/extends/Container";
+import { UiButton } from '@/extends/Button';
+import { UiContainer } from '@/extends/Container';
 
 const theme = createTheme({
   components: {
@@ -51,14 +51,14 @@ const theme = createTheme({
 **Правильно:**
 
 ```typescript
-import { Button, Container, Text } from "@mantine/core";
+import { Button, Container, Text } from '@mantine/core';
 ```
 
 **Неправильно:**
 
 ```typescript
-import { UiButton } from "@/extends/Button";
-import { Button } from "@/extends/Button/Button";
+import { UiButton } from '@/extends/Button';
+import { Button } from '@/extends/Button/Button';
 ```
 
 После подключения расширенных компонентов в `MantineProvider`, все импорты из `@mantine/core` автоматически будут использовать настроенные версии компонентов.
@@ -71,9 +71,9 @@ import { Button } from "@/extends/Button/Button";
 
 ```typescript
 // mantine.d.ts
-declare module "@mantine/core" {
-  export interface ButtonProps extends Omit<ButtonProps, "variant"> {
-    variant?: "white" | "light";
+declare module '@mantine/core' {
+  export interface ButtonProps extends Omit<ButtonProps, 'variant'> {
+    variant?: 'white' | 'light';
   }
 }
 ```

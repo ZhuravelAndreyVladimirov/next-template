@@ -1,1 +1,1 @@
-export { UiJsonInput } from "./JsonInput";
+export { UiJsonInput } from './JsonInput';

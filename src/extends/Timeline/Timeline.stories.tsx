@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 
-import { Timeline } from "@mantine/core";
+import { Timeline } from '@mantine/core';
 
 /**
  * ВАЖНО: Никогда не используйте этот файл напрямую в проекте.
@@ -18,10 +18,10 @@ const meta: Meta<typeof Timeline> = {
   args: {},
   component: Timeline,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-  tags: ["autodocs"],
-  title: "UI Компоненты/Timeline",
+  tags: ['autodocs'],
+  title: 'UI Компоненты/Timeline',
 };
 
 export default meta;

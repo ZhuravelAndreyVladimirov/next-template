@@ -11,19 +11,40 @@ jobs:
       matrix:
         node-version: [22.x]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Starting Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
+      - name: Restore Yarn cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            .yarn/cache
+            .pnp.cjs
+            .pnp.data.json
+          key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
       - name: Enable corepack
         run: corepack enable
       - name: Install dependencies
-        run: yarn
-      - name: Build project
-        run: yarn build
+        run: yarn install --immutable
+      - name: Restore Next.js cache
+        uses: actions/cache@v4
+        with:
+          path: .next/cache
+          key: ${{ runner.os }}-next-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-next-
+      - name: Check formatting
+        run: yarn format:check
       - name: Run linter
         run: yarn lint
+      - name: Type check
+        run: yarn typecheck
+      - name: Build project
+        run: yarn build
       - name: Run tests
         run: yarn jest
 
@@ -36,21 +57,21 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
         with:
           version: v0.11.2
           driver-opts: |
             image=moby/buildkit:v0.12.4
-      
+
       - name: Log in to GitHub Container Registry
         uses: docker/login-action@v3
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      
+
       - name: Build and push
         uses: docker/build-push-action@v5
         with:
@@ -80,10 +101,10 @@ jobs:
             IMAGE_NAME_MAIN="ghcr.io/zhuravelandreyvladimirov/next-template:main"
             IMAGE_NAME_SHA="ghcr.io/zhuravelandreyvladimirov/next-template:${{ github.sha }}"
             CONTAINER_NAME="next-template"
-            
+
             # Логинимся в GitHub Container Registry
             echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
-            
+
             # Останавливаем и удаляем ВСЕ контейнеры, связанные с проектом
             echo "Stopping all next-template containers..."
             # Останавливаем контейнеры по имени
@@ -93,13 +114,13 @@ jobs:
             docker ps --filter "publish=3000" --format "{{.ID}}" | xargs -r docker stop 2>/dev/null || true
             # Останавливаем все контейнеры с образом next-template
             docker ps --filter "ancestor=ghcr.io/zhuravelandreyvladimirov/next-template" --format "{{.ID}}" | xargs -r docker stop 2>/dev/null || true
-            
+
             # Удаляем остановленные контейнеры
             echo "Removing stopped containers..."
             docker rm $CONTAINER_NAME 2>/dev/null || true
             docker rm next-template-next-app-1 2>/dev/null || true
             docker ps -a --filter "ancestor=ghcr.io/zhuravelandreyvladimirov/next-template" --format "{{.ID}}" | xargs -r docker rm 2>/dev/null || true
-            
+
             # Проверяем, что порт 3000 свободен
             echo "Checking if port 3000 is free..."
             if docker ps --filter "publish=3000" --format "{{.ID}}" | grep -q .; then
@@ -107,20 +128,20 @@ jobs:
               docker ps --filter "publish=3000" --format "{{.ID}}" | xargs -r docker stop -t 0 2>/dev/null || true
               sleep 2
             fi
-            
+
             # Удаляем старые образы для гарантии обновления (включая старый тег master)
             echo "Cleaning up old images..."
             docker rmi $IMAGE_NAME_MAIN 2>/dev/null || true
             docker rmi $IMAGE_NAME_SHA 2>/dev/null || true
             docker rmi ghcr.io/zhuravelandreyvladimirov/next-template:master 2>/dev/null || true
-            
+
             # Очищаем build cache Docker для гарантии свежего образа
             docker builder prune -f 2>/dev/null || true
-            
+
             # Получаем новый образ по SHA с принудительным обновлением
             echo "Pulling image with SHA: ${{ github.sha }}"
             docker pull $IMAGE_NAME_SHA --quiet || true
-            
+
             # Если образ по SHA не найден, используем main (fallback)
             if ! docker image inspect $IMAGE_NAME_SHA >/dev/null 2>&1; then
               echo "SHA image not found, pulling main tag with force update..."
@@ -134,20 +155,20 @@ jobs:
               IMAGE_TO_USE=$IMAGE_NAME_SHA
               echo "Successfully pulled SHA image"
             fi
-            
+
             # Показываем информацию об образе
             echo "Image details:"
             docker image inspect $IMAGE_TO_USE --format '{{.Id}} {{.Created}}' || true
-            
+
             echo "Using image: $IMAGE_TO_USE"
-            
+
             # Проверяем еще раз, что порт свободен перед запуском
             if docker ps --filter "publish=3000" --format "{{.ID}}" | grep -q .; then
               echo "ERROR: Port 3000 is still occupied! Cannot start new container."
               docker ps --filter "publish=3000"
               exit 1
             fi
-            
+
             # Запускаем новый контейнер с принудительным обновлением
             echo "Starting new container..."
             docker run -d \
@@ -158,29 +179,29 @@ jobs:
               -e NEXT_PUBLIC_BUILD_ID="${{ github.sha }}" \
               -e BUILD_VERSION="${{ github.sha }}" \
               $IMAGE_TO_USE
-            
+
             # Ждем немного для запуска контейнера
             sleep 5
-            
+
             # Проверяем, что контейнер запустился
             if ! docker ps --filter "name=$CONTAINER_NAME" --format "{{.ID}}" | grep -q .; then
               echo "ERROR: Container failed to start!"
               docker ps -a --filter "name=$CONTAINER_NAME"
               exit 1
             fi
-            
+
             # Проверяем статус контейнера
             docker ps | grep $CONTAINER_NAME || echo "Warning: Container might not be running"
-            
+
             # Показываем логи для отладки
             echo "Container logs (last 20 lines):"
             docker logs --tail 20 $CONTAINER_NAME 2>&1 || true
-            
+
             # Агрессивная очистка: удаляем все неиспользуемые образы и кэш
             echo "Cleaning up unused Docker resources..."
             docker image prune -af --filter "until=24h" 2>/dev/null || docker image prune -af || true
             docker system prune -f --volumes 2>/dev/null || true
-            
+
             # Показываем список оставшихся образов для отладки
             echo "Remaining images:"
             docker images | grep next-template || echo "No next-template images found"

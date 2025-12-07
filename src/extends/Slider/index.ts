@@ -1,1 +1,1 @@
-export { UiSlider } from "./Slider";
+export { UiSlider } from './Slider';

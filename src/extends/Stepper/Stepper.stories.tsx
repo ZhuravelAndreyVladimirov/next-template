@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 
-import { Stepper } from "@mantine/core";
+import { Stepper } from '@mantine/core';
 
 /**
  * ВАЖНО: Никогда не используйте этот файл напрямую в проекте.
@@ -18,10 +18,10 @@ const meta: Meta<typeof Stepper> = {
   args: {},
   component: Stepper,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-  tags: ["autodocs"],
-  title: "UI Компоненты/Stepper",
+  tags: ['autodocs'],
+  title: 'UI Компоненты/Stepper',
 };
 
 export default meta;

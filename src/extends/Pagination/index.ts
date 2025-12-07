@@ -1,1 +1,1 @@
-export { UiPagination } from "./Pagination";
+export { UiPagination } from './Pagination';

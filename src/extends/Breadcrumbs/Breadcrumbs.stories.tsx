@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 
-import { Breadcrumbs } from "@mantine/core";
+import { Breadcrumbs } from '@mantine/core';
 
 /**
  * ВАЖНО: Никогда не используйте этот файл напрямую в проекте.
@@ -18,10 +18,10 @@ const meta: Meta<typeof Breadcrumbs> = {
   args: {},
   component: Breadcrumbs,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-  tags: ["autodocs"],
-  title: "UI Компоненты/Breadcrumbs",
+  tags: ['autodocs'],
+  title: 'UI Компоненты/Breadcrumbs',
 };
 
 export default meta;

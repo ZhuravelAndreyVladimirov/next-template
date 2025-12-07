@@ -1,1 +1,1 @@
-export { UiColorInput } from "./ColorInput";
+export { UiColorInput } from './ColorInput';

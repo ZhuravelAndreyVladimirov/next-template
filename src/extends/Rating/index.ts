@@ -1,1 +1,1 @@
-export { UiRating } from "./Rating";
+export { UiRating } from './Rating';

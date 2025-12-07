@@ -1,1 +1,1 @@
-export { UiNumberInput } from "./NumberInput";
+export { UiNumberInput } from './NumberInput';

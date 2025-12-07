@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 
-import { UnstyledButton } from "@mantine/core";
+import { UnstyledButton } from '@mantine/core';
 
 /**
  * ВАЖНО: Никогда не используйте этот файл напрямую в проекте.
@@ -18,10 +18,10 @@ const meta: Meta<typeof UnstyledButton> = {
   args: {},
   component: UnstyledButton,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-  tags: ["autodocs"],
-  title: "UI Компоненты/UnstyledButton",
+  tags: ['autodocs'],
+  title: 'UI Компоненты/UnstyledButton',
 };
 
 export default meta;

@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 
-import { ScrollArea } from "@mantine/core";
+import { ScrollArea } from '@mantine/core';
 
 /**
  * ВАЖНО: Никогда не используйте этот файл напрямую в проекте.
@@ -18,10 +18,10 @@ const meta: Meta<typeof ScrollArea> = {
   args: {},
   component: ScrollArea,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-  tags: ["autodocs"],
-  title: "UI Компоненты/ScrollArea",
+  tags: ['autodocs'],
+  title: 'UI Компоненты/ScrollArea',
 };
 
 export default meta;

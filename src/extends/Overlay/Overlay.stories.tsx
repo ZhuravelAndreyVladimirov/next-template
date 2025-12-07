@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 
-import { Overlay } from "@mantine/core";
+import { Overlay } from '@mantine/core';
 
 /**
  * ВАЖНО: Никогда не используйте этот файл напрямую в проекте.
@@ -18,10 +18,10 @@ const meta: Meta<typeof Overlay> = {
   args: {},
   component: Overlay,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-  tags: ["autodocs"],
-  title: "UI Компоненты/Overlay",
+  tags: ['autodocs'],
+  title: 'UI Компоненты/Overlay',
 };
 
 export default meta;

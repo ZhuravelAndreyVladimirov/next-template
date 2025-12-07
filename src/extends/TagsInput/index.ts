@@ -1,1 +1,1 @@
-export { UiTagsInput } from "./TagsInput";
+export { UiTagsInput } from './TagsInput';

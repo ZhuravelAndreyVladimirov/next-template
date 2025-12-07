@@ -1,1 +1,1 @@
-export { UiPasswordInput } from "./PasswordInput";
+export { UiPasswordInput } from './PasswordInput';
