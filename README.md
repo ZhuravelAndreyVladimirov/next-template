@@ -1,39 +1,84 @@
-# Шаблон для быстрого развертывания проекта на NEXT.JS 
+# Next.js template
 
+Готовый шаблон на Next.js 16 + React 19 c Mantine UI, next-intl, Yarn 4 (PnP) и настроенными линтерами/форматированием, Storybook и Docker.
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Стек
+- Next.js 16 (Turbopack в dev, standalone build)
+- React 19, TypeScript 5.6
+- Mantine 8, next-intl
+- Jest + Testing Library, Storybook 10
+- ESLint 9 + Prettier (css-order), Husky + lint-staged
+- Dockerfile для прод-образа, GitHub Actions для CI/CD и публикации в GHCR
 
-## Getting Started
+## Требования
+- Node 22.x (как в CI), Corepack включен
+- Yarn 4 (pnp)
 
-First, run the development server:
-
+## Быстрый старт
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+corepack enable
+yarn install --immutable
+cp .env.example .env.local   # заполняем переменные
+yarn dev                     # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Переменные окружения
+| Ключ | Где используется | Назначение / значения по умолчанию |
+| --- | --- | --- |
+| `NEXT_PUBLIC_BASE_URL` | `src/api/API/API.ts` | Базовый URL для запросов. По умолчанию `"/api"`. |
+| `ANALYZE` | `next.config.mjs` | `true` — включает `@next/bundle-analyzer` при сборке. |
+| `NODE_ENV` | `next.config.mjs`, Docker run | `production` убирает консольные логи (кроме warn/error). |
+| `NEXT_PUBLIC_BUILD_ID` | deploy job (Docker run) | Пробрасывается в контейнер для трейсинга билда. |
+| `BUILD_VERSION` | deploy job (Docker run) | Тег билда/коммита внутри контейнера. |
+| `SERVER_HOST` | GitHub Actions secret | SSH-хост прод-сервера. |
+| `SERVER_USERNAME` | GitHub Actions secret | SSH-пользователь. |
+| `SERVER_SSH_KEY` | GitHub Actions secret | Приватный ключ для деплоя. |
+| `GITHUB_TOKEN` | GitHub Actions secret | Для логина в GHCR в CI/CD. |
+| `GITHUB_ACTOR` / `github.sha` | GitHub Actions контекст | Автоматически подставляется для тегов образов и переменных билда. |
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+> Добавляйте кастомные публичные переменные только с префиксом `NEXT_PUBLIC_`, чтобы Next.js мог их отдать на клиент.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Скрипты
+- `yarn dev` — dev-сервер (Turbopack).
+- `yarn build` / `yarn start` — сборка и запуск прод-стэндалон-сервера.
+- `yarn lint` — ESLint.
+- `yarn format:check` — проверка Prettier.
+- `yarn typecheck` — строгая проверка типов.
+- `yarn test` — Jest.
+- `yarn storybook` / `yarn build-storybook` — Storybook в dev/production.
 
-## Learn More
+## Структура
+- `src/app` — роутинг Next.js с локалями (`[locale]`).
+- `src/components` — UI-компоненты 
+- `src/extends` — Mantine-расширения.
+- `src/api` — конфигурация Axios (`API`).
+- `src/i18n.ts` — next-intl.
+- `docs/` — аудит, шаблоны PR.
 
-To learn more about Next.js, take a look at the following resources:
+## CI/CD
+- `.github/workflows/deploy.yml`: линт, формат, typecheck, build, тесты; сборка Docker-образа и публикация в GHCR, далее деплой по SSH на прод.
+- Образы тегируются `main` и `github.sha`; в рантайм передаются `NEXT_PUBLIC_BUILD_ID` и `BUILD_VERSION`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### GitHub Actions: secrets и vars
+- Secrets (обязательные): `SERVER_HOST`, `SERVER_USERNAME`, `SERVER_SSH_KEY`, `GITHUB_TOKEN` (выдаётся GitHub автоматически для pipeline), опционально свой токен для GHCR.
+- Repository/Environment Vars (не чувствительные, можно задать в Actions > Variables):
+  - `REGISTRY_URL` — по умолчанию `ghcr.io`, задайте если используете другой реестр.
+  - `CONTAINER_NAME` — имя контейнера (по умолчанию `next-template` в скрипте деплоя).
+  - `IMAGE_NAME_MAIN` / `IMAGE_NAME_SHA` — если хотите переопределить теги/репозиторий образа.
+Если не задавать Vars, используются значения из workflow/скрипта.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Форматирование и качество
+- Husky + lint-staged форматируют/линтят изменённые файлы перед коммитом.
+- Рекомендуемые команды перед PR: `yarn format:check`, `yarn lint`, `yarn typecheck`, `yarn test`.
 
-## Deploy on Vercel
+## Docker
+```bash
+docker build -t next-template .
+docker run -p 3000:3000 \
+  -e NODE_ENV=production \
+  -e NEXT_PUBLIC_BASE_URL=https://api.example.com \
+  next-template
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## i18n
+Локали подключены через `next-intl` (см. `src/i18n.ts`), URL содержит `[locale]`.
