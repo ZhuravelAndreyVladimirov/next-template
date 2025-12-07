@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 
-import { Anchor } from "@mantine/core";
+import { Anchor } from '@mantine/core';
 
 /**
  * ВАЖНО: Никогда не используйте этот файл напрямую в проекте.
@@ -18,10 +18,10 @@ const meta: Meta<typeof Anchor> = {
   args: {},
   component: Anchor,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-  tags: ["autodocs"],
-  title: "UI Компоненты/Anchor",
+  tags: ['autodocs'],
+  title: 'UI Компоненты/Anchor',
 };
 
 export default meta;

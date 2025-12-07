@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { Locale, locales } from "@/i18n";
-import { usePathname, useRouter } from "@/navigation";
-import { Container, Group, SegmentedControl, Text } from "@mantine/core";
-import { IconLanguage } from "@tabler/icons-react";
-import { useLocale } from "next-intl";
+import { Locale, locales } from '@/i18n';
+import { usePathname, useRouter } from '@/navigation';
+import { Container, Group, SegmentedControl, Text } from '@mantine/core';
+import { IconLanguage } from '@tabler/icons-react';
+import { useLocale } from 'next-intl';
 
-import { ThemeToggle } from "../ThemeToggle";
+import { ThemeToggle } from '../ThemeToggle';
 
 export const ClientHeader = () => {
   const router = useRouter();

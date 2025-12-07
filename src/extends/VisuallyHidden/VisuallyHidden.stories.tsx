@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 
-import { VisuallyHidden } from "@mantine/core";
+import { VisuallyHidden } from '@mantine/core';
 
 /**
  * ВАЖНО: Никогда не используйте этот файл напрямую в проекте.
@@ -18,10 +18,10 @@ const meta: Meta<typeof VisuallyHidden> = {
   args: {},
   component: VisuallyHidden,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-  tags: ["autodocs"],
-  title: "UI Компоненты/VisuallyHidden",
+  tags: ['autodocs'],
+  title: 'UI Компоненты/VisuallyHidden',
 };
 
 export default meta;

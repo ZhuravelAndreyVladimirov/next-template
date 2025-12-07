@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 
-import { NumberInput } from "@mantine/core";
+import { NumberInput } from '@mantine/core';
 
 /**
  * ВАЖНО: Никогда не используйте этот файл напрямую в проекте.
@@ -18,10 +18,10 @@ const meta: Meta<typeof NumberInput> = {
   args: {},
   component: NumberInput,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-  tags: ["autodocs"],
-  title: "UI Компоненты/NumberInput",
+  tags: ['autodocs'],
+  title: 'UI Компоненты/NumberInput',
 };
 
 export default meta;

@@ -1,9 +1,9 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 
-import { MantineProvider, createTheme } from "@mantine/core";
-import React from "react";
+import { MantineProvider, createTheme } from '@mantine/core';
+import React from 'react';
 
-import { ThemeToggle } from "./ThemeToggle";
+import { ThemeToggle } from './ThemeToggle';
 
 /**
  * Компонент переключения темы.
@@ -19,20 +19,20 @@ const meta: Meta<typeof ThemeToggle> = {
       <MantineProvider
         defaultColorScheme="light"
         theme={createTheme({
-          defaultRadius: "md",
+          defaultRadius: 'md',
         })}
       >
-        <div style={{ padding: "20px", minHeight: "100px" }}>
+        <div style={{ padding: '20px', minHeight: '100px' }}>
           <Story />
         </div>
       </MantineProvider>
     ),
   ],
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-  tags: ["autodocs"],
-  title: "Компоненты/ThemeToggle",
+  tags: ['autodocs'],
+  title: 'Компоненты/ThemeToggle',
 };
 
 export default meta;

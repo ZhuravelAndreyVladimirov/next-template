@@ -1,1 +1,1 @@
-export { UiMultiSelect } from "./MultiSelect";
+export { UiMultiSelect } from './MultiSelect';

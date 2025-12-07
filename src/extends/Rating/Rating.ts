@@ -1,6 +1,6 @@
-import { Rating } from "@mantine/core";
+import { Rating } from '@mantine/core';
 
-import styles from "./Rating.module.scss";
+import styles from './Rating.module.scss';
 
 /**
  * 🚨 ВАЖНО: Никогда не используйте этот файл напрямую в проекте! 🚨
@@ -14,9 +14,9 @@ import styles from "./Rating.module.scss";
  *
  * Если вы видите это сообщение в консоли — вы импортировали Rating напрямую, что ЗАПРЕЩЕНО!
  */
-if (process.env.NODE_ENV !== "production") {
+if (process.env.NODE_ENV !== 'production') {
   const stack = new Error().stack;
-  if (!stack?.includes("CustomMantineProvider")) {
+  if (!stack?.includes('CustomMantineProvider')) {
     console.error(`[ARCHITECTURE ERROR] 🚨`);
   }
 }

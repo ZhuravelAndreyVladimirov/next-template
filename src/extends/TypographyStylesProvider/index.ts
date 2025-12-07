@@ -1,1 +1,1 @@
-export { UiTypographyStylesProvider } from "./TypographyStylesProvider";
+export { UiTypographyStylesProvider } from './TypographyStylesProvider';

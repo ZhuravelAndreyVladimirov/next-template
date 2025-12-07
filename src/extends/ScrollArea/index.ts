@@ -1,1 +1,1 @@
-export { UiScrollArea } from "./ScrollArea";
+export { UiScrollArea } from './ScrollArea';

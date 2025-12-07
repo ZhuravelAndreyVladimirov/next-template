@@ -20,6 +20,6 @@ export class StyleHelper {
    * StyleHelper.merge('class1', 'class2') // 'class1 class2'
    */
   static merge(...classNames: Array<string | undefined>): string {
-    return classNames.filter((cn) => cn !== undefined).join(" ");
+    return classNames.filter((cn) => cn !== undefined).join(' ');
   }
 }

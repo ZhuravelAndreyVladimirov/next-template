@@ -1,1 +1,1 @@
-export { UiDialog } from "./Dialog";
+export { UiDialog } from './Dialog';

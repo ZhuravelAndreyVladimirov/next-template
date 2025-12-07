@@ -1,5 +1,5 @@
-import { API } from "@/api/API/API";
-import { create } from "zustand";
+import { API } from '@/api/API/API';
+import { create } from 'zustand';
 
 export interface User {
   created_at: string;
@@ -26,7 +26,7 @@ export const useUserStore = create<UserState>((set) => ({
   loadUser: async () => {
     set({ isLoading: true, error: null });
     try {
-      const { data } = await API.get<User>("/users/me");
+      const { data } = await API.get<User>('/users/me');
       set({ user: data });
     } catch (error) {
       set({ error: (error as Error).message, user: null });
@@ -37,8 +37,8 @@ export const useUserStore = create<UserState>((set) => ({
   refreshUser: async () => {
     set({ isLoading: true, error: null });
     try {
-      await API.post("/auth/refresh");
-      const { data } = await API.get<User>("/users/me");
+      await API.post('/auth/refresh');
+      const { data } = await API.get<User>('/users/me');
       set({ user: data });
     } catch (error) {
       set({ error: (error as Error).message, user: null });

@@ -1,1 +1,1 @@
-export * from "./ClientAppShell";
+export * from './ClientAppShell';

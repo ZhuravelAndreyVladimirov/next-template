@@ -15,28 +15,25 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-const siteName = "Next Template";
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+const siteName = 'Next Template';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   applicationName: siteName,
   title: {
     default: siteName,
-    template: "%s | Next Template",
+    template: '%s | Next Template',
   },
-  description:
-    "Современный шаблон Next.js + Mantine с i18n, темизацией и готовностью под PWA.",
+  description: 'Современный шаблон Next.js + Mantine с i18n, темизацией и готовностью под PWA.',
   openGraph: {
     title: siteName,
-    description:
-      "Современный шаблон Next.js + Mantine с i18n, темизацией и готовностью под PWA.",
-    url: "/",
+    description: 'Современный шаблон Next.js + Mantine с i18n, темизацией и готовностью под PWA.',
+    url: '/',
     siteName,
     images: [
       {
-        url: "/og-image.svg",
+        url: '/og-image.svg',
         width: 1200,
         height: 630,
         alt: siteName,
@@ -44,26 +41,25 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
-    card: "summary_large_image",
+    card: 'summary_large_image',
     title: siteName,
-    description:
-      "Современный шаблон Next.js + Mantine с i18n, темизацией и готовностью под PWA.",
-    images: ["/og-image.svg"],
+    description: 'Современный шаблон Next.js + Mantine с i18n, темизацией и готовностью под PWA.',
+    images: ['/og-image.svg'],
   },
-  manifest: "/manifest.webmanifest",
+  manifest: '/manifest.webmanifest',
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
-    apple: "/apple-touch-icon.png",
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+    apple: '/apple-touch-icon.png',
   },
   appleWebApp: {
     title: siteName,
-    statusBarStyle: "black-translucent",
+    statusBarStyle: 'black-translucent',
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0b7285",
+  themeColor: '#0b7285',
 };
 
 const htmlClasses = StyleHelper.merge(...fontVariable);
@@ -87,11 +83,7 @@ export default async function RootLayout({
   const messages = await getMessages({ locale });
 
   return (
-    <html
-      className={htmlClasses}
-      data-mantine-color-scheme="light"
-      lang={locale}
-    >
+    <html className={htmlClasses} data-mantine-color-scheme="light" lang={locale}>
       <head>
         <ClientColorScheme />
       </head>

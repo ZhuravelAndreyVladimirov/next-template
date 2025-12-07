@@ -1,1 +1,1 @@
-export { UiPinInput } from "./PinInput";
+export { UiPinInput } from './PinInput';

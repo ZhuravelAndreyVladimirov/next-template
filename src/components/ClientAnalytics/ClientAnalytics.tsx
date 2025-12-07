@@ -1,17 +1,10 @@
 'use client';
 
 import { captureMessage } from '@sentry/nextjs';
-import {
-  type ReadonlyURLSearchParams,
-  usePathname,
-  useSearchParams,
-} from 'next/navigation';
+import { type ReadonlyURLSearchParams, usePathname, useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
 
-const toUrl = (
-  pathname?: string | null,
-  searchParams?: ReadonlyURLSearchParams | null,
-) => {
+const toUrl = (pathname?: string | null, searchParams?: ReadonlyURLSearchParams | null) => {
   if (!pathname) {
     return '/';
   }

@@ -1,1 +1,1 @@
-export { UiAnchor } from "./Anchor";
+export { UiAnchor } from './Anchor';

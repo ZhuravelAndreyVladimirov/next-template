@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 
-import { SegmentedControl } from "@mantine/core";
+import { SegmentedControl } from '@mantine/core';
 
 /**
  * ВАЖНО: Никогда не используйте этот файл напрямую в проекте.
@@ -17,17 +17,17 @@ const meta: Meta<typeof SegmentedControl> = {
   argTypes: {},
   args: {
     data: [
-      { label: "React", value: "react" },
-      { label: "Angular", value: "angular" },
-      { label: "Vue", value: "vue" },
+      { label: 'React', value: 'react' },
+      { label: 'Angular', value: 'angular' },
+      { label: 'Vue', value: 'vue' },
     ],
   },
   component: SegmentedControl,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-  tags: ["autodocs"],
-  title: "UI Компоненты/SegmentedControl",
+  tags: ['autodocs'],
+  title: 'UI Компоненты/SegmentedControl',
 };
 
 export default meta;
@@ -36,9 +36,9 @@ type Story = StoryObj<typeof SegmentedControl>;
 export const Default: Story = {
   args: {
     data: [
-      { label: "React", value: "react" },
-      { label: "Angular", value: "angular" },
-      { label: "Vue", value: "vue" },
+      { label: 'React', value: 'react' },
+      { label: 'Angular', value: 'angular' },
+      { label: 'Vue', value: 'vue' },
     ],
   },
 };

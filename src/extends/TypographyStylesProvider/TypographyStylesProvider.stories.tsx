@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 
-import { TypographyStylesProvider } from "@mantine/core";
+import { TypographyStylesProvider } from '@mantine/core';
 
 /**
  * ВАЖНО: Никогда не используйте этот файл напрямую в проекте.
@@ -18,10 +18,10 @@ const meta: Meta<typeof TypographyStylesProvider> = {
   args: {},
   component: TypographyStylesProvider,
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-  tags: ["autodocs"],
-  title: "UI Компоненты/TypographyStylesProvider",
+  tags: ['autodocs'],
+  title: 'UI Компоненты/TypographyStylesProvider',
 };
 
 export default meta;

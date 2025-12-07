@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { Container, Group, Text } from "@mantine/core";
+import { Container, Group, Text } from '@mantine/core';
 
-import { Copyright } from "../Copyright";
+import { Copyright } from '../Copyright';
 
 export const ClientFooter = () => {
   return (

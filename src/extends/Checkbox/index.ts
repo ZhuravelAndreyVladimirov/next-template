@@ -1,1 +1,1 @@
-export { UiCheckbox } from "./Checkbox";
+export { UiCheckbox } from './Checkbox';

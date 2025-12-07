@@ -1,1 +1,1 @@
-export * from "./ClientColorScheme";
+export * from './ClientColorScheme';

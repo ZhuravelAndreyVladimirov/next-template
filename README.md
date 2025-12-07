@@ -27,25 +27,25 @@ yarn dev                     # http://localhost:3000
 
 ## Переменные окружения
 
-| Ключ | Где используется | Назначение / значения по умолчанию |
-| --- | --- | --- |
-| `NEXT_PUBLIC_BASE_URL` | `src/api/API/API.ts` | Базовый URL для запросов. По умолчанию `"/api"`. |
-| `NEXT_PUBLIC_SITE_URL` | `src/app/robots.ts`, `src/app/sitemap.ts` | Базовый URL сайта для генерации `robots.txt`/`sitemap.xml`. |
-| `SITEMAP_ENDPOINT` | `src/app/sitemap.ts` | Опциональный эндпоинт, который отдаёт динамические ссылки для sitemap (`${SITE_URL}/api/sitemap` по умолчанию). |
-| `ANALYZE` | `next.config.mjs` | `true` — включает `@next/bundle-analyzer` при сборке. |
-| `NODE_ENV` | `next.config.mjs`, Docker run | `production` убирает консольные логи (кроме warn/error). |
-| `APP_ENV` | `sentry.*.config.ts`, `/api/health` | Человекочитаемое имя окружения (dev/stage/prod). |
-| `NEXT_PUBLIC_BUILD_ID` | deploy job (Docker run) | Пробрасывается в контейнер для трейсинга билда. |
-| `BUILD_VERSION` | deploy job (Docker run) | Тег билда/коммита внутри контейнера. |
-| `SENTRY_DSN` | `sentry.server/edge.config.ts`, `/api/health` | DSN для серверных ошибок; пустое значение полностью отключает отправку. |
-| `NEXT_PUBLIC_SENTRY_DSN` | `sentry.client.config.ts` | DSN для клиентских ошибок/аналитики; оставьте пустым, чтобы отключить. |
-| `SENTRY_TRACES_SAMPLE_RATE` / `NEXT_PUBLIC_SENTRY_TRACES_SAMPLE_RATE` | `sentry.*.config.ts` | Сэмплирование трассировок (0..1). По умолчанию 0. |
-| `NEXT_PUBLIC_SENTRY_REPLAYS_ON_ERROR_SAMPLE_RATE` / `NEXT_PUBLIC_SENTRY_REPLAYS_SESSION_SAMPLE_RATE` | `sentry.client.config.ts` | Сэмплирование session replay (0..1). По умолчанию 0. |
-| `SERVER_HOST` | GitHub Actions secret | SSH-хост прод-сервера. |
-| `SERVER_USERNAME` | GitHub Actions secret | SSH-пользователь. |
-| `SERVER_SSH_KEY` | GitHub Actions secret | Приватный ключ для деплоя. |
-| `GITHUB_TOKEN` | GitHub Actions secret | Для логина в GHCR в CI/CD. |
-| `GITHUB_ACTOR` / `github.sha` | GitHub Actions контекст | Автоматически подставляется для тегов образов и переменных билда. |
+| Ключ                                                                                                 | Где используется                              | Назначение / значения по умолчанию                                                                              |
+| ---------------------------------------------------------------------------------------------------- | --------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `NEXT_PUBLIC_BASE_URL`                                                                               | `src/api/API/API.ts`                          | Базовый URL для запросов. По умолчанию `"/api"`.                                                                |
+| `NEXT_PUBLIC_SITE_URL`                                                                               | `src/app/robots.ts`, `src/app/sitemap.ts`     | Базовый URL сайта для генерации `robots.txt`/`sitemap.xml`.                                                     |
+| `SITEMAP_ENDPOINT`                                                                                   | `src/app/sitemap.ts`                          | Опциональный эндпоинт, который отдаёт динамические ссылки для sitemap (`${SITE_URL}/api/sitemap` по умолчанию). |
+| `ANALYZE`                                                                                            | `next.config.mjs`                             | `true` — включает `@next/bundle-analyzer` при сборке.                                                           |
+| `NODE_ENV`                                                                                           | `next.config.mjs`, Docker run                 | `production` убирает консольные логи (кроме warn/error).                                                        |
+| `APP_ENV`                                                                                            | `sentry.*.config.ts`, `/api/health`           | Человекочитаемое имя окружения (dev/stage/prod).                                                                |
+| `NEXT_PUBLIC_BUILD_ID`                                                                               | deploy job (Docker run)                       | Пробрасывается в контейнер для трейсинга билда.                                                                 |
+| `BUILD_VERSION`                                                                                      | deploy job (Docker run)                       | Тег билда/коммита внутри контейнера.                                                                            |
+| `SENTRY_DSN`                                                                                         | `sentry.server/edge.config.ts`, `/api/health` | DSN для серверных ошибок; пустое значение полностью отключает отправку.                                         |
+| `NEXT_PUBLIC_SENTRY_DSN`                                                                             | `sentry.client.config.ts`                     | DSN для клиентских ошибок/аналитики; оставьте пустым, чтобы отключить.                                          |
+| `SENTRY_TRACES_SAMPLE_RATE` / `NEXT_PUBLIC_SENTRY_TRACES_SAMPLE_RATE`                                | `sentry.*.config.ts`                          | Сэмплирование трассировок (0..1). По умолчанию 0.                                                               |
+| `NEXT_PUBLIC_SENTRY_REPLAYS_ON_ERROR_SAMPLE_RATE` / `NEXT_PUBLIC_SENTRY_REPLAYS_SESSION_SAMPLE_RATE` | `sentry.client.config.ts`                     | Сэмплирование session replay (0..1). По умолчанию 0.                                                            |
+| `SERVER_HOST`                                                                                        | GitHub Actions secret                         | SSH-хост прод-сервера.                                                                                          |
+| `SERVER_USERNAME`                                                                                    | GitHub Actions secret                         | SSH-пользователь.                                                                                               |
+| `SERVER_SSH_KEY`                                                                                     | GitHub Actions secret                         | Приватный ключ для деплоя.                                                                                      |
+| `GITHUB_TOKEN`                                                                                       | GitHub Actions secret                         | Для логина в GHCR в CI/CD.                                                                                      |
+| `GITHUB_ACTOR` / `github.sha`                                                                        | GitHub Actions контекст                       | Автоматически подставляется для тегов образов и переменных билда.                                               |
 
 > Добавляйте кастомные публичные переменные только с префиксом `NEXT_PUBLIC_`, чтобы Next.js мог их отдать на клиент.
 
@@ -93,7 +93,7 @@ yarn dev                     # http://localhost:3000
   - `REGISTRY_URL` — по умолчанию `ghcr.io`, задайте если используете другой реестр.
   - `CONTAINER_NAME` — имя контейнера (по умолчанию `next-template` в скрипте деплоя).
   - `IMAGE_NAME_MAIN` / `IMAGE_NAME_SHA` — если хотите переопределить теги/репозиторий образа.
-Если не задавать Vars, используются значения из workflow/скрипта.
+    Если не задавать Vars, используются значения из workflow/скрипта.
 
 ## Форматирование и качество
 
