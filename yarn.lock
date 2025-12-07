@@ -12275,7 +12275,7 @@ __metadata:
     postcss-preset-mantine: "npm:^1.15.0"
     postcss-simple-vars: "npm:^7.0.1"
     prettier: "npm:^3.6.2"
-    prettier-plugin-css-order: "npm:2.0.1"
+    prettier-plugin-css-order: "npm:2.1.2"
     react: "npm:19.2.0"
     react-dom: "npm:19.2.0"
     sass: "npm:^1.77.8"
@@ -13219,7 +13219,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-scss@npm:^4.0.3":
+"postcss-scss@npm:^4.0.9":
   version: 4.0.9
   resolution: "postcss-scss@npm:4.0.9"
   peerDependencies:
@@ -13322,16 +13322,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier-plugin-css-order@npm:2.0.1":
-  version: 2.0.1
-  resolution: "prettier-plugin-css-order@npm:2.0.1"
+"prettier-plugin-css-order@npm:2.1.2":
+  version: 2.1.2
+  resolution: "prettier-plugin-css-order@npm:2.1.2"
   dependencies:
     css-declaration-sorter: "npm:^7.1.1"
     postcss-less: "npm:^6.0.0"
-    postcss-scss: "npm:^4.0.3"
+    postcss-scss: "npm:^4.0.9"
   peerDependencies:
     prettier: 3.x
-  checksum: 10c0/b28fc9665fa0143fe91d417b352d9477e4fb0159aa23af64056c19868f6292f26671107ce2e5d259935d437bbb11848762015596823e5e7b02144151b2f27e4e
+  checksum: 10c0/e6e8230048fb9d994cde207796b35e0e074cb83420b0c17c764353da290bb2b3d099265bf65537a70c03e60a0854bfa4ce2576b436933d8b4b0d86bdd61a6e73
   languageName: node
   linkType: hard
 
