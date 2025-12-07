@@ -10,3 +10,4 @@ export * from './ClientAnalytics';
 export * from './ClientHeader';
 export * from './ClientFooter';
 export * from './Copyright';
+export * from './LocaleToggle';

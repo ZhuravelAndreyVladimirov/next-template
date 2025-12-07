@@ -72,6 +72,8 @@ const renderFeatureGrid = (title: string, items: FeatureItem[]) => (
 export const PreviewScreen = async () => {
   const t = await getTranslations('preview');
 
+  console.log(t('stack.items.core.description'));
+
   const stackItems: FeatureItem[] = [
     {
       description: t('stack.items.core.description'),
