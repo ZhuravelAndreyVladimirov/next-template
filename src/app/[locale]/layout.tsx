@@ -1,19 +1,14 @@
-import { ClientAppShell } from "@/components";
-import { ClientColorScheme } from "@/components";
-import { StyleHelper } from "@/helpers";
-import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
-import { Metadata } from "next";
-import { ReactNode } from "react";
-import { notFound } from "next/navigation";
-import { locales } from "@/i18n";
+import { ClientAnalytics, ClientAppShell, ClientColorScheme } from '@/components';
+import { StyleHelper } from '@/helpers';
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
+import { Metadata } from 'next';
+import { ReactNode } from 'react';
+import { notFound } from 'next/navigation';
+import { locales } from '@/i18n';
 
-import { fontVariable } from "@/assets/font/fonts";
+import { fontVariable } from '@/assets/font/fonts';
 
-// Layout остается динамическим (может обновляться на каждом запросе)
-// Это позволяет использовать динамические данные в layout (например, пользователь, сессия и т.д.)
-
-// Запретить динамическую генерацию для непредгенерированных локалей
 export const dynamicParams = false;
 
 export function generateStaticParams() {
@@ -22,8 +17,8 @@ export function generateStaticParams() {
 
 export const metadata: Metadata = {
   description:
-    "ШАблон приложения на next.js при создании приложения стоит в первую очередь изменить мета теги",
-  title: "Шаблон",
+    'ШАблон приложения на next.js при создании приложения стоит в первую очередь изменить мета теги',
+  title: 'Шаблон',
 };
 
 const htmlClasses = StyleHelper.merge(...fontVariable);
@@ -53,6 +48,7 @@ export default async function RootLayout({
       </head>
       <body>
         <NextIntlClientProvider messages={messages}>
+          <ClientAnalytics />
           <ClientAppShell>{children}</ClientAppShell>
         </NextIntlClientProvider>
       </body>

@@ -1,4 +1,5 @@
 /* eslint-env node */
+import { withSentryConfig } from "@sentry/nextjs";
 import createNextIntlPlugin from "next-intl/plugin";
 
 const withNextIntl = createNextIntlPlugin("./src/i18n.ts");
@@ -185,4 +186,18 @@ const withBundleAnalyzer =
       })
     : (config) => config;
 
-export default withBundleAnalyzer(withNextIntl(nextConfig));
+const sentryEnabled =
+  process.env.SENTRY_DSN || process.env.NEXT_PUBLIC_SENTRY_DSN;
+const withSentry = sentryEnabled
+  ? (config) =>
+      withSentryConfig(
+        config,
+        { silent: true },
+        {
+          disableLogger: true,
+          hideSourceMaps: true,
+        },
+      )
+  : (config) => config;
+
+export default withSentry(withBundleAnalyzer(withNextIntl(nextConfig)));
