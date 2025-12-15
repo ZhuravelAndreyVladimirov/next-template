@@ -18,7 +18,7 @@ jobs:
         with:
           node-version: ${{matrix.node-version}}
       - name: Restore Yarn cache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: |
             .yarn/cache
@@ -32,7 +32,7 @@ jobs:
       - name: initial modules
         run: yarn install --immutable
       - name: Restore Next.js cache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: .next/cache
           key: ${{ runner.os }}-next-${{ hashFiles('yarn.lock') }}
